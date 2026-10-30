@@ -1,0 +1,12 @@
+# Quality checklist
+- [ ] Creator supplied and owns the premise; central question is clear.
+- [ ] Hook makes an honest, specific promise; no unsupported curiosity bait.
+- [ ] Script is natural aloud, concise, emotionally shaped, and pays off the hook.
+- [ ] Every factual claim is in the claim ledger with a supporting source; uncertainty is labeled.
+- [ ] Storyboard makes key ideas visible; shots vary purposefully and maintain continuity.
+- [ ] Each approval names the exact artifact version; upstream changes invalidated dependent gates.
+- [ ] Narration timing comes from actual audio; scene boundaries and shot audio ranges are coherent.
+- [ ] Character, pose, camera, parallax, SFX, music, captions, transition, and assets are specified where relevant.
+- [ ] Vertical safe areas, readability, contrast, and caption legibility checked.
+- [ ] Scene export plan includes separate MP4s and preview; human CapCut review remains required.
+- [ ] No unapproved render, auto publication, or unsupported claim that the engine works.

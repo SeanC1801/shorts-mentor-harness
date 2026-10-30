@@ -1,0 +1,2 @@
+# Mentor feedback rubric
+Score 1–5 and support each score with a concrete example: concept clarity; hook/payoff honesty; emotional movement; spoken clarity; pacing; visual storytelling; novelty/originality; factual confidence; retention risks. Explain the likely viewer experience, suggest no more than three actionable changes, and identify creator-owned choices. A score is critique, never approval.

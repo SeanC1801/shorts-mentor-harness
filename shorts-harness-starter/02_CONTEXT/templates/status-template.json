@@ -1,0 +1,68 @@
+{
+  "episodeId": "EXAMPLE-001",
+  "stage": "ideation",
+  "approvals": {
+    "idea": {
+      "status": "pending",
+      "version": null,
+      "approvedBy": null,
+      "timestamp": null,
+      "artifactFiles": [
+        "idea.md"
+      ],
+      "contentHash": null,
+      "currentContentHash": null,
+      "dependencyHashes": {},
+      "approvalText": null
+    },
+    "script": {
+      "status": "blocked",
+      "version": null,
+      "approvedBy": null,
+      "timestamp": null,
+      "artifactFiles": [
+        "research.md",
+        "script.md"
+      ],
+      "contentHash": null,
+      "currentContentHash": null,
+      "dependencyHashes": {
+        "idea": null
+      },
+      "approvalText": null
+    },
+    "storyboard": {
+      "status": "blocked",
+      "version": null,
+      "approvedBy": null,
+      "timestamp": null,
+      "artifactFiles": [
+        "storyboard.md",
+        "episode.json"
+      ],
+      "contentHash": null,
+      "currentContentHash": null,
+      "dependencyHashes": {
+        "script": null
+      },
+      "approvalText": null
+    },
+    "animationPreview": {
+      "status": "blocked",
+      "version": null,
+      "approvedBy": null,
+      "timestamp": null,
+      "artifactFiles": [
+        "animation-preview.mp4"
+      ],
+      "contentHash": null,
+      "currentContentHash": null,
+      "dependencyHashes": {
+        "storyboard": null
+      },
+      "approvalText": null
+    }
+  },
+  "invalidationRule": "Any upstream change invalidates all downstream approvals.",
+  "history": []
+}

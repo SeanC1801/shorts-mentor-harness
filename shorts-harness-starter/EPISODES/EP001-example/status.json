@@ -1,0 +1,68 @@
+{
+  "episodeId": "EXAMPLE-001",
+  "stage": "ideation",
+  "approvals": {
+    "idea": {
+      "status": "pending",
+      "version": null,
+      "approvedBy": null,
+      "timestamp": null,
+      "artifactFiles": [
+        "idea.md"
+      ],
+      "contentHash": null,
+      "currentContentHash": "395d1ee2f7f2531d6b455a6e8d6584bd6e4b2ed808d712b405fe4cf5878c6676",
+      "dependencyHashes": {},
+      "approvalText": null
+    },
+    "script": {
+      "status": "blocked",
+      "version": null,
+      "approvedBy": null,
+      "timestamp": null,
+      "artifactFiles": [
+        "research.md",
+        "script.md"
+      ],
+      "contentHash": null,
+      "currentContentHash": "128b4919bc9edf4111c4548de0d4a66fd975210c578aeff74a0b912a61d327ab",
+      "dependencyHashes": {
+        "idea": null
+      },
+      "approvalText": null
+    },
+    "storyboard": {
+      "status": "blocked",
+      "version": null,
+      "approvedBy": null,
+      "timestamp": null,
+      "artifactFiles": [
+        "storyboard.md",
+        "episode.json"
+      ],
+      "contentHash": null,
+      "currentContentHash": "68849bdb34d6bde2683fe2235966380df5ed97bf987b356f88c1d4ef2e599eba",
+      "dependencyHashes": {
+        "script": null
+      },
+      "approvalText": null
+    },
+    "animationPreview": {
+      "status": "blocked",
+      "version": null,
+      "approvedBy": null,
+      "timestamp": null,
+      "artifactFiles": [
+        "animation-preview.mp4"
+      ],
+      "contentHash": null,
+      "currentContentHash": null,
+      "dependencyHashes": {
+        "storyboard": null
+      },
+      "approvalText": null
+    }
+  },
+  "invalidationRule": "Any upstream change invalidates all downstream approvals.",
+  "history": []
+}

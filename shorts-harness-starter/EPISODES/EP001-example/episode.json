@@ -1,0 +1,153 @@
+{
+  "episodeId": "EXAMPLE-001",
+  "version": "0.1.0",
+  "fps": 24,
+  "width": 1080,
+  "height": 1920,
+  "narration": {
+    "assetId": "AUDIO-NARRATION-EXAMPLE",
+    "durationMs": 4000,
+    "syncSource": "measured-audio",
+    "sourceFile": "audio/narration-example.wav",
+    "voiceModel": "Placeholder; replace with actual voice/model details"
+  },
+  "totalFrames": 96,
+  "shots": [
+    {
+      "shotId": "S01",
+      "startFrame": 0,
+      "endFrame": 48,
+      "narrationStartMs": 0,
+      "narrationEndMs": 2000,
+      "visual": "Placeholder visual: a curious figure points to a glowing object.",
+      "characterMotion": {
+        "poseFps": 12,
+        "exposureFrames": 2,
+        "action": "Placeholder two-pose reaction."
+      },
+      "camera": {
+        "description": "Slow push in",
+        "fps": 24
+      },
+      "assets": [],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EXAMPLE",
+          "startMs": 0,
+          "endMs": 2000,
+          "kind": "narration",
+          "syncNote": "Illustrative only.",
+          "sourceFile": "audio/narration-example.wav"
+        }
+      ],
+      "narrationSegments": [
+        {
+          "text": "Illustrative narration segment; replace with final timed words.",
+          "startMs": 0,
+          "endMs": 2000
+        }
+      ],
+      "characters": [
+        {
+          "characterId": "CHAR-EXAMPLE",
+          "poseId": "POSE-POINT",
+          "action": "Placeholder two-pose reaction."
+        }
+      ],
+      "captions": [
+        {
+          "text": "Placeholder caption",
+          "startFrame": 0,
+          "endFrame": 48,
+          "position": "bottom",
+          "styleId": "CAPTION-DEFAULT"
+        }
+      ],
+      "transition": {
+        "in": "cut",
+        "out": "cut"
+      }
+    },
+    {
+      "shotId": "S02",
+      "startFrame": 48,
+      "endFrame": 96,
+      "narrationStartMs": 2000,
+      "narrationEndMs": 4000,
+      "visual": "Placeholder visual: reveal a simple diagram and payoff.",
+      "characterMotion": {
+        "poseFps": 12,
+        "exposureFrames": 2,
+        "action": "Placeholder gesture hold."
+      },
+      "camera": {
+        "description": "Smooth lateral drift",
+        "fps": 24
+      },
+      "assets": [],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EXAMPLE",
+          "startMs": 2000,
+          "endMs": 4000,
+          "kind": "narration",
+          "syncNote": "Illustrative only.",
+          "sourceFile": "audio/narration-example.wav"
+        }
+      ],
+      "narrationSegments": [
+        {
+          "text": "Illustrative narration segment; replace with final timed words.",
+          "startMs": 2000,
+          "endMs": 4000
+        }
+      ],
+      "characters": [
+        {
+          "characterId": "CHAR-EXAMPLE",
+          "poseId": "POSE-POINT",
+          "action": "Placeholder gesture hold."
+        }
+      ],
+      "captions": [
+        {
+          "text": "Placeholder caption",
+          "startFrame": 48,
+          "endFrame": 96,
+          "position": "bottom",
+          "styleId": "CAPTION-DEFAULT"
+        }
+      ],
+      "transition": {
+        "in": "cut",
+        "out": "cut"
+      }
+    }
+  ],
+  "syncToleranceMs": 80,
+  "exports": {
+    "preview": {
+      "filename": "EXAMPLE-001-preview.mp4",
+      "format": "mp4",
+      "includesBurnedCaptions": true
+    },
+    "scenes": [
+      {
+        "shotId": "S01",
+        "filename": "EXAMPLE-001-S01.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 24
+      },
+      {
+        "shotId": "S02",
+        "filename": "EXAMPLE-001-S02.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 24
+      }
+    ]
+  }
+}

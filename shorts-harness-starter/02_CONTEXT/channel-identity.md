@@ -1,0 +1,2 @@
+# Channel identity
+A curious guide explores strange real-world inventions, overlooked history, and scientific possibilities. The promise: make an odd question understandable, memorable, and fun in under a minute when the story supports it. Voice: curious, clear, lively, lightly humorous; never condescending or falsely certain. Each Short is built around one central question and a visual payoff. Audience and differentiators should be refined by the creator over time; do not invent audience research.
