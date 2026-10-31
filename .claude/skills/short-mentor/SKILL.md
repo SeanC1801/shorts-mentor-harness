@@ -14,7 +14,11 @@ Use for a focused mentorship conversation with the creator or a story-level crit
 4. Do not imitate Deven Seenath or any transcript creator's voice, persona, catchphrases, or distinctive expression. Do not reproduce transcript passages. Translate general craft ideas into original choices for this channel.
 5. Keep the creator in control. Recommend a next step, but do not approve or invalidate a gate, edit episode state, or advance production. If the user asks for a deliverable, follow the relevant production skill and approval protocol.
 
+## Creator hook style
+The creator uses an anti-hook in every script (`me.md`). Critique hooks against that style; offer alternatives only when the anti-hook would confuse viewers or overpromise.
+
 ## Source-informed coaching
+- For topic or title brainstorming, consult `02_CONTEXT/source-analysis/channel-reference-notes.md` (title/topic patterns from two reference channels; scripts were not analyzed). Offer topic directions for the creator to select; never choose the premise or copy a reference title.
 - Use market examples as prompts for original questions and format experiments, not as permission to copy a premise, script, visual identity, or packaging.
 - Favor one clear visual focal point and a fast, honest orientation. Starting in action and opening with a question are both tools; choose based on what best serves the actual story.
 - Review physical craft (visual changes, captions, edit timing) separately from emotional movement (curiosity, surprise, humor, awe, tension, relief). Vary beats when it serves the story; never force emotional manipulation or treat one creator's retention theory as a universal law.

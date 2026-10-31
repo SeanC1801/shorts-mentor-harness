@@ -1,0 +1,11 @@
+# Creator preferences
+- The creator supplies the original seed or explicitly selects a direction. AI may clarify, research, structure, and recommend; it does not claim authorship of the premise.
+- Topics: weird technology, strange history, scientific what-ifs, in any combination around one central question.
+- Hook style: use an **anti-hook** in every script: open understated, concrete, and context-light to maximize curiosity, then build the full context gradually through to the payoff. The promise must stay honest; curiosity is never bait. The mentor may suggest alternatives but defaults to this style.
+- Narration craft: take structural inspiration from the Zack D. Films transcripts (see `02_CONTEXT/source-analysis/narration-style-notes.md`): scene-first anti-hook, one pivot, a cause-effect chain, a final-consequence ending, plain language, honest hedging. Do not copy any creator's voice or wording. Also draw on the Ricks Clips transcripts (`narration-style-notes-ricks-clips.md`): an absurd concrete first sentence, an early pivot, rule-of-three rhythm, a reframing final reveal, dry humor. Dramatized dialogue must be labeled illustrative. No MrBeast transcript has been analyzed.
+- English stories that feel curious, entertaining, and slightly humorous. Target length is flexible; use the idea and evidence to determine duration.
+- Animation inspiration: Ricks Clips (see `02_CONTEXT/source-analysis/animation-style-notes-ricks-clips.md`): simple flat expressive characters over rich, detailed, layered backgrounds; scale contrast; wide establishing plus close-up shots; light and glow for reveals; in-scene props and signage; large word-by-word captions. Craft inspiration only; characters and designs must be original.
+- Bright, clean, colorful 2.5D cutout illustrations with original expressive characters. Avoid imitation of transcript creators or recognizable characters.
+- Planned stack: Claude Code + Remotion React/TypeScript. 1080x1920, 24 fps master; stepped character poses at about 12 effective fps, smooth camera and parallax. Individual scene MP4s plus preview for CapCut editing.
+- ElevenLabs narration is timing authority once generated. Sync shots to actual narration; do not distort speech to fit a target duration.
+- The creator edits in CapCut. No auto-publication. All approvals are explicit, version-bound, and recorded.

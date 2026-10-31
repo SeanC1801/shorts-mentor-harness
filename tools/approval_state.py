@@ -33,7 +33,7 @@ def load(folder):
 def save(state,path):
     path.write_text(json.dumps(state,indent=2)+"\n",encoding="utf-8")
 def sync(folder, persist=True):
-    state,path=load(folder); approvals=state["approvals"]; events=[]
+    state,path=load(folder); approvals=state["approvals"]; events=[]; dirty=False
     for gate in GATES:
         rec=approvals[gate]; current=gate_hash(folder,gate)
         if rec.get("status")=="approved":

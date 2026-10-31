@@ -1,7 +1,0 @@
----
-name: short-storyboard
-description: Research an approved concept, draft narration and frame-based storyboard, with separate script and storyboard approval gates.
-disable-model-invocation: true
----
-# Short Storyboard
-Read episode state, approved concept, standards, checklist, contracts, and storytelling guide. First run `python3 tools/approval_state.py sync EPISODES/<ID>` and stop if the idea gate is not currently approved. If idea approval is absent or invalidated, stop. Research each claim and cite source title, publisher, URL, access date, and support/limits; separate fact, interpretation, and hypothetical. Draft concise English narration with hook, emotional/pacing beats, visual explanation, and payoff. Present script version for explicit approval; stop until approved. Record the creator’s explicit approval with `approval_state.py record --gate script` before continuing. Then sync timing to measured ElevenLabs audio when available. Build storyboard and `episode.json` using integer 24fps frames, half-open contiguous ranges, audio ranges, character/pose, camera, captions, SFX/music, transitions, and asset IDs. Validate against schema and cross-field timing; if narration audio is unavailable, label timing provisional. Run `python3 tools/validate_episode.py EPISODES/<ID>` and fix errors. Present storyboard for separate explicit approval; record only after the creator approves the exact version using `approval_state.py record --gate storyboard`. Changes invalidate downstream gates.

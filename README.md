@@ -1,69 +1,67 @@
 # Shorts Mentor Harness
 
-A human-led workspace for developing and producing illustrated vertical Shorts about weird technology, strange history, and scientific what-ifs. Claude helps the creator shape the story—from concept and hook through emotion, pacing, visual payoff, and retention critique—while the creator owns the idea and every approval.
+A human-led workspace for making illustrated Shorts about weird technology, strange history, and scientific what-ifs. Claude can coach both the creator and the story—concept, hook, emotion, pacing, visual explanation, payoff, and retention—while the creator owns the premise and every approval.
 
-> This README is the orientation map. For authoritative routing and workflow rules, start with [`00_CORE/agents.md`](00_CORE/agents.md).
+> Use this README as the map. [`00_CORE/agents.md`](00_CORE/agents.md) is the authoritative routing guide.
 
 ## Contents
 
-- [Philosophy](#philosophy)
+- [Principles](#principles)
 - [Folder map](#folder-map)
-- [Skills and current status](#skills-and-current-status)
+- [Skills and status](#skills-and-status)
 - [Quick start](#quick-start)
-- [Workflow and approval gates](#workflow-and-approval-gates)
-- [Episode contract and checks](#episode-contract-and-checks)
-- [Current limits and next steps](#current-limits-and-next-steps)
+- [Approval workflow](#approval-workflow)
+- [Episode contract](#episode-contract)
+- [Current limits and next milestones](#current-limits-and-next-milestones)
 
-## Philosophy
+## Principles
 
-The creator supplies the original premise and makes every final creative decision. Claude can ask questions, research, recommend, draft, and critique; it does not invent a publishable premise, imitate a transcript creator's personality, infer approval, or publish automatically.
-
-Approvals apply to a specific artifact version. If an approved upstream file changes, dependent approvals must be renewed. Episode files and handoffs keep decisions available to a fresh session without rereading a long conversation.
+The creator supplies or chooses the original idea. The mentor suggests and critiques; it does not imitate a transcript creator, claim the creator's idea, infer approval, promise virality or revenue, or publish automatically. Approvals belong to specific versions. When an approved artifact changes, downstream approvals must be checked again.
 
 ## Folder map
 
 ```text
-CLAUDE.md                         project-wide operating rules
+CLAUDE.md                         project rules
 me.md                             creator preferences
-.claude/skills/                   four manually invoked Claude Code skills
-00_CORE/                          routing and mentor approval protocol
-01_SPECS/                         production rules, contracts, rubric, approval guide
-02_CONTEXT/                       channel identity, storytelling, visual direction,
-                                  templates, transcript analysis, asset library plan
+.claude/skills/                   five manually invoked skills
+00_CORE/                          routing and approval protocol
+01_SPECS/                         production standards, contracts, checklists
+02_CONTEXT/                       channel, storytelling, visual style, templates
+02_CONTEXT/source-analysis/       attributed, selective transcript notes
+02_CONTEXT/assets/                asset manifest and library plan (character,
+                                  background, and prop art is not yet created)
 03_TRACKING/                      learnings, bottlenecks, asset backlog
-04_LOGS/                          concise append-only session history
-EPISODES/<episode-id>/            idea, research, script, storyboard, state, handoff
-02_CONTEXT/assets/                asset manifest and library plan
+04_LOGS/                          concise session history
+EPISODES/<episode-id>/            idea through production handoff
 tools/                            episode validator and approval-state helper
 ```
 
-`00_CORE/agents.md` is the routing table. Read it to find the smallest relevant set of files for a task. The asset manifest currently lives at [`02_CONTEXT/assets/asset-manifest.json`](02_CONTEXT/assets/asset-manifest.json); no finished character artwork is included.
+Read [`00_CORE/agents.md`](00_CORE/agents.md) to find the relevant files for each task. Narration craft notes from four Ricks Clips transcripts are in [`02_CONTEXT/source-analysis/narration-style-notes-ricks-clips.md`](02_CONTEXT/source-analysis/narration-style-notes-ricks-clips.md). Animation-style observations from two Ricks Clips Shorts are in [`02_CONTEXT/source-analysis/animation-style-notes-ricks-clips.md`](02_CONTEXT/source-analysis/animation-style-notes-ricks-clips.md). Narration craft notes from four Zack D. Films transcripts are in [`02_CONTEXT/source-analysis/narration-style-notes.md`](02_CONTEXT/source-analysis/narration-style-notes.md). Reference-channel topic and title patterns (titles only, scripts not analyzed) are in [`02_CONTEXT/source-analysis/channel-reference-notes.md`](02_CONTEXT/source-analysis/channel-reference-notes.md). The transcript-derived mentor notes are in [`02_CONTEXT/source-analysis/mentor-source-notes.md`](02_CONTEXT/source-analysis/mentor-source-notes.md); they summarize selected advice rather than copying whole transcripts.
 
-## Skills and current status
+## Skills and status
 
-All four skills are project-local and set to `disable-model-invocation: true`; invoke them explicitly in Claude Code.
+All five skills are project-local and set to `disable-model-invocation: true`; call them explicitly in Claude Code.
 
-| Skill | Purpose | Current boundary |
+| Skill | Use | Boundary |
 |---|---|---|
-| [`/short-ideate`](.claude/skills/short-ideate/SKILL.md) | Shape a creator-supplied seed into a concept card | Stops for explicit idea approval |
-| [`/short-storyboard`](.claude/skills/short-storyboard/SKILL.md) | Research claims, draft narration, then build the shot plan | Stops separately for script approval and storyboard approval |
-| [`/short-animate`](.claude/skills/short-animate/SKILL.md) | Prepare the animation plan and identify missing assets | Phase 1 has no renderer; a plan is not an animation preview |
-| [`/short-review`](.claude/skills/short-review/SKILL.md) | Critique story, evidence, retention, and handoff quality | Reviews do not approve or publish |
-
-The starter includes an episode schema and sample, an approval-state helper, a packet validator, and production templates. The Remotion engine, original character designs, generated narration, rendered clips, and pilot are future work.
+| [`/short-mentor`](.claude/skills/short-mentor/SKILL.md) | Coach the creator or critique story choices | Advice only; does not advance approval gates |
+| [`/short-ideate`](.claude/skills/short-ideate/SKILL.md) | Develop a concept from the creator's original seed | Stops for idea approval |
+| [`/short-storyboard`](.claude/skills/short-storyboard/SKILL.md) | Research, draft narration, and create shot plan | Separate script and storyboard approvals |
+| [`/short-animate`](.claude/skills/short-animate/SKILL.md) | Prepare an animation plan | No renderer or preview exists in Phase 1 |
+| [`/short-review`](.claude/skills/short-review/SKILL.md) | Critique evidence, storytelling, and handoff | Does not approve or publish |
 
 ## Quick start
 
-1. Open the **project root containing this README and `CLAUDE.md`** as the Claude Code workspace. If placing this project at a repository root, put these files directly at that root rather than nesting the project folder inside another copy of itself.
-2. Read [`CLAUDE.md`](CLAUDE.md), [`me.md`](me.md), and [`00_CORE/agents.md`](00_CORE/agents.md).
-3. Copy [`EPISODES/EP001-example/`](EPISODES/EP001-example/) to a new ID such as `EP002`; replace the placeholder content and keep the files together.
-4. Start with your own original idea seed:
+1. Open the repository root (the folder containing this README and `CLAUDE.md`) as the Claude Code workspace.
+2. Read [`me.md`](me.md) and [`00_CORE/agents.md`](00_CORE/agents.md).
+3. Copy [`EPISODES/EP001-example/`](EPISODES/EP001-example/) to a new episode ID and replace its placeholders.
+4. For a focused coaching conversation, invoke `/short-mentor` with a question or episode ID. To begin a new story, provide your own seed:
 
    ```text
    /short-ideate EP002 "[your original idea seed]"
    ```
 
-5. Continue one gate at a time, only after approval:
+5. Continue one approval gate at a time:
 
    ```text
    /short-storyboard EP002
@@ -71,48 +69,45 @@ The starter includes an episode schema and sample, an approval-state helper, a p
    /short-review EP002
    ```
 
-`short-storyboard` handles the script gate first, then the storyboard gate. `short-animate` can only prepare a plan in this phase; it cannot render a preview.
+The storyboard skill pauses for script approval and again for storyboard approval. In this phase, animate prepares a plan only; it cannot render a preview.
 
-## Workflow and approval gates
+## Approval workflow
 
 ```text
-creator's idea → concept approval → script approval → storyboard approval
-                → future animation preview approval → human CapCut edit
+creator seed → idea approval → script approval → storyboard approval
+             → future animation-preview approval → human CapCut edit
 ```
 
-Before resuming an episode, check for edits to previously approved files:
+Before resuming, check whether approved files have changed:
 
 ```bash
 python3 tools/approval_state.py sync EPISODES/EP002
 ```
 
-After the creator explicitly approves the exact version shown, record that decision. Example for the idea gate:
+Record approval only after the creator explicitly approves the displayed artifact version. For example:
 
 ```bash
 python3 tools/approval_state.py record EPISODES/EP002 \
-  --gate idea \
-  --artifact-version v1 \
-  --approved-by "Creator" \
+  --gate idea --artifact-version v1 --approved-by "Creator" \
   --confirm "I approve idea v1"
 ```
 
-Use the corresponding gate name `script`, `storyboard`, or `animationPreview` at later stages. The helper records the artifact SHA-256, prerequisite hashes, version, approver, and timestamp. Run `sync` after edits; it marks approvals invalid when the hashed files or upstream approvals change. It is a workflow guardrail, not tamper-proof access control. See [`01_SPECS/approval-state.md`](01_SPECS/approval-state.md) for details.
+The helper records artifact hashes, dependencies, version, approver, and timestamp. See [`01_SPECS/approval-state.md`](01_SPECS/approval-state.md).
 
-## Episode contract and checks
+## Episode contract
 
-`episode.json` describes 1080×1920 output at 24 fps with integer frame counts and half-open shot ranges `[startFrame, endFrame)`. It includes timestamped narration, character poses, camera motion, captions, transitions, synchronized audio, and one MP4 export per scene plus a review preview. Character pose changes use two-frame exposures (about 12 effective fps); camera motion may update at 24 fps.
+`episode.json` specifies a 1080×1920, 24 fps master with integer frames and half-open shot ranges. It describes timestamped narration, characters and poses, camera motion, captions, transitions, synchronized audio, individual scene MP4s, and a review preview. Character poses use two-frame exposures (about 12 effective fps); camera motion may update at 24 fps.
 
-Run the validator before treating a shot packet as complete:
+Validate the packet with:
 
 ```bash
 python3 tools/validate_episode.py EPISODES/EP002
 ```
 
-The validator checks the JSON schema and cross-field timing/export relationships. It does **not** render video or verify the contents of referenced media. ElevenLabs audio timing should come from the generated narration file. Final editing remains in CapCut; there is no automatic publication.
+This checks schema and cross-field timing/export relationships; it does not render or verify media files. ElevenLabs audio timing should use the generated narration. CapCut editing remains human-led; there is no auto-publication.
 
-## Current limits and next steps
+## Current limits and next milestones
 
-- The example episode is structural placeholder content, not a researched or approved story.
-- Transcript lessons have not been ingested here. When files are available, triage by title, read only selected high-value transcripts, and save attributed summaries. Treat algorithm, earnings, and performance claims as unverified unless independently corroborated.
-- Next milestones: selectively review transcript sources; develop original character art with creator approval; build and validate a minimal Remotion renderer; then produce an approved pilot with separate scene clips and a preview.
-- A daily publishing cadence is an aspiration, not a production promise.
+- The sample episode is a placeholder, not an approved or researched story.
+- Three user-provided transcripts were selected for mentor notes: idea development, hook/visual focus, and retention critique. Other supplied files were not bulk-ingested. View, revenue, algorithm, upload-frequency, and policy claims are not verified by those notes.
+- Next: review further selected sources if useful; develop original character art with creator approval; build a minimal Remotion renderer; make an approved pilot with separate scene clips and preview.

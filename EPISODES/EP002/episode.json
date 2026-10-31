@@ -1,0 +1,621 @@
+{
+  "episodeId": "EP002",
+  "version": "0.1.0-provisional",
+  "fps": 24,
+  "width": 1080,
+  "height": 1920,
+  "narration": {
+    "assetId": "AUDIO-NARRATION-EP002",
+    "durationMs": 39917,
+    "syncSource": "measured-audio",
+    "voiceModel": "PROVISIONAL: no ElevenLabs audio exists yet. Timing is estimated from script v6; the schema requires syncSource measured-audio, but replace durationMs and all ranges once real narration is generated."
+  },
+  "syncToleranceMs": 80,
+  "totalFrames": 958,
+  "shots": [
+    {
+      "shotId": "S01",
+      "startFrame": 0,
+      "endFrame": 88,
+      "narrationStartMs": 0,
+      "narrationEndMs": 3667,
+      "narrationSegments": [
+        {
+          "text": "The U.S. government once paid to teach pigeons to aim.",
+          "startMs": 0,
+          "endMs": 3667
+        }
+      ],
+      "visual": "Opening anti-hook image: ONE focal point. A single pigeon in close-up, eyes locked on a glowing target on a small screen in front of it; plain soft background, nothing else. No bomb yet.",
+      "characters": [
+        {
+          "characterId": "CHAR-PIGEON",
+          "poseId": "POSE-PIGEON-ALERT",
+          "action": "Pigeon holds an alert stare; two-pose head tilt (A: still, B: tilt) stepped on twos."
+        }
+      ],
+      "characterMotion": {
+        "poseFps": 12,
+        "exposureFrames": 2,
+        "action": "Pigeon holds an alert stare; two-pose head tilt (A: still, B: tilt) stepped on twos."
+      },
+      "camera": {
+        "description": "Slow push-in toward the pigeon's eyes",
+        "fps": 24
+      },
+      "captions": [
+        {
+          "text": "The U.S. government once paid to teach pigeons to aim.",
+          "startFrame": 0,
+          "endFrame": 88,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "cut",
+        "out": "match-cut-to-wide"
+      },
+      "assets": [
+        "ASSET-CHAR-PIGEON",
+        "ASSET-PROP-TARGET-SCREEN",
+        "ASSET-BG-SOFT-GRADIENT"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP002",
+          "startMs": 0,
+          "endMs": 3667,
+          "kind": "narration",
+          "syncNote": "Estimated timing; replace with measured ElevenLabs ranges."
+        },
+        {
+          "assetId": "SFX-SOFT-TONE-IN",
+          "startMs": 0,
+          "endMs": 600,
+          "kind": "sfx",
+          "syncNote": "Planned cue; asset not yet created."
+        }
+      ]
+    },
+    {
+      "shotId": "S02",
+      "startFrame": 88,
+      "endFrame": 208,
+      "narrationStartMs": 3667,
+      "narrationEndMs": 8667,
+      "narrationSegments": [
+        {
+          "text": "Here's the setup: in the nose, a pigeon watches a screen showing the target.",
+          "startMs": 3667,
+          "endMs": 8667
+        }
+      ],
+      "visual": "Reveal wide: cutaway of a bomb nose cone. Tiny pigeon on a perch facing a glowing screen with a target; scale contrast (huge metal interior, small bird). Match the screen glow from S01.",
+      "characters": [
+        {
+          "characterId": "CHAR-PIGEON",
+          "poseId": "POSE-PIGEON-WATCH",
+          "action": "Pigeon settles on perch, head bobbing between two poses."
+        }
+      ],
+      "characterMotion": {
+        "poseFps": 12,
+        "exposureFrames": 2,
+        "action": "Pigeon settles on perch, head bobbing between two poses."
+      },
+      "camera": {
+        "description": "Pull-back from close-up to wide cutaway, subtle parallax between interior layers",
+        "fps": 24
+      },
+      "captions": [
+        {
+          "text": "Here's the setup: in the nose, a pigeon watches a screen showing the target.",
+          "startFrame": 88,
+          "endFrame": 208,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "match-cut-to-wide",
+        "out": "cut"
+      },
+      "assets": [
+        "ASSET-CHAR-PIGEON",
+        "ASSET-PROP-TARGET-SCREEN",
+        "ASSET-BG-NOSE-CONE-CUTAWAY"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP002",
+          "startMs": 3667,
+          "endMs": 8667,
+          "kind": "narration",
+          "syncNote": "Estimated timing; replace with measured ElevenLabs ranges."
+        },
+        {
+          "assetId": "AMB-METAL-HUM",
+          "startMs": 3667,
+          "endMs": 8667,
+          "kind": "ambience",
+          "syncNote": "Planned cue; asset not yet created."
+        }
+      ]
+    },
+    {
+      "shotId": "S03",
+      "startFrame": 208,
+      "endFrame": 304,
+      "narrationStartMs": 8667,
+      "narrationEndMs": 12667,
+      "narrationSegments": [
+        {
+          "text": "The bird pecks. The image shifts. The controls move.",
+          "startMs": 8667,
+          "endMs": 12667
+        }
+      ],
+      "visual": "Rule of three in one shot, three beats: (1) close-up beak pecks the screen target, (2) target image slides on the screen, (3) cutaway outside: a tail fin tilts. Each beat on its own hit, hard accents.",
+      "characters": [
+        {
+          "characterId": "CHAR-PIGEON",
+          "poseId": "POSE-PIGEON-PECK",
+          "action": "Peck: pose A (head back) to pose B (head forward), repeated three times on twos."
+        }
+      ],
+      "characterMotion": {
+        "poseFps": 12,
+        "exposureFrames": 2,
+        "action": "Peck: pose A (head back) to pose B (head forward), repeated three times on twos."
+      },
+      "camera": {
+        "description": "Quick punch-ins on each beat; short whip between screen and fin",
+        "fps": 24
+      },
+      "captions": [
+        {
+          "text": "The bird pecks. The image shifts. The controls move.",
+          "startFrame": 208,
+          "endFrame": 304,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "cut",
+        "out": "cut"
+      },
+      "assets": [
+        "ASSET-CHAR-PIGEON",
+        "ASSET-PROP-TARGET-SCREEN",
+        "ASSET-PROP-FIN-MECHANISM",
+        "ASSET-BG-NOSE-CONE-CUTAWAY"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP002",
+          "startMs": 8667,
+          "endMs": 12667,
+          "kind": "narration",
+          "syncNote": "Estimated timing; replace with measured ElevenLabs ranges."
+        },
+        {
+          "assetId": "SFX-PECK-TAP",
+          "startMs": 8817,
+          "endMs": 9117,
+          "kind": "sfx",
+          "syncNote": "Planned cue; asset not yet created."
+        },
+        {
+          "assetId": "SFX-PECK-TAP",
+          "startMs": 9767,
+          "endMs": 10067,
+          "kind": "sfx",
+          "syncNote": "Planned cue; asset not yet created."
+        },
+        {
+          "assetId": "SFX-FIN-CLICK",
+          "startMs": 10967,
+          "endMs": 11367,
+          "kind": "sfx",
+          "syncNote": "Planned cue; asset not yet created."
+        }
+      ]
+    },
+    {
+      "shotId": "S04",
+      "startFrame": 304,
+      "endFrame": 430,
+      "narrationStartMs": 12667,
+      "narrationEndMs": 17917,
+      "narrationSegments": [
+        {
+          "text": "One pigeon is a gamble, so the plan used three, and the majority would win.",
+          "startMs": 12667,
+          "endMs": 17917
+        }
+      ],
+      "visual": "Three pigeons in a row, each facing its own screen; a vote board above them with three lights. Two lights turn green, one stays off, showing majority. Wide frame, readable on-screen prop.",
+      "characters": [
+        {
+          "characterId": "CHAR-PIGEON",
+          "poseId": "POSE-PIGEON-PECK",
+          "action": "Three pigeons peck in slightly offset timing; one hesitates (head tilt)."
+        }
+      ],
+      "characterMotion": {
+        "poseFps": 12,
+        "exposureFrames": 2,
+        "action": "Three pigeons peck in slightly offset timing; one hesitates (head tilt)."
+      },
+      "camera": {
+        "description": "Static wide with slow lateral drift; brief punch-in on the vote board",
+        "fps": 24
+      },
+      "captions": [
+        {
+          "text": "One pigeon is a gamble, so the plan used three, and the majority would win.",
+          "startFrame": 304,
+          "endFrame": 430,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "cut",
+        "out": "cut"
+      },
+      "assets": [
+        "ASSET-CHAR-PIGEON",
+        "ASSET-PROP-VOTE-BOARD",
+        "ASSET-BG-NOSE-CONE-CUTAWAY"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP002",
+          "startMs": 12667,
+          "endMs": 17917,
+          "kind": "narration",
+          "syncNote": "Estimated timing; replace with measured ElevenLabs ranges."
+        },
+        {
+          "assetId": "SFX-VOTE-CHIME",
+          "startMs": 15667,
+          "endMs": 16167,
+          "kind": "sfx",
+          "syncNote": "Planned cue; asset not yet created."
+        }
+      ]
+    },
+    {
+      "shotId": "S05",
+      "startFrame": 430,
+      "endFrame": 550,
+      "narrationStartMs": 17917,
+      "narrationEndMs": 22917,
+      "narrationSegments": [
+        {
+          "text": "This was World War Two, and the idea came from psychologist B. F. Skinner.",
+          "startMs": 17917,
+          "endMs": 22917
+        }
+      ],
+      "visual": "Period context: a simple 1940s lab with a table. Stylized stand-in character for the psychologist (no real likeness) beside a pigeon on the table; a name card prop reads 'B. F. Skinner' and a banner reads 'World War II'.",
+      "characters": [
+        {
+          "characterId": "CHAR-SKINNER-STANDIN",
+          "poseId": "POSE-STANDIN-GESTURE",
+          "action": "Stand-in gestures toward the pigeon; pigeon bobs; two poses each."
+        }
+      ],
+      "characterMotion": {
+        "poseFps": 12,
+        "exposureFrames": 2,
+        "action": "Stand-in gestures toward the pigeon; pigeon bobs; two poses each."
+      },
+      "camera": {
+        "description": "Slow lateral drift with parallax across the lab layers",
+        "fps": 24
+      },
+      "captions": [
+        {
+          "text": "This was World War Two, and the idea came from psychologist B. F. Skinner.",
+          "startFrame": 430,
+          "endFrame": 550,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "cut",
+        "out": "cut"
+      },
+      "assets": [
+        "ASSET-CHAR-SKINNER-STANDIN",
+        "ASSET-CHAR-PIGEON",
+        "ASSET-PROP-NAME-CARD",
+        "ASSET-BG-LAB-1940S"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP002",
+          "startMs": 17917,
+          "endMs": 22917,
+          "kind": "narration",
+          "syncNote": "Estimated timing; replace with measured ElevenLabs ranges."
+        },
+        {
+          "assetId": "AMB-LAB-ROOM",
+          "startMs": 17917,
+          "endMs": 22917,
+          "kind": "ambience",
+          "syncNote": "Planned cue; asset not yet created."
+        }
+      ]
+    },
+    {
+      "shotId": "S06",
+      "startFrame": 550,
+      "endFrame": 682,
+      "narrationStartMs": 22917,
+      "narrationEndMs": 28417,
+      "narrationSegments": [
+        {
+          "text": "And here's what nobody expected: in simulations, the trained birds kept the target centered.",
+          "startMs": 22917,
+          "endMs": 28417
+        }
+      ],
+      "visual": "Reveal: close on the screen with a bright radial glow as the target stays locked in the center of crosshairs; on-screen label 'SIMULATION'. Pigeon in foreground silhouette, pleased. Must not suggest a live flight.",
+      "characters": [
+        {
+          "characterId": "CHAR-PIGEON",
+          "poseId": "POSE-PIGEON-PROUD",
+          "action": "Pigeon puffs chest (pose A to B) once, then holds."
+        }
+      ],
+      "characterMotion": {
+        "poseFps": 12,
+        "exposureFrames": 2,
+        "action": "Pigeon puffs chest (pose A to B) once, then holds."
+      },
+      "camera": {
+        "description": "Push-in on screen; glow pulse; slight parallax between pigeon and screen",
+        "fps": 24
+      },
+      "captions": [
+        {
+          "text": "And here's what nobody expected: in simulations, the trained birds kept the target centered.",
+          "startFrame": 550,
+          "endFrame": 682,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "cut",
+        "out": "cut"
+      },
+      "assets": [
+        "ASSET-CHAR-PIGEON",
+        "ASSET-PROP-TARGET-SCREEN",
+        "ASSET-PROP-SIM-LABEL",
+        "ASSET-FX-RADIAL-GLOW"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP002",
+          "startMs": 22917,
+          "endMs": 28417,
+          "kind": "narration",
+          "syncNote": "Estimated timing; replace with measured ElevenLabs ranges."
+        },
+        {
+          "assetId": "SFX-LOCK-ON",
+          "startMs": 25117,
+          "endMs": 25617,
+          "kind": "sfx",
+          "syncNote": "Planned cue; asset not yet created."
+        }
+      ]
+    },
+    {
+      "shotId": "S07",
+      "startFrame": 682,
+      "endFrame": 862,
+      "narrationStartMs": 28417,
+      "narrationEndMs": 35917,
+      "narrationSegments": [
+        {
+          "text": "So why isn't this how missiles work? In 1944 it was cancelled so the military could focus on weapons it could use sooner.",
+          "startMs": 28417,
+          "endMs": 35917
+        }
+      ],
+      "visual": "Wide office: a huge desk, a calendar showing 1944, papers; a giant CANCELLED stamp comes down on a project folder. Tiny pigeon on the desk edge watches, deflated. Scale contrast again.",
+      "characters": [
+        {
+          "characterId": "CHAR-PIGEON",
+          "poseId": "POSE-PIGEON-DEFLATED",
+          "action": "Pigeon slumps after the stamp; two-pose sag."
+        }
+      ],
+      "characterMotion": {
+        "poseFps": 12,
+        "exposureFrames": 2,
+        "action": "Pigeon slumps after the stamp; two-pose sag."
+      },
+      "camera": {
+        "description": "Static wide, then punch-in on the stamp at impact, ease back out",
+        "fps": 24
+      },
+      "captions": [
+        {
+          "text": "So why isn't this how missiles work? In 1944 it was cancelled so the military could focus on weapons it could use sooner.",
+          "startFrame": 682,
+          "endFrame": 862,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "cut",
+        "out": "cut"
+      },
+      "assets": [
+        "ASSET-CHAR-PIGEON",
+        "ASSET-PROP-STAMP-CANCELLED",
+        "ASSET-PROP-CALENDAR-1944",
+        "ASSET-BG-OFFICE-WIDE"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP002",
+          "startMs": 28417,
+          "endMs": 35917,
+          "kind": "narration",
+          "syncNote": "Estimated timing; replace with measured ElevenLabs ranges."
+        },
+        {
+          "assetId": "SFX-STAMP-THUMP",
+          "startMs": 31717,
+          "endMs": 32117,
+          "kind": "sfx",
+          "syncNote": "Planned cue; asset not yet created."
+        }
+      ]
+    },
+    {
+      "shotId": "S08",
+      "startFrame": 862,
+      "endFrame": 958,
+      "narrationStartMs": 35917,
+      "narrationEndMs": 39917,
+      "narrationSegments": [
+        {
+          "text": "The birds could aim. Nobody wanted to bet a war on them.",
+          "startMs": 35917,
+          "endMs": 39917
+        }
+      ],
+      "visual": "Closing image: the pigeon on a runway beside a huge bomb, small against it; pigeon looks at the camera, a beat of silence. Clean hold, no extra elements.",
+      "characters": [
+        {
+          "characterId": "CHAR-PIGEON",
+          "poseId": "POSE-PIGEON-DEADPAN",
+          "action": "Pigeon deadpan stare toward camera; single blink pose."
+        }
+      ],
+      "characterMotion": {
+        "poseFps": 12,
+        "exposureFrames": 2,
+        "action": "Pigeon deadpan stare toward camera; single blink pose."
+      },
+      "camera": {
+        "description": "Slow pull-back revealing the bomb's size; final hold",
+        "fps": 24
+      },
+      "captions": [
+        {
+          "text": "The birds could aim. Nobody wanted to bet a war on them.",
+          "startFrame": 862,
+          "endFrame": 958,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "cut",
+        "out": "fade-out"
+      },
+      "assets": [
+        "ASSET-CHAR-PIGEON",
+        "ASSET-PROP-BOMB-LARGE",
+        "ASSET-BG-RUNWAY"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP002",
+          "startMs": 35917,
+          "endMs": 39917,
+          "kind": "narration",
+          "syncNote": "Estimated timing; replace with measured ElevenLabs ranges."
+        }
+      ]
+    }
+  ],
+  "exports": {
+    "preview": {
+      "filename": "EP002-preview.mp4",
+      "format": "mp4",
+      "includesBurnedCaptions": true
+    },
+    "scenes": [
+      {
+        "shotId": "S01",
+        "filename": "EP002-S01.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 24
+      },
+      {
+        "shotId": "S02",
+        "filename": "EP002-S02.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 24
+      },
+      {
+        "shotId": "S03",
+        "filename": "EP002-S03.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 24
+      },
+      {
+        "shotId": "S04",
+        "filename": "EP002-S04.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 24
+      },
+      {
+        "shotId": "S05",
+        "filename": "EP002-S05.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 24
+      },
+      {
+        "shotId": "S06",
+        "filename": "EP002-S06.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 24
+      },
+      {
+        "shotId": "S07",
+        "filename": "EP002-S07.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 24
+      },
+      {
+        "shotId": "S08",
+        "filename": "EP002-S08.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 24
+      }
+    ]
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "episodeId": "EP002",
+  "stage": "ideation",
+  "approvals": {
+    "idea": {
+      "status": "approved",
+      "version": "v2",
+      "approvedBy": "Sean Caling",
+      "timestamp": null,
+      "artifactFiles": [
+        "idea.md"
+      ],
+      "contentHash": "94a1253e8331eb61bfaf27abd6dee93c72c1b51fcbe78d1d3f9c95b73e771db1",
+      "currentContentHash": "94a1253e8331eb61bfaf27abd6dee93c72c1b51fcbe78d1d3f9c95b73e771db1",
+      "dependencyHashes": {},
+      "approvalText": "I approve idea v2",
+      "approvedAt": "2026-10-31T06:42:27Z"
+    },
+    "script": {
+      "status": "approved",
+      "version": "v6",
+      "approvedBy": "Sean Caling",
+      "timestamp": null,
+      "artifactFiles": [
+        "research.md",
+        "script.md"
+      ],
+      "contentHash": "752b5a53221297d7640452a578f9f83cb975cddc51e9f5383882888f5db007e5",
+      "currentContentHash": "752b5a53221297d7640452a578f9f83cb975cddc51e9f5383882888f5db007e5",
+      "dependencyHashes": {
+        "idea": "94a1253e8331eb61bfaf27abd6dee93c72c1b51fcbe78d1d3f9c95b73e771db1"
+      },
+      "approvalText": "I approve script v6",
+      "approvedAt": "2026-10-31T07:08:12Z"
+    },
+    "storyboard": {
+      "status": "approved",
+      "version": "v1",
+      "approvedBy": "Sean Caling",
+      "timestamp": null,
+      "artifactFiles": [
+        "storyboard.md",
+        "episode.json"
+      ],
+      "contentHash": "5fcaa3f22d39cc2f5f6743e0f9b5d8f81e00588879988880f689ba6fafb8e327",
+      "currentContentHash": "5fcaa3f22d39cc2f5f6743e0f9b5d8f81e00588879988880f689ba6fafb8e327",
+      "dependencyHashes": {
+        "script": "752b5a53221297d7640452a578f9f83cb975cddc51e9f5383882888f5db007e5"
+      },
+      "approvalText": "I approve storyboard v1",
+      "approvedAt": "2026-10-31T07:12:39Z"
+    },
+    "animationPreview": {
+      "status": "blocked",
+      "version": null,
+      "approvedBy": null,
+      "timestamp": null,
+      "artifactFiles": [
+        "animation-preview.mp4"
+      ],
+      "contentHash": null,
+      "currentContentHash": null,
+      "dependencyHashes": {
+        "storyboard": null
+      },
+      "approvalText": null
+    }
+  },
+  "invalidationRule": "Any upstream change invalidates all downstream approvals.",
+  "history": [
+    {
+      "at": "2026-10-31T06:39:55Z",
+      "event": "idea approved",
+      "version": "v2",
+      "contentHash": "94a1253e8331eb61bfaf27abd6dee93c72c1b51fcbe78d1d3f9c95b73e771db1",
+      "approvedBy": "Sean Caling"
+    },
+    {
+      "at": "2026-10-31T06:42:27Z",
+      "event": "idea approved",
+      "version": "v2",
+      "contentHash": "94a1253e8331eb61bfaf27abd6dee93c72c1b51fcbe78d1d3f9c95b73e771db1",
+      "approvedBy": "Sean Caling"
+    },
+    {
+      "at": "2026-10-31T07:08:12Z",
+      "event": "script approved",
+      "version": "v6",
+      "contentHash": "752b5a53221297d7640452a578f9f83cb975cddc51e9f5383882888f5db007e5",
+      "approvedBy": "Sean Caling"
+    },
+    {
+      "at": "2026-10-31T07:12:39Z",
+      "event": "storyboard approved",
+      "version": "v1",
+      "contentHash": "5fcaa3f22d39cc2f5f6743e0f9b5d8f81e00588879988880f689ba6fafb8e327",
+      "approvedBy": "Sean Caling"
+    }
+  ]
+}
