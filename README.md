@@ -36,7 +36,7 @@ EPISODES/<episode-id>/            idea through production handoff
 tools/                            episode validator and approval-state helper
 ```
 
-Read [`00_CORE/agents.md`](00_CORE/agents.md) to find the relevant files for each task. Narration craft notes from four Ricks Clips transcripts are in [`02_CONTEXT/source-analysis/narration-style-notes-ricks-clips.md`](02_CONTEXT/source-analysis/narration-style-notes-ricks-clips.md). Animation-style observations from two Ricks Clips Shorts are in [`02_CONTEXT/source-analysis/animation-style-notes-ricks-clips.md`](02_CONTEXT/source-analysis/animation-style-notes-ricks-clips.md). Narration craft notes from four Zack D. Films transcripts are in [`02_CONTEXT/source-analysis/narration-style-notes.md`](02_CONTEXT/source-analysis/narration-style-notes.md). Reference-channel topic and title patterns (titles only, scripts not analyzed) are in [`02_CONTEXT/source-analysis/channel-reference-notes.md`](02_CONTEXT/source-analysis/channel-reference-notes.md). The transcript-derived mentor notes are in [`02_CONTEXT/source-analysis/mentor-source-notes.md`](02_CONTEXT/source-analysis/mentor-source-notes.md); they summarize selected advice rather than copying whole transcripts.
+Read [`00_CORE/agents.md`](00_CORE/agents.md) to find the relevant files for each task. Narration craft notes from four Ricks Clips transcripts are in [`02_CONTEXT/source-analysis/narration-style-notes-ricks-clips.md`](02_CONTEXT/source-analysis/narration-style-notes-ricks-clips.md). Art and motion notes from a 3D-cartoon style reference transcript are in [`02_CONTEXT/source-analysis/animation-style-notes-3d-cartoon-reference.md`](02_CONTEXT/source-analysis/animation-style-notes-3d-cartoon-reference.md). Animation-style observations from two Ricks Clips Shorts are in [`02_CONTEXT/source-analysis/animation-style-notes-ricks-clips.md`](02_CONTEXT/source-analysis/animation-style-notes-ricks-clips.md). Narration craft notes from four Zack D. Films transcripts are in [`02_CONTEXT/source-analysis/narration-style-notes.md`](02_CONTEXT/source-analysis/narration-style-notes.md). Reference-channel topic and title patterns (titles only, scripts not analyzed) are in [`02_CONTEXT/source-analysis/channel-reference-notes.md`](02_CONTEXT/source-analysis/channel-reference-notes.md). The transcript-derived mentor notes are in [`02_CONTEXT/source-analysis/mentor-source-notes.md`](02_CONTEXT/source-analysis/mentor-source-notes.md); they summarize selected advice rather than copying whole transcripts.
 
 ## Skills and status
 
@@ -96,7 +96,7 @@ The helper records artifact hashes, dependencies, version, approver, and timesta
 
 ## Episode contract
 
-`episode.json` specifies a 1080×1920, 24 fps master with integer frames and half-open shot ranges. It describes timestamped narration, characters and poses, camera motion, captions, transitions, synchronized audio, individual scene MP4s, and a review preview. Character poses use two-frame exposures (about 12 effective fps); camera motion may update at 24 fps.
+`episode.json` specifies a 1080×1920, 30 fps master (24 fps for episodes made before motion rules v2) with integer frames and half-open shot ranges. It describes timestamped narration, characters and poses, camera motion, captions, transitions, synchronized audio, individual scene MP4s, and a review preview. Character poses use two-frame exposures (15 effective fps); camera motion updates every frame.
 
 Validate the packet with:
 
@@ -110,4 +110,5 @@ This checks schema and cross-field timing/export relationships; it does not rend
 
 - The sample episode is a placeholder, not an approved or researched story.
 - Three user-provided transcripts were selected for mentor notes: idea development, hook/visual focus, and retention critique. Other supplied files were not bulk-ingested. View, revenue, algorithm, upload-frequency, and policy claims are not verified by those notes.
-- Next: review further selected sources if useful; develop original character art with creator approval; build a minimal Remotion renderer; make an approved pilot with separate scene clips and preview.
+- EP002 (Project Pigeon) is posted and closed; its production files were removed and only its text record remains in `EPISODES/EP002/`.
+- Next: pick an idea in one of the three pillars and run it through the gates. Rendering uses Blender (3D sets, flat cutout characters) at 30 fps per `visual-style.md` and `motion-rules.md` v2; the Blender scene script for a new episode is written fresh in its renderer phase.

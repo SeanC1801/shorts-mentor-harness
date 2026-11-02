@@ -4,3 +4,10 @@ __pycache__/
 node_modules/
 renders/
 .Rhistory
+
+# Rendered review previews (approval hashes are kept in status.json)
+EPISODES/*/animation-preview.mp4
+
+# Derived PNG cards for Blender (rebuilt by renderer-blender/scripts/rasterize.py)
+renderer-blender/cards/
+*.blend1

@@ -35,35 +35,36 @@
     },
     "storyboard": {
       "status": "approved",
-      "version": "v1",
+      "version": "v2",
       "approvedBy": "Sean Caling",
       "timestamp": null,
       "artifactFiles": [
         "storyboard.md",
         "episode.json"
       ],
-      "contentHash": "5fcaa3f22d39cc2f5f6743e0f9b5d8f81e00588879988880f689ba6fafb8e327",
-      "currentContentHash": "5fcaa3f22d39cc2f5f6743e0f9b5d8f81e00588879988880f689ba6fafb8e327",
+      "contentHash": "97a8b820af528e4b3f6433d5c482e83ccaa2a54b79b818065c6cf3f02be44a13",
+      "currentContentHash": "97a8b820af528e4b3f6433d5c482e83ccaa2a54b79b818065c6cf3f02be44a13",
       "dependencyHashes": {
         "script": "752b5a53221297d7640452a578f9f83cb975cddc51e9f5383882888f5db007e5"
       },
-      "approvalText": "I approve storyboard v1",
-      "approvedAt": "2026-10-31T07:12:39Z"
+      "approvalText": "I approve storyboard v2",
+      "approvedAt": "2026-10-31T09:31:54Z"
     },
     "animationPreview": {
-      "status": "blocked",
-      "version": null,
-      "approvedBy": null,
+      "status": "approved",
+      "version": "v1",
+      "approvedBy": "Sean Caling",
       "timestamp": null,
       "artifactFiles": [
         "animation-preview.mp4"
       ],
-      "contentHash": null,
-      "currentContentHash": null,
+      "contentHash": "d0741c38ddc6f0f67d1c1646938aaa5136350ff5d3970ac5bc6005f537ad8af7",
+      "currentContentHash": "d0741c38ddc6f0f67d1c1646938aaa5136350ff5d3970ac5bc6005f537ad8af7",
       "dependencyHashes": {
-        "storyboard": null
+        "storyboard": "97a8b820af528e4b3f6433d5c482e83ccaa2a54b79b818065c6cf3f02be44a13"
       },
-      "approvalText": null
+      "approvalText": "I approve animationPreview v1",
+      "approvedAt": "2026-10-31T09:33:12Z"
     }
   },
   "invalidationRule": "Any upstream change invalidates all downstream approvals.",
@@ -94,6 +95,24 @@
       "event": "storyboard approved",
       "version": "v1",
       "contentHash": "5fcaa3f22d39cc2f5f6743e0f9b5d8f81e00588879988880f689ba6fafb8e327",
+      "approvedBy": "Sean Caling"
+    },
+    {
+      "at": "2026-10-31T09:21:05Z",
+      "event": "storyboard approval invalidated: artifact content changed"
+    },
+    {
+      "at": "2026-10-31T09:31:54Z",
+      "event": "storyboard approved",
+      "version": "v2",
+      "contentHash": "97a8b820af528e4b3f6433d5c482e83ccaa2a54b79b818065c6cf3f02be44a13",
+      "approvedBy": "Sean Caling"
+    },
+    {
+      "at": "2026-10-31T09:33:12Z",
+      "event": "animationPreview approved",
+      "version": "v1",
+      "contentHash": "d0741c38ddc6f0f67d1c1646938aaa5136350ff5d3970ac5bc6005f537ad8af7",
       "approvedBy": "Sean Caling"
     }
   ]

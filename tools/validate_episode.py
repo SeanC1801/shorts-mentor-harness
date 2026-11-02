@@ -61,7 +61,10 @@ def validate(folder: Path) -> bool:
     for key in ("episodeId", "version", "fps", "width", "height", "narration", "syncToleranceMs", "totalFrames", "shots", "exports"):
         need(key in data, f"missing top-level field: {key}")
     if errors: return report(errors)
-    need(data["fps"] == 24 and data["width"] == 1080 and data["height"] == 1920, "master must be 1080x1920 at 24fps")
+    # motion rules v2 (2026-11-02): 30 fps master, poses held 2 frames; 24 fps stays valid for earlier episodes
+    POSE_FPS = {30: 15, 24: 12}
+    need(data["fps"] in POSE_FPS and data["width"] == 1080 and data["height"] == 1920, "master must be 1080x1920 at 30fps (24fps only for episodes made before motion rules v2)")
+    fps = data["fps"] if data["fps"] in POSE_FPS else 30
     need(integer(data["totalFrames"]) and data["totalFrames"] > 0, "totalFrames must be a positive integer")
     need(integer(data["syncToleranceMs"]) and 0 <= data["syncToleranceMs"] <= 250, "syncToleranceMs must be an integer from 0 to 250")
     narration = data["narration"]
@@ -101,8 +104,8 @@ def validate(folder: Path) -> bool:
         if integer(ns) and integer(ne):
             need(ns == prior_narration_end, f"{label} narration range must be contiguous with the previous shot")
             prior_narration_end = ne
-        need(shot.get("characterMotion", {}).get("poseFps") == 12 and shot.get("characterMotion", {}).get("exposureFrames") == 2, f"{label} character motion must use 12fps poses exposed for 2 frames")
-        need(shot.get("camera", {}).get("fps") == 24, f"{label} camera must use 24fps")
+        need(shot.get("characterMotion", {}).get("poseFps") == POSE_FPS[fps] and shot.get("characterMotion", {}).get("exposureFrames") == 2, f"{label} character motion must use {POSE_FPS[fps]}fps poses exposed for 2 frames")
+        need(shot.get("camera", {}).get("fps") == fps, f"{label} camera must use {fps}fps")
         for segment in shot.get("narrationSegments", []) if isinstance(shot.get("narrationSegments", []), list) else []:
             a, b = segment.get("startMs"), segment.get("endMs")
             need(integer(a) and integer(b) and ns <= a < b <= ne, f"{label} narration segment must fit its shot narration range")
@@ -129,7 +132,7 @@ def validate(folder: Path) -> bool:
         need(len(names) == len(set(names)), "scene export filenames must be unique")
         for item in scene_exports:
             if isinstance(item, dict):
-                need(item.get("format") == "mp4" and item.get("width") == 1080 and item.get("height") == 1920 and item.get("fps") == 24, "each scene export must be 1080x1920, 24fps MP4")
+                need(item.get("format") == "mp4" and item.get("width") == 1080 and item.get("height") == 1920 and item.get("fps") == fps, f"each scene export must be 1080x1920, {fps}fps MP4")
     return report(errors)
 
 

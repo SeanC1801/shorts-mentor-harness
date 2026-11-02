@@ -26,7 +26,7 @@
       "minLength": 1
     },
     "fps": {
-      "const": 24
+      "enum": [30, 24]
     },
     "width": {
       "const": 1080
@@ -182,7 +182,7 @@
             ],
             "properties": {
               "poseFps": {
-                "const": 12
+                "enum": [15, 12]
               },
               "exposureFrames": {
                 "const": 2
@@ -206,7 +206,7 @@
                 "minLength": 1
               },
               "fps": {
-                "const": 24
+                "enum": [30, 24]
               }
             }
           },
@@ -380,7 +380,7 @@
                 "const": 1920
               },
               "fps": {
-                "const": 24
+                "enum": [30, 24]
               }
             }
           }

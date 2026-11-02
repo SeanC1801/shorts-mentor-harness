@@ -1,7 +1,7 @@
 {
   "episodeId": "EXAMPLE-001",
   "version": "0.1.0",
-  "fps": 24,
+  "fps": 30,
   "width": 1080,
   "height": 1920,
   "narration": {
@@ -11,23 +11,23 @@
     "sourceFile": "audio/narration-example.wav",
     "voiceModel": "Placeholder; replace with actual voice/model details"
   },
-  "totalFrames": 96,
+  "totalFrames": 120,
   "shots": [
     {
       "shotId": "S01",
       "startFrame": 0,
-      "endFrame": 48,
+      "endFrame": 60,
       "narrationStartMs": 0,
       "narrationEndMs": 2000,
       "visual": "Placeholder visual: a curious figure points to a glowing object.",
       "characterMotion": {
-        "poseFps": 12,
+        "poseFps": 15,
         "exposureFrames": 2,
         "action": "Placeholder two-pose reaction."
       },
       "camera": {
         "description": "Slow push in",
-        "fps": 24
+        "fps": 30
       },
       "assets": [],
       "audio": [
@@ -58,7 +58,7 @@
         {
           "text": "Placeholder caption",
           "startFrame": 0,
-          "endFrame": 48,
+          "endFrame": 60,
           "position": "bottom",
           "styleId": "CAPTION-DEFAULT"
         }
@@ -70,19 +70,19 @@
     },
     {
       "shotId": "S02",
-      "startFrame": 48,
-      "endFrame": 96,
+      "startFrame": 60,
+      "endFrame": 120,
       "narrationStartMs": 2000,
       "narrationEndMs": 4000,
       "visual": "Placeholder visual: reveal a simple diagram and payoff.",
       "characterMotion": {
-        "poseFps": 12,
+        "poseFps": 15,
         "exposureFrames": 2,
         "action": "Placeholder gesture hold."
       },
       "camera": {
         "description": "Smooth lateral drift",
-        "fps": 24
+        "fps": 30
       },
       "assets": [],
       "audio": [
@@ -112,8 +112,8 @@
       "captions": [
         {
           "text": "Placeholder caption",
-          "startFrame": 48,
-          "endFrame": 96,
+          "startFrame": 60,
+          "endFrame": 120,
           "position": "bottom",
           "styleId": "CAPTION-DEFAULT"
         }
@@ -138,7 +138,7 @@
         "format": "mp4",
         "width": 1080,
         "height": 1920,
-        "fps": 24
+        "fps": 30
       },
       {
         "shotId": "S02",
@@ -146,7 +146,7 @@
         "format": "mp4",
         "width": 1080,
         "height": 1920,
-        "fps": 24
+        "fps": 30
       }
     ]
   }
