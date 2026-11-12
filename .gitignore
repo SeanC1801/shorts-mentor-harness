@@ -11,3 +11,5 @@ EPISODES/*/animation-preview.mp4
 # Derived PNG cards for Blender (rebuilt by renderer-blender/scripts/rasterize.py)
 renderer-blender/cards/
 *.blend1
+# Derived painted textures (rebuilt by renderer-blender/scripts/paint_textures_ep003.py)
+renderer-blender/textures/

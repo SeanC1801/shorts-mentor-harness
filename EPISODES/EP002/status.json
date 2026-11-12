@@ -51,7 +51,7 @@
       "approvedAt": "2026-10-31T09:31:54Z"
     },
     "animationPreview": {
-      "status": "approved",
+      "status": "invalidated",
       "version": "v1",
       "approvedBy": "Sean Caling",
       "timestamp": null,
@@ -59,12 +59,14 @@
         "animation-preview.mp4"
       ],
       "contentHash": "d0741c38ddc6f0f67d1c1646938aaa5136350ff5d3970ac5bc6005f537ad8af7",
-      "currentContentHash": "d0741c38ddc6f0f67d1c1646938aaa5136350ff5d3970ac5bc6005f537ad8af7",
+      "currentContentHash": null,
       "dependencyHashes": {
         "storyboard": "97a8b820af528e4b3f6433d5c482e83ccaa2a54b79b818065c6cf3f02be44a13"
       },
       "approvalText": "I approve animationPreview v1",
-      "approvedAt": "2026-10-31T09:33:12Z"
+      "approvedAt": "2026-10-31T09:33:12Z",
+      "invalidatedAt": "2026-11-02T08:34:58Z",
+      "invalidationReason": "Approved artifact files changed or are missing."
     }
   },
   "invalidationRule": "Any upstream change invalidates all downstream approvals.",
@@ -114,6 +116,10 @@
       "version": "v1",
       "contentHash": "d0741c38ddc6f0f67d1c1646938aaa5136350ff5d3970ac5bc6005f537ad8af7",
       "approvedBy": "Sean Caling"
+    },
+    {
+      "at": "2026-11-02T08:34:58Z",
+      "event": "animationPreview approval invalidated: artifact content changed"
     }
   ]
 }

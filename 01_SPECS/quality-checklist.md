@@ -2,6 +2,7 @@
 - [ ] Creator supplied and owns the premise; central question is clear.
 - [ ] Hook makes an honest, specific promise; no unsupported curiosity bait.
 - [ ] Script is natural aloud, concise, emotionally shaped, and pays off the hook.
+- [ ] Script follows the story-chain format (`storytelling-guide.md`): one continuous chain, outcome withheld then revealed late, one reversal and one reveal, closing callback to the title.
 - [ ] Every factual claim is in the claim ledger with a supporting source; uncertainty is labeled.
 - [ ] Storyboard makes key ideas visible; shots vary purposefully and maintain continuity.
 - [ ] Each approval names the exact artifact version; upstream changes invalidated dependent gates.

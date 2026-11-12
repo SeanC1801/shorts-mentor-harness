@@ -1,4 +1,325 @@
 {
   "version": 1,
-  "assets": []
+  "assets": [
+    {
+      "id": "ASSET-CHAR-KID-MASTER-v001",
+      "path": "02_CONTEXT/assets/characters/ASSET-CHAR-KID-MASTER-v001.svg",
+      "dimensions": "1500x1000 viewBox (two panels: front with face turned three-quarter, back view)",
+      "layers": [
+        "contact-shadow",
+        "legs",
+        "shoes",
+        "arm-L",
+        "arm-R",
+        "mitten-L",
+        "mitten-R",
+        "hoodie",
+        "pocket",
+        "drawstrings",
+        "hood",
+        "head",
+        "ear(s)",
+        "head-skin",
+        "hair",
+        "tuft",
+        "face-neutral (eyes, brows, nose, mouth)"
+      ],
+      "notes": "Base outfit. Front panel group CHAR-KID-front, back panel group CHAR-KID-back. Spec: EPISODES/EP003/character-specs.md v1. Draft copy: 02_CONTEXT/assets/drafts/characters/CHAR-KID-master-v001.svg",
+      "type": "character",
+      "characterId": "CHAR-KID",
+      "format": "svg",
+      "alpha": "vector; preview backdrop rect `preview-backdrop` is for review only and is removed when cutting cards",
+      "provenance": "Claude-written SVG (claude-opus-5-5, Claude Code); see 02_CONTEXT/assets/provenance-log.md",
+      "licence": "Output of Claude; check Anthropic's current terms for commercial use of outputs; AI-assisted copyright varies by jurisdiction (not legal advice)",
+      "approval": "Art batch 1 approved by Sean Caling, 2026-11-02 (\"Approve batch 1\")"
+    },
+    {
+      "id": "ASSET-CHAR-KID-FACES-v001",
+      "path": "02_CONTEXT/assets/characters/ASSET-CHAR-KID-FACES-v001.svg",
+      "dimensions": "1800x520 viewBox (five heads)",
+      "layers": [
+        "face-sheet-neutral",
+        "face-sheet-wonder",
+        "face-sheet-delight",
+        "face-sheet-puzzled",
+        "face-sheet-meh"
+      ],
+      "notes": "Face-swap library for instant expression swaps; each head has eyes, brows, nose and mouth groups. Draft copy: 02_CONTEXT/assets/drafts/characters/CHAR-KID-faces-v001.svg",
+      "type": "character",
+      "characterId": "CHAR-KID",
+      "format": "svg",
+      "alpha": "vector; preview backdrop rect `preview-backdrop` is for review only and is removed when cutting cards",
+      "provenance": "Claude-written SVG (claude-opus-5-5, Claude Code); see 02_CONTEXT/assets/provenance-log.md",
+      "licence": "Output of Claude; check Anthropic's current terms for commercial use of outputs; AI-assisted copyright varies by jurisdiction (not legal advice)",
+      "approval": "Art batch 1 approved by Sean Caling, 2026-11-02 (\"Approve batch 1\")"
+    },
+    {
+      "id": "ASSET-CHAR-KID-POSES-v001",
+      "path": "02_CONTEXT/assets/characters/ASSET-CHAR-KID-POSES-v001.svg",
+      "dimensions": "2600x1100 viewBox (five posed figures)",
+      "layers": [
+        "POSE-KID-CURTAINS",
+        "POSE-KID-LOOK-UP",
+        "POSE-KID-ARM-SWEEP",
+        "POSE-KID-SHRUG",
+        "POSE-KID-BACK-LOOK-UP"
+      ],
+      "notes": "Base outfit. Each pose group keeps the master's named parts; arms rotate about shoulder pivots, head moves and tilts. ARM-SWEEP has the left arm out to the side rather than on the hip (no bent-elbow part yet). Draft copy in 02_CONTEXT/assets/drafts/characters/.",
+      "type": "character",
+      "characterId": "CHAR-KID",
+      "format": "svg",
+      "alpha": "vector; preview backdrop rect `preview-backdrop` and labels are for review only and are removed when cutting cards",
+      "provenance": "Claude-written SVG (claude-opus-5-5, Claude Code), built on ASSET-CHAR-KID-MASTER-v001; see 02_CONTEXT/assets/provenance-log.md",
+      "licence": "Output of Claude; check Anthropic's current terms for commercial use of outputs; AI-assisted copyright varies by jurisdiction (not legal advice)",
+      "approval": "Art batch 2 approved by Sean Caling, 2026-11-02 (\"Approve batch 2\")"
+    },
+    {
+      "id": "ASSET-CHAR-KID-OUTFITS-v001",
+      "path": "02_CONTEXT/assets/characters/ASSET-CHAR-KID-OUTFITS-v001.svg",
+      "dimensions": "2200x1100 viewBox (four figures)",
+      "layers": [
+        "OUTFIT-BEACH neutral",
+        "OUTFIT-BEACH + POSE-KID-LOOK-UP",
+        "OUTFIT-NORTH neutral",
+        "OUTFIT-NORTH + POSE-KID-SHRUG"
+      ],
+      "notes": "Beach: orange T-shirt, navy shorts, sandals, straw sun hat with orange band, tuft through the hat. Far north: orange puffer, navy mittens and boots, navy knit hat with orange pom-pom; tuft tucked under the hat. Draft copy in 02_CONTEXT/assets/drafts/characters/.",
+      "type": "character",
+      "characterId": "CHAR-KID",
+      "format": "svg",
+      "alpha": "vector; preview backdrop rect `preview-backdrop` and labels are for review only and are removed when cutting cards",
+      "provenance": "Claude-written SVG (claude-opus-5-5, Claude Code), built on ASSET-CHAR-KID-MASTER-v001; see 02_CONTEXT/assets/provenance-log.md",
+      "licence": "Output of Claude; check Anthropic's current terms for commercial use of outputs; AI-assisted copyright varies by jurisdiction (not legal advice)",
+      "approval": "Art batch 2 approved by Sean Caling, 2026-11-02 (\"Approve batch 2\")"
+    },
+    {
+      "id": "ASSET-CHAR-TRILOBITE-v001",
+      "characterId": "CHAR-TRILOBITE",
+      "path": "02_CONTEXT/assets/characters/ASSET-CHAR-TRILOBITE-v001.svg",
+      "dimensions": "1400x560 viewBox (two figures)",
+      "layers": [
+        "contact-shadow",
+        "legs",
+        "tail-fan",
+        "body",
+        "segments",
+        "lobe grooves",
+        "head-shield",
+        "face-neutral / face-wonder (eyes, brows, mouth)"
+      ],
+      "notes": "Neutral and POSE-TRILOBITE-LOOK-UP (wonder). Cartoon trilobite, not a specific species. Draft copy in 02_CONTEXT/assets/drafts/characters/.",
+      "type": "character",
+      "format": "svg",
+      "alpha": "vector; preview backdrop rect `preview-backdrop` and labels are for review only and are removed when cutting cards",
+      "provenance": "Claude-written SVG (claude-opus-5-5, Claude Code); see 02_CONTEXT/assets/provenance-log.md",
+      "licence": "Output of Claude; check Anthropic's current terms for commercial use of outputs; AI-assisted copyright varies by jurisdiction (not legal advice)",
+      "approval": "Art batch 3 approved by Sean Caling, 2026-11-02 (\"Approve batch 3\")"
+    },
+    {
+      "id": "ASSET-CHAR-DINO-v001",
+      "characterId": "CHAR-DINO",
+      "path": "02_CONTEXT/assets/characters/ASSET-CHAR-DINO-v001.svg",
+      "dimensions": "1900x840 viewBox (four figures)",
+      "layers": [
+        "contact-shadow",
+        "legs",
+        "tail",
+        "back plates",
+        "torso",
+        "belly",
+        "arms",
+        "head",
+        "face-neutral / face-puzzled"
+      ],
+      "notes": "POSE-DINO-STEP-A, POSE-DINO-STEP-B, POSE-DINO-LOOK-UP (puzzled), neutral. Cartoon dinosaur, not a specific species. Draft copy in 02_CONTEXT/assets/drafts/characters/.",
+      "type": "character",
+      "format": "svg",
+      "alpha": "vector; preview backdrop rect `preview-backdrop` and labels are for review only and are removed when cutting cards",
+      "provenance": "Claude-written SVG (claude-opus-5-5, Claude Code); see 02_CONTEXT/assets/provenance-log.md",
+      "licence": "Output of Claude; check Anthropic's current terms for commercial use of outputs; AI-assisted copyright varies by jurisdiction (not legal advice)",
+      "approval": "Art batch 3 approved by Sean Caling, 2026-11-02 (\"Approve batch 3\")"
+    },
+    {
+      "id": "ASSET-PROP-SATURN-POSTER-v001",
+      "path": "02_CONTEXT/assets/props/ASSET-PROP-SATURN-POSTER-v001.svg",
+      "dimensions": "see viewBox",
+      "layers": [
+        "PROP-SATURN-POSTER"
+      ],
+      "notes": "Saturn with white icy rings, caption 'rings of ice' (S02 V1 comparison with the rock ring). Printed cutout (outlined). Draft copy in 02_CONTEXT/assets/drafts/props/.",
+      "type": "prop",
+      "format": "svg",
+      "alpha": "vector; preview backdrop rect `preview-backdrop` is for review only and is removed when cutting cards",
+      "provenance": "Claude-written SVG (claude-opus-5-5, Claude Code); see 02_CONTEXT/assets/provenance-log.md",
+      "licence": "Output of Claude; check Anthropic's current terms for commercial use of outputs; AI-assisted copyright varies by jurisdiction (not legal advice)",
+      "approval": "Props batch approved by Sean Caling, 2026-11-02 (\"Approve props\")"
+    },
+    {
+      "id": "ASSET-PROP-PAPER-STAMP-v001",
+      "path": "02_CONTEXT/assets/props/ASSET-PROP-PAPER-STAMP-v001.svg",
+      "dimensions": "see viewBox",
+      "layers": [
+        "PROP-PAPER-STAMP"
+      ],
+      "notes": "Paper sheet stamped 'A STUDY SUGGESTS' (C7 hypothesis label; S06, S09). Printed cutout (outlined). Draft copy in 02_CONTEXT/assets/drafts/props/.",
+      "type": "prop",
+      "format": "svg",
+      "alpha": "vector; preview backdrop rect `preview-backdrop` is for review only and is removed when cutting cards",
+      "provenance": "Claude-written SVG (claude-opus-5-5, Claude Code); see 02_CONTEXT/assets/provenance-log.md",
+      "licence": "Output of Claude; check Anthropic's current terms for commercial use of outputs; AI-assisted copyright varies by jurisdiction (not legal advice)",
+      "approval": "Props batch approved by Sean Caling, 2026-11-02 (\"Approve props\")"
+    },
+    {
+      "id": "ASSET-PROP-TIMELINE-CARD-v001",
+      "path": "02_CONTEXT/assets/props/ASSET-PROP-TIMELINE-CARD-v001.svg",
+      "dimensions": "see viewBox",
+      "layers": [
+        "PROP-TIMELINE-CARD"
+      ],
+      "notes": "Card '466 MILLION YEARS AGO' with a timeline arrow (S06 V2). Printed cutout (outlined). Draft copy in 02_CONTEXT/assets/drafts/props/.",
+      "type": "prop",
+      "format": "svg",
+      "alpha": "vector; preview backdrop rect `preview-backdrop` is for review only and is removed when cutting cards",
+      "provenance": "Claude-written SVG (claude-opus-5-5, Claude Code); see 02_CONTEXT/assets/provenance-log.md",
+      "licence": "Output of Claude; check Anthropic's current terms for commercial use of outputs; AI-assisted copyright varies by jurisdiction (not legal advice)",
+      "approval": "Props batch approved by Sean Caling, 2026-11-02 (\"Approve props\")"
+    },
+    {
+      "id": "ASSET-PROP-AGE-TAG-v001",
+      "path": "02_CONTEXT/assets/props/ASSET-PROP-AGE-TAG-v001.svg",
+      "dimensions": "see viewBox",
+      "layers": [
+        "PROP-AGE-TAG"
+      ],
+      "notes": "Luggage tag '466?' (C9 doubt; S09 V1). Printed cutout (outlined). Draft copy in 02_CONTEXT/assets/drafts/props/.",
+      "type": "prop",
+      "format": "svg",
+      "alpha": "vector; preview backdrop rect `preview-backdrop` is for review only and is removed when cutting cards",
+      "provenance": "Claude-written SVG (claude-opus-5-5, Claude Code); see 02_CONTEXT/assets/provenance-log.md",
+      "licence": "Output of Claude; check Anthropic's current terms for commercial use of outputs; AI-assisted copyright varies by jurisdiction (not legal advice)",
+      "approval": "Props batch approved by Sean Caling, 2026-11-02 (\"Approve props\")"
+    },
+    {
+      "id": "ASSET-PROP-COUNTER-21-v001",
+      "path": "02_CONTEXT/assets/props/ASSET-PROP-COUNTER-21-v001.svg",
+      "dimensions": "see viewBox",
+      "layers": [
+        "PROP-COUNTER-21"
+      ],
+      "notes": "Orange badge '21' for the crater counter (C8; S07). Printed cutout (outlined). Draft copy in 02_CONTEXT/assets/drafts/props/.",
+      "type": "prop",
+      "format": "svg",
+      "alpha": "vector; preview backdrop rect `preview-backdrop` is for review only and is removed when cutting cards",
+      "provenance": "Claude-written SVG (claude-opus-5-5, Claude Code); see 02_CONTEXT/assets/provenance-log.md",
+      "licence": "Output of Claude; check Anthropic's current terms for commercial use of outputs; AI-assisted copyright varies by jurisdiction (not legal advice)",
+      "approval": "Props batch approved by Sean Caling, 2026-11-02 (\"Approve props\")"
+    },
+    {
+      "id": "ASSET-EP003-3D-PROPS-FX-v001",
+      "type": "prop-3d",
+      "format": "blender-python",
+      "path": "renderer-blender/ep003_props.py",
+      "dimensions": "procedural",
+      "layers": [
+        "globe (Earth map), pins, ancient globe, asteroid, ring forming, crater dots, ring fading and debris, ghost ring, ice-and-sun insert"
+      ],
+      "alpha": "n/a",
+      "provenance": "Claude-written Blender builders and generated painted textures (renderer-blender/scripts/paint_textures_ep003.py); see provenance-log.md",
+      "licence": "Output of Claude; check Anthropic's current terms for commercial use of outputs; AI-assisted copyright varies by jurisdiction (not legal advice)",
+      "approval": "Props batch approved by Sean Caling, 2026-11-02 (\"Approve props\")",
+      "notes": "Reusable builder functions; review stills in renders/ep003-props/. Ancient globe is illustrative, not an accurate palaeomap."
+    },
+    {
+      "id": "ASSET-CHAR-RAINKID-MASTER-v001",
+      "path": "02_CONTEXT/assets/characters/ASSET-CHAR-RAINKID-MASTER-v001.svg",
+      "dimensions": "1500x1000 viewBox (front view; 150 px readability inset; colour swatches)",
+      "layers": [
+        "contact-shadow",
+        "legs",
+        "trouser-legs",
+        "feet",
+        "arm-L",
+        "arm-R",
+        "body (shirt, trousers)",
+        "sleeves",
+        "head-shade",
+        "head-fill",
+        "hair",
+        "hair-tuft",
+        "head-outline",
+        "FACE-RAINKID-CURIOUS (brows, eyes, mouth)"
+      ],
+      "notes": "Indoor outfit (OUTFIT-RAINKID-INDOOR). Main group CHAR-RAINKID-front; inset group readability-150px. Spec: EPISODES/EP004/character-specs.md v2. Draft copy and generator: 02_CONTEXT/assets/drafts/characters/ (make_rainkid_v001.py).",
+      "type": "character",
+      "characterId": "CHAR-RAINKID",
+      "format": "svg",
+      "alpha": "vector; preview backdrop rect `preview-backdrop` is for review only and is removed when cutting cards",
+      "provenance": "Claude-written SVG (claude-opus-5-5, Claude Code); see 02_CONTEXT/assets/provenance-log.md",
+      "licence": "Output of Claude; check Anthropic's current terms for commercial use of outputs; AI-assisted copyright varies by jurisdiction (not legal advice)",
+      "approval": "Art batch 1 approved by Sean Caling, 2026-11-11 (\"Approve batch 1\")"
+    },
+    {
+      "id": "ASSET-CHAR-RAINKID-FACES-v001",
+      "path": "02_CONTEXT/assets/characters/ASSET-CHAR-RAINKID-FACES-v001.svg",
+      "dimensions": "1500x1000 viewBox (seven heads with faces)",
+      "layers": [
+        "FACE-RAINKID-CURIOUS",
+        "FACE-RAINKID-DEADPAN",
+        "FACE-RAINKID-SHOCKED",
+        "FACE-RAINKID-WORRIED",
+        "FACE-RAINKID-SQUINT",
+        "FACE-RAINKID-SHIVER",
+        "FACE-RAINKID-WISTFUL"
+      ],
+      "notes": "Face swaps (brows, eyes, mouth, extras) in head-local coordinates; each sheet group is sheet-<face id>. Spec: EPISODES/EP004/character-specs.md v2. Draft copy and generator: 02_CONTEXT/assets/drafts/characters/.",
+      "type": "character",
+      "characterId": "CHAR-RAINKID",
+      "format": "svg",
+      "alpha": "vector; preview backdrop rect `preview-backdrop` is for review only",
+      "provenance": "Claude-written SVG (claude-opus-5-5, Claude Code); see 02_CONTEXT/assets/provenance-log.md",
+      "licence": "Output of Claude; check Anthropic's current terms for commercial use of outputs; AI-assisted copyright varies by jurisdiction (not legal advice)",
+      "approval": "Art batch 1 approved by Sean Caling, 2026-11-11 (\"Approve batch 1\")"
+    },
+    {
+      "id": "ASSET-CHAR-RAINKID-POSES-v001",
+      "path": "02_CONTEXT/assets/characters/ASSET-CHAR-RAINKID-POSES-v001.svg",
+      "dimensions": "1500x1150 viewBox (seven posed figures)",
+      "layers": [
+        "POSE-RAINKID-WINDOW",
+        "POSE-RAINKID-SHORE (back view)",
+        "POSE-RAINKID-SHOCK",
+        "POSE-RAINKID-POINT-UP",
+        "POSE-RAINKID-SHIELD",
+        "POSE-RAINKID-FAN",
+        "POSE-RAINKID-SHIVER"
+      ],
+      "notes": "Each pose group carries data-outfit and data-face; faces are swappable from ASSET-CHAR-RAINKID-FACES-v001. Built on the approved batch 1 parts. Spec: EPISODES/EP004/character-specs.md v2. Draft copy and generator: 02_CONTEXT/assets/drafts/characters/ (make_rainkid_batch2_v001.py).",
+      "type": "character",
+      "characterId": "CHAR-RAINKID",
+      "format": "svg",
+      "alpha": "vector; preview backdrop rect `preview-backdrop` is for review only and is removed when cutting cards",
+      "provenance": "Claude-written SVG (claude-opus-5-5, Claude Code); see 02_CONTEXT/assets/provenance-log.md",
+      "licence": "Output of Claude; check Anthropic's current terms for commercial use of outputs; AI-assisted copyright varies by jurisdiction (not legal advice)",
+      "approval": "Art batch 2 approved by Sean Caling, 2026-11-11 (\"Approve batch 2\")"
+    },
+    {
+      "id": "ASSET-CHAR-RAINKID-OUTFITS-v001",
+      "path": "02_CONTEXT/assets/characters/ASSET-CHAR-RAINKID-OUTFITS-v001.svg",
+      "dimensions": "1500x640 viewBox (four standing figures)",
+      "layers": [
+        "OUTFIT-RAINKID-INDOOR",
+        "OUTFIT-RAINKID-RAIN",
+        "OUTFIT-RAINKID-SUN",
+        "OUTFIT-RAINKID-NIGHT"
+      ],
+      "notes": "Same body and head in each; cap and beanie hide the hair tuft. Spec: EPISODES/EP004/character-specs.md v2. Draft copy and generator: 02_CONTEXT/assets/drafts/characters/.",
+      "type": "character",
+      "characterId": "CHAR-RAINKID",
+      "format": "svg",
+      "alpha": "vector; preview backdrop rect `preview-backdrop` is for review only and is removed when cutting cards",
+      "provenance": "Claude-written SVG (claude-opus-5-5, Claude Code); see 02_CONTEXT/assets/provenance-log.md",
+      "licence": "Output of Claude; check Anthropic's current terms for commercial use of outputs; AI-assisted copyright varies by jurisdiction (not legal advice)",
+      "approval": "Art batch 2 approved by Sean Caling, 2026-11-11 (\"Approve batch 2\")"
+    }
+  ]
 }

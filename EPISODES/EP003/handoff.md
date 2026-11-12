@@ -1,0 +1,88 @@
+# Handoff
+- Stage: animation preview v1 approved (2026-11-04). All four gates are approved; see Render below.
+- Approved by Sean Caling, 2026-11-02: idea v2, script v2 (`research.md` + `script.md`), storyboard v2 (`storyboard.md` + `episode.json`, 30 fps, 1575 frames). Confirmation texts were typed with a capital V and recorded as the required lowercase form.
+- Audio: `audio/EP003-narration-v2.mp3` (52.506 s, ElevenLabs voice "Shorts Voice", a clone made by the creator). Word times: `audio/word-timings-v2.json` (pause anchors, about +/-0.1 s). v1 audio, timings, script and narration are kept for history.
+- Done: per-scene approvals S01–S10 (cel look) and the full animation preview v1. Anything after this (publishing, a final master) needs the creator's direction.
+- Storyboard defaults now in force (the creator did not change them): no "WHAT IF" tag; ends on the kid's window with the callback; same kid in three outfits. Changing any default invalidates the storyboard.
+- Open research: independent check of the ring-view geometry (S04); the paper's full text; a better ice-lifetime source.
+- Per the creator: tell them before the render phase starts so they can switch the model to Opus 5.5; ask before each art batch.
+- Characters: `character-specs.md` v1 approved by Sean Caling, 2026-11-02 ("Approve character specs v1"); CHAR-KID, CHAR-TRILOBITE and CHAR-DINO are in `02_CONTEXT/character-registry.md` and `03_TRACKING/asset-backlog.md`. Art batch 1 (kid master front and back, face sheet) approved 2026-11-02 ("Approve batch 1") and stored as `02_CONTEXT/assets/characters/ASSET-CHAR-KID-MASTER-v001.svg` and `ASSET-CHAR-KID-FACES-v001.svg`.
+- Sets: creator direction (2026-11-02) "Background assets must have a similar aesthetic as the paper mario"; `set-specs.md` v1 approved by Sean Caling, 2026-11-02 ("Approve set specs v1"); no storybook opener (default). Nothing built.
+- Look test (bedroom): **approved by Sean Caling, 2026-11-02 ("Approve the look")** as the reference look for all EP003 sets. `renderer-blender/ep003_lookdev_bedroom.py` + `renderer-blender/scripts/paint_textures_ep003.py`; stills in `renders/ep003-lookdev/` (A globe close-up LS1, B kid at window LS1, C kid back view at dawn LS8). Measured: A L 58.8, S 120, edges 5.7%; B L 58.6, S 107, edges 6.1%; C L 51.4, S 82, edges 4.7%; no deep blacks or clipped whites. Known small fixes to fold into the real bedroom build: plain ceiling area, wallpaper inside the top of the window opening, desk globe continents should read as Earth.
+- Kid art batch 2 (five poses, beach and far-north outfits) approved 2026-11-02 ("Approve batch 2"): `ASSET-CHAR-KID-POSES-v001.svg`, `ASSET-CHAR-KID-OUTFITS-v001.svg`. Kid art is complete.
+- Art batch 3 (trilobite and dinosaur) approved 2026-11-02 ("Approve batch 3"): `ASSET-CHAR-TRILOBITE-v001.svg`, `ASSET-CHAR-DINO-v001.svg`. All character art is complete.
+- Seven sets **approved by Sean Caling, 2026-11-02 ("Approve the sets")**: `renderer-blender/ep003_sets.py` (+ shared `renderer-blender/papercraft.py`, textures from `scripts/paint_textures_ep003.py`); stills in `renders/ep003-sets/`. The ring is real geometry in Earth's equatorial plane (1.8-2.4 Earth radii), so it shows as an arch at 40 degrees, a line at the equator, and stays hidden at 70 degrees. Space globe is a placeholder for the globe props. Measured: rooftops L 53.3, beach 64.8, city 58.0, north 44.6, space 27.2, seafloor 53.9, dawn 45.7; painted detail 1.4-5.3% (below 6-10%; skies fill most of each frame).
+- Known fixes carried into the props batch and render: refine the ring's look (PROP-ROCK-RING), replace the placeholder space globe with the globe props, swap the beach dune-grass lump for proper grass; beach and seafloor stills ran bright and painted detail is below target in sky-heavy frames.
+- Props and effects **approved by Sean Caling, 2026-11-02 ("Approve props")**: printed cutouts (SVG drafts in `02_CONTEXT/assets/drafts/props/`: Saturn poster, paper stamp, timeline card, age tag, counter 21); 3D props and effects in `renderer-blender/ep003_props.py` (globes with pins, ancient globe, asteroid, ring forming, crater dots, ring fading with falling debris, ghost ring, ice-and-sun insert); stills in `renders/ep003-props/`. Ring texture v2 (rock chunks with gaps) now used in the sets; bedroom desk globe uses the Earth map; beach grass lump replaced.
+- Render (started 2026-11-03 on "Start the render"):
+  - **Workflow is scene by scene.** The creator said: "I need you to generate it only clip by clip, or scene by scene. So that I can approve each one of them before proceeding to the next one."
+  - The full render was stopped after frames 0–682.
+  - Each shot is rendered, then shown as its own clip with its captions and narration slice. Make a clip with `python3 -I renderer-blender/scripts/finish_ep003.py renders/ep003/frames renders/ep003 S0N`. It writes to `renders/ep003/scenes/`.
+  - The next shot needs the creator's "approve S0N" for the current one. The full `animation-preview.mp4` is assembled only after all ten are approved.
+  - Status:
+    - S01 v1 had changes requested on 2026-11-03: "Instead of making the opening a globe, just make it the actual Earth on space surrounded by rocks".
+    - Storyboard v3 changes only S01 V1. That view now shows Earth in space with rocks settling into a ring (stage `opener` in `ep003_render.py`); v2 is kept as `storyboard-v2.md` and `episode-v2.json`.
+    - The storyboard v2 approval was invalidated by the edit, as designed.
+    - S01 v2 had changes requested on 2026-11-03: "the window rails block the view of the ring".
+    - S01 v3 changes:
+      - The bedroom window's vertical and horizontal bars were removed. This changes the approved bedroom set, and the creator requested it.
+      - The S01 V3 camera now ends outside the window, so the ring is in clear sky.
+    - **Storyboard v3 approved** by Sean Caling, 2026-11-03 ("I approve storyboard v3"), hash 770016990d4c. The file's heading still reads DRAFT because editing it would change the hash. The approval was recorded again after an accidental heading edit was reverted (same content and hash).
+    - **S01 v3 approved** by Sean Caling, 2026-11-03 ("Approve S01").
+    - **S02 approved** as rendered by Sean Caling, 2026-11-03 ("Approve S02"). Two flagged gaps were accepted as they are: no Saturn poster in the rooftop view, and spiky ice vapour.
+    - **S03 approved** as rendered by Sean Caling, 2026-11-03 ("Approve S03"). One flagged gap was accepted as it is: only two of the three pins show, because the far-north pin is out of view.
+    - S04 had changes requested on 2026-11-03 ("Fix both gaps"). The new version:
+      - **Beach:** the camera faces north, so the ring crosses the frame as a line overhead. A thicker bright copy of the ring (`ring_line`) replaces the beach's hairline ring. V2 is a low wide angle with the kid below the line.
+      - **North:** V6 starts on the dotted horizon line, pushes over the fence and ends close on the shrug, with the face kept above the caption band.
+    - **S04 approved** by Sean Caling, 2026-11-03 ("Approve S04").
+    - On 2026-11-03 the creator asked: "try and apply Cel Shading to every video now".
+      - **Creator's choices:** hard light bands plus ink outlines, keeping the painted textures. Run a look test first, then redo all of EP003: S01–S04 get re-rendered and each needs re-approval.
+      - **Build:** cel mode is `--cel` on `ep003_render.py` (`papercraft.CEL` and `cel_ink`: Freestyle, 5 px outer lines and 2.8 px creases, painted geometry only).
+      - **Look test:** `renders/ep003-cel-lookdev/`.
+      - **Cel look and visual-style v3 approved** by Sean Caling, 2026-11-03 ("Approve cel look").
+      - **Cel workflow:**
+        - Frames go to `renders/ep003/frames-cel/` and clips to `renders/ep003-cel/scenes/`.
+        - Make a clip with `python3 -I renderer-blender/scripts/finish_ep003.py renders/ep003/frames-cel renders/ep003-cel S0N`.
+        - The v2 frames and clips are kept as they are.
+        - Each scene needs approval again in the cel look, starting with S01.
+      - **Cel S01 approved** by Sean Caling, 2026-11-03 ("Approve S01").
+      - **Cel S02 approved** by Sean Caling, 2026-11-03 ("Approve S02").
+      - **Cel S03 approved** by Sean Caling, 2026-11-03 ("Approve S03").
+      - **Cel S04 approved** by Sean Caling, 2026-11-03 ("Approve S04"). S01–S04 are all approved in the cel look.
+      - **S05 approved** by Sean Caling, 2026-11-03 ("Approve S05"). Changes made in its first cel render:
+        - V1 starts just outside the ring and fades the ring out while pulling back.
+        - V2 adds the storyboard's glinting "?" (Arial Black text, emissive, pops in at t>0.3) beside the ghost ring.
+      - S06 has been rendered in cel and is under review. The timeline-card camera was pulled back (lens 24) so "466 MILLION YEARS AGO" stays inside the frame.
+        - Changes requested on 2026-11-03 ("Fix the small flag", and the ring "doesn't fully revolve around it"):
+          - V1 is reframed so the stamp sits above the caption band; the storyboard timing is unchanged.
+          - V4 rocks now stream from the break (about 190°) through a full 360° by t ≈ 0.84 and the ring keeps orbiting (40°).
+        - **S06 approved** by Sean Caling, 2026-11-04 ("Approve S06"), with both fixes.
+      - **S07 approved** by Sean Caling, 2026-11-04 ("Approve S07"). Changes made against the storyboard:
+        - The equator line now follows the globe's real equator; before, it was tilted differently from the dots.
+        - The dots stay within 30° of the equator (C8), on the camera-facing side, and each one pops in.
+        - V3 adds the storyboard's glowing band: a ±30° belt (`crater_band`) fades in.
+        - The counter is larger and placed lower so it is not clipped, and the V3 pull-back is wider (lens 22).
+      - **S08 approved** by Sean Caling, 2026-11-04 ("Approve S08"). `st_fade` was rebuilt against the storyboard:
+        - The globe and ring now share one equatorial plane, tilted 22° toward the camera so the ring reads.
+        - The ring thins (rock chunks drop out) and dims over the whole scene.
+        - A pair of pieces drifts off the edge in V1. Fourteen more spiral down in V2 and land within 22° of the equator with small flashes.
+        - Small rocks cross the lens in V2, and a ±25° band glows in V3.
+        - `ev_fade` now runs on one frame clock across the three views.
+        - The stage restores the shared random state afterwards, so later stages (including the approved S01 opener) build the same as before.
+      - **S09 approved** by Sean Caling, 2026-11-04 ("Approve S09"). Changes made against the storyboard:
+        - **V1:** a steeper push-in keeps all three "466?" tags in view; the tags blink out of step; a glowing "?" rises from each crater.
+        - **V2:** the ring uses the same tilted equatorial plane as S08, and its rocks gather as it appears. The stamp paper sits fully in frame, with one glint.
+        - **V3:** the trilobite card was moved out from behind a rock (x +0.4, y +0.6), and the crane starts close on it.
+        - **V4:**
+          - A ring of its own (`ring_dawn`, lat 20) fades out first.
+          - The dinosaur's contact shadow walks with it.
+          - The camera looks higher so "before the dinosaurs." sits above the dinosaur's head.
+      - **S10 approved** by Sean Caling, 2026-11-04 ("Approve S10"). All ten scenes are approved in the cel look. Change made against the storyboard ("the faintest stripe fading"):
+        - In S10 only, the bedroom ring switches to its own copy of the ring material (`bed_ring`), which fades from 0.3 to nothing by "real.".
+        - S01's bedroom views restore the shared material, so the approved S01 look is unchanged; a test frame from S01 V3 confirmed this.
+      - **Known issue:** when three Blender jobs start at once, one sometimes dies at launch with an empty log. Check frame counts after each render and re-run any missing range.
+    - All ten cel scenes are rendered (`renders/ep003/frames-cel/`, frames 0–1574); clips are in `renders/ep003-cel/scenes/`.
+    - **Full preview v1 assembled** on 2026-11-04 from the cel frames and placed at `EPISODES/EP003/animation-preview.mp4`.
+      - Spec: 1080×1920, 30 fps, 1575 frames (52.5 s), AAC narration; mean volume −18.8 dB, peak −4.6 dB.
+      - Build copy: `renders/ep003-cel-full/EP003-preview.mp4`. It was built in its own folder because the full-build mode writes silent scene clips, which would overwrite the approved clips in `renders/ep003-cel/scenes/`.
+      - **animationPreview v1 approved** by Sean Caling, 2026-11-04 ("I approve animationPreview v1"), hash 8caec803b992. All four gates (idea, script, storyboard, animationPreview) are approved, and the validator passes.

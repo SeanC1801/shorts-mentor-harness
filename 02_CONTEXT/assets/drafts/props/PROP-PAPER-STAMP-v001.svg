@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 900" width="740" height="900"><defs>
+<filter id="paper" x="-5%" y="-5%" width="110%" height="110%">
+ <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7" result="n"/>
+ <feColorMatrix in="n" type="saturate" values="0" result="g"/>
+ <feComponentTransfer in="g" result="ga"><feFuncA type="linear" slope="0" intercept="0.07"/></feComponentTransfer>
+ <feComposite in="ga" in2="SourceGraphic" operator="in" result="grain"/>
+ <feBlend in="SourceGraphic" in2="grain" mode="multiply"/>
+</filter>
+<radialGradient id="cshadow"><stop offset="0" stop-color="#1B1430" stop-opacity="0.38"/><stop offset="1" stop-color="#1B1430" stop-opacity="0"/></radialGradient>
+<clipPath id="headclip"><ellipse cx="0" cy="0" rx="150" ry="140"/></clipPath>
+<clipPath id="bodyclip"><path d="M -98 -378 C -125 -370 -128 -330 -125 -280 L -118 -110 C -117 -92 -100 -88 -80 -88 L 80 -88 C 100 -88 117 -92 118 -110 L 125 -280 C 128 -330 125 -370 98 -378 Z"/></clipPath>
+</defs>
+<rect id="preview-backdrop" width="740" height="900" fill="#F3EEE4"/><g filter="url(#paper)"><g id="PROP-PAPER-STAMP">
+<path d="M 60 50 L 600 50 L 680 130 L 680 850 L 60 850 Z" fill="#FFF9EC" stroke="#2B2238" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" /><path d="M 600 50 L 600 130 L 680 130 Z" fill="#E8DDC6" stroke="#2B2238" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" />
+<rect x="110" y="120" width="300" height="36" rx="8" fill="#B8AE9C"/><path d="M 110 260 L 555 260" stroke="#B8AE9C" stroke-width="10" stroke-linecap="round"/><path d="M 110 312 L 439 312" stroke="#B8AE9C" stroke-width="10" stroke-linecap="round"/><path d="M 110 364 L 486 364" stroke="#B8AE9C" stroke-width="10" stroke-linecap="round"/><path d="M 110 416 L 537 416" stroke="#B8AE9C" stroke-width="10" stroke-linecap="round"/><path d="M 110 468 L 543 468" stroke="#B8AE9C" stroke-width="10" stroke-linecap="round"/><path d="M 110 520 L 493 520" stroke="#B8AE9C" stroke-width="10" stroke-linecap="round"/><path d="M 110 572 L 595 572" stroke="#B8AE9C" stroke-width="10" stroke-linecap="round"/><path d="M 110 624 L 539 624" stroke="#B8AE9C" stroke-width="10" stroke-linecap="round"/><path d="M 110 676 L 485 676" stroke="#B8AE9C" stroke-width="10" stroke-linecap="round"/><path d="M 110 728 L 557 728" stroke="#B8AE9C" stroke-width="10" stroke-linecap="round"/>
+<g transform="rotate(-9 370 520)"><rect x="110" y="440" width="520" height="170" rx="18" fill="none" stroke="#D2463E" stroke-width="16"/>
+<rect x="128" y="458" width="484" height="134" rx="10" fill="none" stroke="#D2463E" stroke-width="5"/>
+<text x="370" y="510" text-anchor="middle" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="54" fill="#D2463E">A STUDY</text>
+<text x="370" y="575" text-anchor="middle" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="54" fill="#D2463E">SUGGESTS</text></g></g></g></svg>

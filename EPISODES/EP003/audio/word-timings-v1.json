@@ -1,0 +1,587 @@
+{
+ "episodeId": "EP003",
+ "audio": "EPISODES/EP003/audio/EP003-narration-v1.mp3",
+ "audioDurationMs": 39236,
+ "method": "Words placed inside speech segments found with ffmpeg silencedetect (pause anchors), spread by syllable count. Expected error about +/-0.1 s per word; sentence and comma boundaries are measured.",
+ "lines": {
+  "L1": [
+   {
+    "text": "A",
+    "startMs": 179,
+    "endMs": 370
+   },
+   {
+    "text": "kid",
+    "startMs": 370,
+    "endMs": 560
+   },
+   {
+    "text": "opens",
+    "startMs": 560,
+    "endMs": 892
+   },
+   {
+    "text": "the",
+    "startMs": 892,
+    "endMs": 1082
+   },
+   {
+    "text": "curtains",
+    "startMs": 1082,
+    "endMs": 1414
+   },
+   {
+    "text": "on",
+    "startMs": 1414,
+    "endMs": 1604
+   },
+   {
+    "text": "a",
+    "startMs": 1604,
+    "endMs": 1795
+   },
+   {
+    "text": "Tuesday",
+    "startMs": 1795,
+    "endMs": 2126
+   },
+   {
+    "text": "morning.",
+    "startMs": 2126,
+    "endMs": 2458
+   },
+   {
+    "text": "There's",
+    "startMs": 2670,
+    "endMs": 2897
+   },
+   {
+    "text": "a",
+    "startMs": 2897,
+    "endMs": 3125
+   },
+   {
+    "text": "stripe",
+    "startMs": 3125,
+    "endMs": 3520
+   },
+   {
+    "text": "across",
+    "startMs": 3520,
+    "endMs": 3916
+   },
+   {
+    "text": "the",
+    "startMs": 3916,
+    "endMs": 4144
+   },
+   {
+    "text": "sky.",
+    "startMs": 4144,
+    "endMs": 4371
+   }
+  ],
+  "L2": [
+   {
+    "text": "It's",
+    "startMs": 4534,
+    "endMs": 4814
+   },
+   {
+    "text": "a",
+    "startMs": 4814,
+    "endMs": 5094
+   },
+   {
+    "text": "ring,",
+    "startMs": 5094,
+    "endMs": 5374
+   },
+   {
+    "text": "like",
+    "startMs": 5374,
+    "endMs": 5861
+   },
+   {
+    "text": "Saturn's,",
+    "startMs": 5861,
+    "endMs": 6348
+   },
+   {
+    "text": "only",
+    "startMs": 6348,
+    "endMs": 6835
+   },
+   {
+    "text": "rock.",
+    "startMs": 6835,
+    "endMs": 7115
+   },
+   {
+    "text": "Ice",
+    "startMs": 7279,
+    "endMs": 7619
+   },
+   {
+    "text": "wouldn't",
+    "startMs": 7619,
+    "endMs": 7958
+   },
+   {
+    "text": "last",
+    "startMs": 7958,
+    "endMs": 8154
+   },
+   {
+    "text": "this",
+    "startMs": 8154,
+    "endMs": 8349
+   },
+   {
+    "text": "close",
+    "startMs": 8349,
+    "endMs": 8689
+   },
+   {
+    "text": "to",
+    "startMs": 8689,
+    "endMs": 8884
+   },
+   {
+    "text": "the",
+    "startMs": 8884,
+    "endMs": 9079
+   },
+   {
+    "text": "Sun.",
+    "startMs": 9079,
+    "endMs": 9274
+   }
+  ],
+  "L3": [
+   {
+    "text": "At",
+    "startMs": 9507,
+    "endMs": 9694
+   },
+   {
+    "text": "the",
+    "startMs": 9694,
+    "endMs": 9881
+   },
+   {
+    "text": "equator,",
+    "startMs": 9881,
+    "endMs": 10485
+   },
+   {
+    "text": "it's",
+    "startMs": 10485,
+    "endMs": 10672
+   },
+   {
+    "text": "a",
+    "startMs": 10672,
+    "endMs": 10859
+   },
+   {
+    "text": "thin",
+    "startMs": 10859,
+    "endMs": 11046
+   },
+   {
+    "text": "line",
+    "startMs": 11046,
+    "endMs": 11372
+   },
+   {
+    "text": "overhead.",
+    "startMs": 11372,
+    "endMs": 11837
+   },
+   {
+    "text": "Farther",
+    "startMs": 11996,
+    "endMs": 12508
+   },
+   {
+    "text": "north,",
+    "startMs": 12508,
+    "endMs": 12802
+   },
+   {
+    "text": "a",
+    "startMs": 12937,
+    "endMs": 13221
+   },
+   {
+    "text": "wide",
+    "startMs": 13221,
+    "endMs": 13716
+   },
+   {
+    "text": "arch.",
+    "startMs": 13716,
+    "endMs": 14000
+   },
+   {
+    "text": "Far",
+    "startMs": 14071,
+    "endMs": 14345
+   },
+   {
+    "text": "enough",
+    "startMs": 14345,
+    "endMs": 14823
+   },
+   {
+    "text": "north,",
+    "startMs": 14823,
+    "endMs": 15097
+   },
+   {
+    "text": "it",
+    "startMs": 15291,
+    "endMs": 15491
+   },
+   {
+    "text": "never",
+    "startMs": 15491,
+    "endMs": 15839
+   },
+   {
+    "text": "clears",
+    "startMs": 15839,
+    "endMs": 16038
+   },
+   {
+    "text": "the",
+    "startMs": 16038,
+    "endMs": 16238
+   },
+   {
+    "text": "horizon.",
+    "startMs": 16238,
+    "endMs": 16734
+   }
+  ],
+  "L4": [
+   {
+    "text": "Now",
+    "startMs": 17021,
+    "endMs": 17314
+   },
+   {
+    "text": "the",
+    "startMs": 17314,
+    "endMs": 17608
+   },
+   {
+    "text": "strange",
+    "startMs": 17608,
+    "endMs": 17901
+   },
+   {
+    "text": "part:",
+    "startMs": 17901,
+    "endMs": 18194
+   },
+   {
+    "text": "Earth",
+    "startMs": 18357,
+    "endMs": 18559
+   },
+   {
+    "text": "may",
+    "startMs": 18559,
+    "endMs": 18762
+   },
+   {
+    "text": "really",
+    "startMs": 18762,
+    "endMs": 19114
+   },
+   {
+    "text": "have",
+    "startMs": 19114,
+    "endMs": 19466
+   },
+   {
+    "text": "had",
+    "startMs": 19466,
+    "endMs": 19668
+   },
+   {
+    "text": "one.",
+    "startMs": 19668,
+    "endMs": 20020
+   }
+  ],
+  "L5": [
+   {
+    "text": "Around",
+    "startMs": 20217,
+    "endMs": 20655
+   },
+   {
+    "text": "466",
+    "startMs": 20655,
+    "endMs": 21839
+   },
+   {
+    "text": "million",
+    "startMs": 21839,
+    "endMs": 22277
+   },
+   {
+    "text": "years",
+    "startMs": 22277,
+    "endMs": 22529
+   },
+   {
+    "text": "ago,",
+    "startMs": 22529,
+    "endMs": 22967
+   },
+   {
+    "text": "a",
+    "startMs": 23079,
+    "endMs": 23343
+   },
+   {
+    "text": "study",
+    "startMs": 23343,
+    "endMs": 23802
+   },
+   {
+    "text": "suggests,",
+    "startMs": 23802,
+    "endMs": 24261
+   },
+   {
+    "text": "an",
+    "startMs": 24351,
+    "endMs": 24565
+   },
+   {
+    "text": "asteroid",
+    "startMs": 24565,
+    "endMs": 25097
+   },
+   {
+    "text": "passed",
+    "startMs": 25097,
+    "endMs": 25470
+   },
+   {
+    "text": "too",
+    "startMs": 25470,
+    "endMs": 25685
+   },
+   {
+    "text": "close,",
+    "startMs": 25685,
+    "endMs": 26058
+   },
+   {
+    "text": "and",
+    "startMs": 26155,
+    "endMs": 26383
+   },
+   {
+    "text": "Earth's",
+    "startMs": 26383,
+    "endMs": 26612
+   },
+   {
+    "text": "pull",
+    "startMs": 26612,
+    "endMs": 26840
+   },
+   {
+    "text": "tore",
+    "startMs": 26840,
+    "endMs": 27238
+   },
+   {
+    "text": "it",
+    "startMs": 27238,
+    "endMs": 27467
+   },
+   {
+    "text": "apart",
+    "startMs": 27467,
+    "endMs": 27864
+   },
+   {
+    "text": "into",
+    "startMs": 27864,
+    "endMs": 28262
+   },
+   {
+    "text": "a",
+    "startMs": 28262,
+    "endMs": 28491
+   },
+   {
+    "text": "ring.",
+    "startMs": 28491,
+    "endMs": 28719
+   }
+  ],
+  "L6": [
+   {
+    "text": "The",
+    "startMs": 28921,
+    "endMs": 29168
+   },
+   {
+    "text": "clue:",
+    "startMs": 29168,
+    "endMs": 29414
+   },
+   {
+    "text": "twenty-one",
+    "startMs": 29608,
+    "endMs": 30110
+   },
+   {
+    "text": "craters",
+    "startMs": 30110,
+    "endMs": 30463
+   },
+   {
+    "text": "from",
+    "startMs": 30463,
+    "endMs": 30666
+   },
+   {
+    "text": "that",
+    "startMs": 30666,
+    "endMs": 30868
+   },
+   {
+    "text": "era",
+    "startMs": 30868,
+    "endMs": 31220
+   },
+   {
+    "text": "all",
+    "startMs": 31220,
+    "endMs": 31423
+   },
+   {
+    "text": "formed",
+    "startMs": 31423,
+    "endMs": 31775
+   },
+   {
+    "text": "near",
+    "startMs": 31775,
+    "endMs": 31978
+   },
+   {
+    "text": "the",
+    "startMs": 31978,
+    "endMs": 32180
+   },
+   {
+    "text": "equator.",
+    "startMs": 32180,
+    "endMs": 32833
+   }
+  ],
+  "L7": [
+   {
+    "text": "Not",
+    "startMs": 33016,
+    "endMs": 33254
+   },
+   {
+    "text": "everyone",
+    "startMs": 33254,
+    "endMs": 33844
+   },
+   {
+    "text": "agrees.",
+    "startMs": 33844,
+    "endMs": 34258
+   },
+   {
+    "text": "But",
+    "startMs": 34420,
+    "endMs": 34621
+   },
+   {
+    "text": "if",
+    "startMs": 34621,
+    "endMs": 34823
+   },
+   {
+    "text": "the",
+    "startMs": 34823,
+    "endMs": 35024
+   },
+   {
+    "text": "study",
+    "startMs": 35024,
+    "endMs": 35375
+   },
+   {
+    "text": "is",
+    "startMs": 35375,
+    "endMs": 35577
+   },
+   {
+    "text": "right,",
+    "startMs": 35577,
+    "endMs": 35778
+   },
+   {
+    "text": "Earth",
+    "startMs": 35914,
+    "endMs": 36140
+   },
+   {
+    "text": "once",
+    "startMs": 36140,
+    "endMs": 36533
+   },
+   {
+    "text": "wore",
+    "startMs": 36533,
+    "endMs": 36926
+   },
+   {
+    "text": "a",
+    "startMs": 36926,
+    "endMs": 37151
+   },
+   {
+    "text": "ring,",
+    "startMs": 37151,
+    "endMs": 37377
+   },
+   {
+    "text": "long",
+    "startMs": 37514,
+    "endMs": 37771
+   },
+   {
+    "text": "before",
+    "startMs": 37771,
+    "endMs": 38219
+   },
+   {
+    "text": "the",
+    "startMs": 38219,
+    "endMs": 38477
+   },
+   {
+    "text": "dinosaurs.",
+    "startMs": 38477,
+    "endMs": 39115
+   }
+  ]
+ }
+}

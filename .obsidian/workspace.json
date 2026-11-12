@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "EPISODES/EP002/idea.md",
+                "file": "EPISODES/EP004/storyboard-v1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "idea"
+              "title": "storyboard-v1"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "EPISODES/EP002/idea.md",
+                "file": "EPISODES/EP004/storyboard-v1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "EPISODES/EP002/idea.md",
+                "file": "EPISODES/EP004/storyboard-v1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "EPISODES/EP002/idea.md",
+                "file": "EPISODES/EP004/storyboard-v1.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -188,19 +188,53 @@
       "bases:Create new base": false
     }
   },
-  "active": "5543ebeb2d66349d",
+  "active": "690172e545cc8135",
   "lastOpenFiles": [
-    "EPISODES/EP002/handoff.md",
-    "EPISODES/EP001-example/storyboard.md",
-    "EPISODES/EP001-example/script.md",
-    "EPISODES/EP001-example/research.md",
-    "EPISODES/EP001-example/PRODUCTION_PACKET.md",
-    "EPISODES/EP001-example/idea.md",
-    "EPISODES/EP001-example/handoff.md",
-    "01_SPECS/feedback-rubric.md",
-    "01_SPECS/document-contracts.md",
+    "renders/ep004-v2/scenes/EP004-S07.mp4",
+    "renders/ep004/frames-v2/f_0860.png",
+    "renders/ep004/frames-v2/f_0859.png",
+    "renders/ep004/frames-v2/f_0858.png",
+    "renders/ep004/frames-v2/f_0857.png",
+    "renders/ep004/frames-v2/f_0856.png",
+    "renders/ep004/frames-v2/f_0855.png",
+    "renders/ep004/frames-v2/f_0854.png",
+    "renders/ep004/frames-v2/f_0853.png",
+    "renders/ep004/frames-v2/f_0852.png",
+    "renders/ep004/frames-v2/f_0851.png",
+    "renders/ep004/s07-798 861.log",
+    "renders/ep004/s07-735 798.log",
+    "EPISODES/EP004/script.md",
+    "renders/ep004/s07-672 735.log",
+    "renders/ep004/s06-650 672.log",
+    "renders/ep004/s06-628 650.log",
+    "renders/ep004/s06-606 628.log",
+    "renders/ep004-v2/scenes/EP004-S06.mp4",
+    "renders/ep004/s06-639 672.log",
+    "renders/ep004/s06-606 639.log",
+    "renders/ep004-v2/scenes/EP004-S05.mp4",
+    "EPISODES/EP004/storyboard-v1.md",
+    "EPISODES/EP004/research-v1.md",
+    "EPISODES/EP004/script-v1.md",
+    "EPISODES/EP004/set-specs.md",
+    "EPISODES/EP004/storyboard.md",
+    "EPISODES/EP004/character-specs.md",
+    "02_CONTEXT/source-analysis/character-style-notes-stick-cartoon-references.md",
     "01_SPECS/approval-state.md",
-    "00_CORE/mentor-protocol.md",
-    "00_CORE/agents.md"
+    "EPISODES/EP004/research.md",
+    "EPISODES/EP004/idea.md",
+    "EPISODES/EP004/handoff.md",
+    "03_TRACKING/branch-test-plan.md",
+    "EPISODES/EP003/storyboard-v2.md",
+    "EPISODES/EP003/set-specs.md",
+    "EPISODES/EP003/character-specs.md",
+    "EPISODES/EP003/narration-elevenlabs-v1.md",
+    "EPISODES/EP003/script-v1.md",
+    "02_CONTEXT/source-analysis/narration-style-notes-story-chain.md",
+    "EPISODES/EP003/storyboard.md",
+    "EPISODES/EP003/narration-elevenlabs.md",
+    "EPISODES/EP003/script.md",
+    "EPISODES/EP003/research.md",
+    "03_TRACKING/parked-ideas.md",
+    "EPISODES/EP003/idea.md"
   ]
 }

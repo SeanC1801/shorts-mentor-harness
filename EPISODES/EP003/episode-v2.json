@@ -1,0 +1,939 @@
+{
+  "episodeId": "EP003",
+  "version": "0.2.0",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "narration": {
+    "assetId": "AUDIO-NARRATION-EP003",
+    "durationMs": 52506,
+    "syncSource": "measured-audio",
+    "sourceFile": "audio/EP003-narration-v2.mp3",
+    "voiceModel": "ElevenLabs export (creator): voice 'Shorts Voice' (voice clone made in ElevenLabs by the creator); export settings in file name: speed 100, stability 50, similarity boost 75, model v4."
+  },
+  "syncToleranceMs": 80,
+  "totalFrames": 1575,
+  "shots": [
+    {
+      "shotId": "S01",
+      "startFrame": 0,
+      "endFrame": 162,
+      "narrationStartMs": 0,
+      "narrationEndMs": 5400,
+      "narrationSegments": [
+        {
+          "text": "Put a ring around Earth like Saturn's, and a kid opening the curtains would see a stripe across the sky.",
+          "startMs": 0,
+          "endMs": 5335
+        }
+      ],
+      "visual": "Set: V1: A small globe on a bedside shelf; a rocky ring drops around it and settles. Foreground: shelf edge and a toy.; V2: Bedroom, foreground curtains. A kid pulls the curtains open with both hands; bright window.; V3: Outside the window: a pale stripe cuts across a blue sky; the kid looks up (POSE-KID-LOOK-UP).",
+      "characters": [
+        {
+          "characterId": "CHAR-KID",
+          "poseId": "POSE-KID-CURTAINS",
+          "action": "Opens the curtains with both hands, then POSE-KID-LOOK-UP at the stripe."
+        }
+      ],
+      "characterMotion": {
+        "poseFps": 15,
+        "exposureFrames": 2,
+        "action": "Poses swap instantly and are held at least 2 frames; the camera does most of the acting."
+      },
+      "camera": {
+        "description": "View 1 (0-60, LS1 warm morning): Slow push-in on the globe as the ring lands; joins next by push-through the globe toward the window.; View 2 (60-112, LS1 warm morning): Push-in on the kid's hands, curtains sweep across the lens; joins next by push-through the window gap.; View 3 (112-162, LS1 warm morning): Push through the window into the sky, then tilt up the stripe; joins next by follow the stripe.",
+        "fps": 30
+      },
+      "captions": [
+        {
+          "text": "Put a ring around Earth like Saturn's, and a kid opening the curtains would see a stripe across the sky.",
+          "startFrame": 0,
+          "endFrame": 160,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "fade-in",
+        "out": "push-through"
+      },
+      "assets": [
+        "BG-BEDROOM-MORNING",
+        "CHAR-KID",
+        "PROP-CURTAINS",
+        "PROP-GLOBE-DESK",
+        "PROP-ROCK-RING"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP003",
+          "startMs": 0,
+          "endMs": 5400,
+          "kind": "narration",
+          "syncNote": "Measured from EP003-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+          "sourceFile": "audio/EP003-narration-v2.mp3"
+        },
+        {
+          "assetId": "SFX-RING-SETTLE",
+          "startMs": 200,
+          "endMs": 1300,
+          "kind": "sfx",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "SFX-CURTAIN-SWISH",
+          "startMs": 1900,
+          "endMs": 2700,
+          "kind": "sfx",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "AMB-MORNING-BIRDS",
+          "startMs": 0,
+          "endMs": 5400,
+          "kind": "ambience",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+          "startMs": 0,
+          "endMs": 5400,
+          "kind": "music",
+          "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+        }
+      ]
+    },
+    {
+      "shotId": "S02",
+      "startFrame": 162,
+      "endFrame": 313,
+      "narrationStartMs": 5400,
+      "narrationEndMs": 10433,
+      "narrationSegments": [
+        {
+          "text": "It couldn't be ice, because ice wouldn't last this close to the Sun, so say it's rock.",
+          "startMs": 5457,
+          "endMs": 10283
+        }
+      ],
+      "visual": "Set: V1: Rooftops from a low angle; the stripe resolves into a ring of tan-grey rock chunks. A Saturn poster pinned beside the window shows white icy rings for comparison.; V2: A chunk of white ice beside a blazing sun fizzles and shrinks.; V3: A rock chunk next to the sun stays whole; the ice chunk is gone.",
+      "characters": [],
+      "characterMotion": {
+        "poseFps": 15,
+        "exposureFrames": 2,
+        "action": "Poses swap instantly and are held at least 2 frames; the camera does most of the acting."
+      },
+      "camera": {
+        "description": "View 1 (162-215, LS1 warm morning): Tilt up along the ring; slow drift past a rooftop in the foreground; joins next by whip pan to the Sun.; View 2 (215-265, LS1 warm morning): Whip in, then slow push on the ice as it fizzles; joins next by follow the sun glare.; View 3 (265-313, LS1 warm morning): Slow push on the rock chunk, sun flare crossing the lens; joins next by whip to the globe.",
+        "fps": 30
+      },
+      "captions": [
+        {
+          "text": "It couldn't be ice, because ice wouldn't last this close to the Sun, so say it's rock.",
+          "startFrame": 164,
+          "endFrame": 308,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "follow",
+        "out": "whip"
+      },
+      "assets": [
+        "BG-ROOFTOPS-MORNING",
+        "PROP-ROCK-RING",
+        "PROP-SATURN-POSTER",
+        "FX-ICE-SUN-INSERT"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP003",
+          "startMs": 5400,
+          "endMs": 10433,
+          "kind": "narration",
+          "syncNote": "Measured from EP003-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+          "sourceFile": "audio/EP003-narration-v2.mp3"
+        },
+        {
+          "assetId": "SFX-WHOOSH",
+          "startMs": 6900,
+          "endMs": 7500,
+          "kind": "sfx",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "SFX-ICE-FIZZLE",
+          "startMs": 7300,
+          "endMs": 8700,
+          "kind": "sfx",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+          "startMs": 5400,
+          "endMs": 10433,
+          "kind": "music",
+          "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+        }
+      ]
+    },
+    {
+      "shotId": "S03",
+      "startFrame": 313,
+      "endFrame": 385,
+      "narrationStartMs": 10433,
+      "narrationEndMs": 12833,
+      "narrationSegments": [
+        {
+          "text": "Where you stand decides what you see.",
+          "startMs": 10559,
+          "endMs": 12716
+        }
+      ],
+      "visual": "Set: V1: A globe floats in space with three glowing pins: equator, middle, far north.; V2: The pins light up one by one, equator first; the camera closes on the equator pin.",
+      "characters": [],
+      "characterMotion": {
+        "poseFps": 15,
+        "exposureFrames": 2,
+        "action": "Poses swap instantly and are held at least 2 frames; the camera does most of the acting."
+      },
+      "camera": {
+        "description": "View 1 (313-350, LS2 cool deep space): Whip in and settle; slow orbit around the globe; joins next by follow the pins.; View 2 (350-385, LS2 cool deep space): Push in on the equator pin; joins next by push-through the pin to the beach.",
+        "fps": 30
+      },
+      "captions": [
+        {
+          "text": "Where you stand decides what you see.",
+          "startFrame": 317,
+          "endFrame": 381,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "whip",
+        "out": "follow"
+      },
+      "assets": [
+        "BG-SPACE",
+        "PROP-GLOBE-PINS"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP003",
+          "startMs": 10433,
+          "endMs": 12833,
+          "kind": "narration",
+          "syncNote": "Measured from EP003-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+          "sourceFile": "audio/EP003-narration-v2.mp3"
+        },
+        {
+          "assetId": "SFX-WHOOSH",
+          "startMs": 10433,
+          "endMs": 10900,
+          "kind": "sfx",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "SFX-PIN-POP",
+          "startMs": 11300,
+          "endMs": 12500,
+          "kind": "sfx",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+          "startMs": 10433,
+          "endMs": 12833,
+          "kind": "music",
+          "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+        }
+      ]
+    },
+    {
+      "shotId": "S04",
+      "startFrame": 385,
+      "endFrame": 671,
+      "narrationStartMs": 12833,
+      "narrationEndMs": 22367,
+      "narrationSegments": [
+        {
+          "text": "At the equator, the ring is a thin line straight overhead.",
+          "startMs": 12951,
+          "endMs": 16166
+        },
+        {
+          "text": "Farther north, it stretches into a wide arch.",
+          "startMs": 16306,
+          "endMs": 19040
+        },
+        {
+          "text": "Far enough north, it never rises above the horizon.",
+          "startMs": 19151,
+          "endMs": 22225
+        }
+      ],
+      "visual": "Set: V1: Equator beach, palm fronds in the foreground. The ring is a thin bright line straight overhead.; V2: The kid on the sand looks straight up (POSE-KID-LOOK-UP); the thin line passes right above.; V3: Mid-latitude city rooftop, railing in the foreground. The ring is a wide arch over the southern sky; the kid sweeps an arm along it.; V4: The arch comes down to the horizon over the rooftops.; V5: Far-north snowy town, fence and snow bank in the foreground. The sky is empty.; V6: A faint dotted line marks where the ring would be below the horizon; the kid shrugs (POSE-KID-SHRUG).",
+      "characters": [
+        {
+          "characterId": "CHAR-KID",
+          "poseId": "POSE-KID-LOOK-UP",
+          "action": "Looks straight up at the equator, sweeps an arm along the arch, then shrugs (POSE-KID-SHRUG) in the far north."
+        }
+      ],
+      "characterMotion": {
+        "poseFps": 15,
+        "exposureFrames": 2,
+        "action": "Poses swap instantly and are held at least 2 frames; the camera does most of the acting."
+      },
+      "camera": {
+        "description": "View 1 (385-435, LS1 warm morning): Tilt up following the line to the zenith; joins next by follow the line to the kid.; View 2 (435-487, LS1 warm morning): Low angle, slow push-in, line crossing overhead; joins next by whip pan along the ring.; View 3 (487-530, LS1 warm morning): Pan across the arch, parallax past chimneys; joins next by follow the arch down.; View 4 (530-573, LS1 warm morning): Follow the arch down to the horizon; joins next by whip pan north.; View 5 (573-620, LS5 cool low sun): Crane up to a wide, empty sky; joins next by push to the dotted line.; View 6 (620-671, LS5 cool low sun): Rest on the dotted line, slow drift; joins next by pull back to space.",
+        "fps": 30
+      },
+      "captions": [
+        {
+          "text": "At the equator, the ring is a thin line straight overhead.",
+          "startFrame": 389,
+          "endFrame": 485,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        },
+        {
+          "text": "Farther north, it stretches into a wide arch.",
+          "startFrame": 489,
+          "endFrame": 571,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        },
+        {
+          "text": "Far enough north, it never rises above the horizon.",
+          "startFrame": 575,
+          "endFrame": 667,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "follow",
+        "out": "follow-pull-back"
+      },
+      "assets": [
+        "BG-BEACH-EQUATOR",
+        "BG-CITY-ROOFTOP",
+        "BG-NORTH-TOWN-SNOW",
+        "CHAR-KID",
+        "PROP-ROCK-RING"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP003",
+          "startMs": 12833,
+          "endMs": 22367,
+          "kind": "narration",
+          "syncNote": "Measured from EP003-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+          "sourceFile": "audio/EP003-narration-v2.mp3"
+        },
+        {
+          "assetId": "AMB-WAVES-WIND",
+          "startMs": 12833,
+          "endMs": 16300,
+          "kind": "ambience",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "SFX-WHOOSH",
+          "startMs": 16100,
+          "endMs": 16700,
+          "kind": "sfx",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "AMB-CITY-HUM",
+          "startMs": 16300,
+          "endMs": 19100,
+          "kind": "ambience",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "SFX-WHOOSH",
+          "startMs": 19000,
+          "endMs": 19600,
+          "kind": "sfx",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "AMB-COLD-WIND",
+          "startMs": 19100,
+          "endMs": 22367,
+          "kind": "ambience",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+          "startMs": 12833,
+          "endMs": 22367,
+          "kind": "music",
+          "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+        }
+      ]
+    },
+    {
+      "shotId": "S05",
+      "startFrame": 671,
+      "endFrame": 737,
+      "narrationStartMs": 22367,
+      "narrationEndMs": 24567,
+      "narrationSegments": [
+        {
+          "text": "But Earth might not need a what-if.",
+          "startMs": 22505,
+          "endMs": 24482
+        }
+      ],
+      "visual": "Set: V1: Pull back from the town to a globe floating in space; the ring vanishes, leaving a plain Earth.; V2: The globe tilts; a ghost ring shimmers faintly around it; a question mark glints.",
+      "characters": [],
+      "characterMotion": {
+        "poseFps": 15,
+        "exposureFrames": 2,
+        "action": "Poses swap instantly and are held at least 2 frames; the camera does most of the acting."
+      },
+      "camera": {
+        "description": "View 1 (671-705, LS2 cool deep space): Pull back from the ground to a wide space view; joins next by dissolve to the ancient globe.; View 2 (705-737, LS2 cool deep space): Slow orbit and tilt toward the ghost ring; joins next by dissolve.",
+        "fps": 30
+      },
+      "captions": [
+        {
+          "text": "But Earth might not need a what-if.",
+          "startFrame": 675,
+          "endFrame": 734,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "follow-pull-back",
+        "out": "dissolve"
+      },
+      "assets": [
+        "BG-SPACE",
+        "PROP-GLOBE-ANCIENT",
+        "FX-GHOST-RING"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP003",
+          "startMs": 22367,
+          "endMs": 24567,
+          "kind": "narration",
+          "syncNote": "Measured from EP003-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+          "sourceFile": "audio/EP003-narration-v2.mp3"
+        },
+        {
+          "assetId": "SFX-GHOST-SHIMMER",
+          "startMs": 22400,
+          "endMs": 24500,
+          "kind": "sfx",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+          "startMs": 22367,
+          "endMs": 24567,
+          "kind": "music",
+          "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+        }
+      ]
+    },
+    {
+      "shotId": "S06",
+      "startFrame": 737,
+      "endFrame": 983,
+      "narrationStartMs": 24567,
+      "narrationEndMs": 32767,
+      "narrationSegments": [
+        {
+          "text": "A study suggests that 466 million years ago, an asteroid passed too close, and Earth's pull tore it apart into a ring.",
+          "startMs": 24660,
+          "endMs": 32669
+        }
+      ],
+      "visual": "Set: V1: An in-world paper with the stamp 'A STUDY SUGGESTS' (a hypothesis, not a fact); the globe turns behind it.; V2: A timeline card slides back to '466 MILLION YEARS AGO' over a plain ancient globe.; V3: A lumpy asteroid sails toward Earth, passing close; foreground rock fragments streak past.; V4: The asteroid stretches, cracks and splits; the pieces spiral into a ring around the globe; warm glow at the break.",
+      "characters": [],
+      "characterMotion": {
+        "poseFps": 15,
+        "exposureFrames": 2,
+        "action": "Poses swap instantly and are held at least 2 frames; the camera does most of the acting."
+      },
+      "camera": {
+        "description": "View 1 (737-800, LS2 cool deep space): Push in on the stamp; joins next by whip to the timeline card.; View 2 (800-849, LS2 cool deep space): Push in on the card as the globe turns behind it; joins next by whip to the asteroid.; View 3 (849-905, LS2 cool deep space): Fast tracking move following the asteroid in; joins next by follow the asteroid as it stretches.; View 4 (905-983, LS6 warm orange glow): Orbit the globe as the ring forms; motion blur on the pieces; joins next by follow the pieces to the surface.",
+        "fps": 30
+      },
+      "captions": [
+        {
+          "text": "A study suggests that 466 million years ago, an asteroid passed too close, and Earth's pull tore it apart into a ring.",
+          "startFrame": 740,
+          "endFrame": 980,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "dissolve",
+        "out": "follow"
+      },
+      "assets": [
+        "BG-SPACE",
+        "PROP-PAPER-STAMP",
+        "PROP-TIMELINE-CARD",
+        "PROP-ASTEROID",
+        "FX-RING-FORM",
+        "PROP-GLOBE-ANCIENT"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP003",
+          "startMs": 24567,
+          "endMs": 32767,
+          "kind": "narration",
+          "syncNote": "Measured from EP003-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+          "sourceFile": "audio/EP003-narration-v2.mp3"
+        },
+        {
+          "assetId": "SFX-PAPER-STAMP",
+          "startMs": 24800,
+          "endMs": 25300,
+          "kind": "sfx",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "SFX-ASTEROID-PASS",
+          "startMs": 28300,
+          "endMs": 29400,
+          "kind": "sfx",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "SFX-CRACK-RUMBLE",
+          "startMs": 30000,
+          "endMs": 32000,
+          "kind": "sfx",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+          "startMs": 24567,
+          "endMs": 32767,
+          "kind": "music",
+          "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+        }
+      ]
+    },
+    {
+      "shotId": "S07",
+      "startFrame": 983,
+      "endFrame": 1122,
+      "narrationStartMs": 32767,
+      "narrationEndMs": 37400,
+      "narrationSegments": [
+        {
+          "text": "The clue is in the craters: twenty-one from that era all formed near the equator.",
+          "startMs": 32870,
+          "endMs": 37299
+        }
+      ],
+      "visual": "Set: V1: Ancient globe with an equator line; dots pop onto the surface one by one with a counter 21.; V2: More dots pop on; the counter races to 21.; V3: Pull back: all 21 dots sit in a narrow band along the equator; the band glows.",
+      "characters": [],
+      "characterMotion": {
+        "poseFps": 15,
+        "exposureFrames": 2,
+        "action": "Poses swap instantly and are held at least 2 frames; the camera does most of the acting."
+      },
+      "camera": {
+        "description": "View 1 (983-1035, LS2 cool deep space): Push in following the first dots, slow orbit; joins next by follow the dots.; View 2 (1035-1080, LS2 cool deep space): Orbit and push across the surface; joins next by pull back along the equator.; View 3 (1080-1122, LS2 cool deep space): Pull back and orbit to show the band; joins next by dissolve to the falling ring.",
+        "fps": 30
+      },
+      "captions": [
+        {
+          "text": "The clue is in the craters: twenty-one from that era all formed near the equator.",
+          "startFrame": 986,
+          "endFrame": 1119,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "follow",
+        "out": "dissolve"
+      },
+      "assets": [
+        "BG-SPACE",
+        "PROP-GLOBE-ANCIENT",
+        "FX-CRATER-DOTS"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP003",
+          "startMs": 32767,
+          "endMs": 37400,
+          "kind": "narration",
+          "syncNote": "Measured from EP003-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+          "sourceFile": "audio/EP003-narration-v2.mp3"
+        },
+        {
+          "assetId": "SFX-DOT-POP",
+          "startMs": 33100,
+          "endMs": 36000,
+          "kind": "sfx",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+          "startMs": 32767,
+          "endMs": 37400,
+          "kind": "music",
+          "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+        }
+      ]
+    },
+    {
+      "shotId": "S08",
+      "startFrame": 1122,
+      "endFrame": 1306,
+      "narrationStartMs": 37400,
+      "narrationEndMs": 43533,
+      "narrationSegments": [
+        {
+          "text": "You see, a ring doesn't last forever.",
+          "startMs": 37519,
+          "endMs": 39559
+        },
+        {
+          "text": "Its pieces slowly fall back, and near the equator is where they'd land.",
+          "startMs": 39672,
+          "endMs": 43429
+        }
+      ],
+      "visual": "Set: V1: The ring around the globe slowly thins and dims; a pair of pieces drift off its edge.; V2: Pieces fall slowly toward the surface, streaking; foreground fragments pass the lens.; V3: The pieces land in a band along the equator, small flashes; the band glows.",
+      "characters": [],
+      "characterMotion": {
+        "poseFps": 15,
+        "exposureFrames": 2,
+        "action": "Poses swap instantly and are held at least 2 frames; the camera does most of the acting."
+      },
+      "camera": {
+        "description": "View 1 (1122-1189, LS2 cool deep space): Slow orbit with a gentle push; joins next by follow the loose pieces down.; View 2 (1189-1250, LS2 cool deep space): Follow the pieces down in a long tracking move; joins next by follow them to the surface.; View 3 (1250-1306, LS2 cool deep space): Pull back along the equator; joins next by dissolve to the craters.",
+        "fps": 30
+      },
+      "captions": [
+        {
+          "text": "You see, a ring doesn't last forever.",
+          "startFrame": 1126,
+          "endFrame": 1187,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        },
+        {
+          "text": "Its pieces slowly fall back, and near the equator is where they'd land.",
+          "startFrame": 1190,
+          "endFrame": 1303,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "dissolve",
+        "out": "dissolve"
+      },
+      "assets": [
+        "BG-SPACE",
+        "PROP-GLOBE-ANCIENT",
+        "FX-RING-FADE",
+        "FX-DEBRIS-FALL"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP003",
+          "startMs": 37400,
+          "endMs": 43533,
+          "kind": "narration",
+          "syncNote": "Measured from EP003-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+          "sourceFile": "audio/EP003-narration-v2.mp3"
+        },
+        {
+          "assetId": "SFX-DEBRIS-FALL",
+          "startMs": 38500,
+          "endMs": 43000,
+          "kind": "sfx",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+          "startMs": 37400,
+          "endMs": 43533,
+          "kind": "music",
+          "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+        }
+      ]
+    },
+    {
+      "shotId": "S09",
+      "startFrame": 1306,
+      "endFrame": 1511,
+      "narrationStartMs": 43533,
+      "narrationEndMs": 50367,
+      "narrationSegments": [
+        {
+          "text": "Some experts doubt the crater ages, but if the study is right, Earth once wore a ring, long before the dinosaurs.",
+          "startMs": 43601,
+          "endMs": 50274
+        }
+      ],
+      "visual": "Set: V1: Three craters with age tags flicker '466?'; a tiny question mark rises from each.; V2: A ring materializes around the ancient globe; the paper stamp 'A STUDY SUGGESTS' glints beside it.; V3: Ancient seafloor, ferns and rocks in the foreground. A small trilobite looks up through shallow water at a ring arching across the sky.; V4: The ring fades out; a small cartoon dinosaur walks in under an empty sky and looks up.",
+      "characters": [
+        {
+          "characterId": "CHAR-TRILOBITE",
+          "poseId": "POSE-TRILOBITE-LOOK-UP",
+          "action": "Looks up at the ring."
+        },
+        {
+          "characterId": "CHAR-DINO",
+          "poseId": "POSE-DINO-LOOK-UP",
+          "action": "Walks in and looks up at an empty sky."
+        }
+      ],
+      "characterMotion": {
+        "poseFps": 15,
+        "exposureFrames": 2,
+        "action": "Poses swap instantly and are held at least 2 frames; the camera does most of the acting."
+      },
+      "camera": {
+        "description": "View 1 (1306-1371, LS2 cool deep space): Quick push in, slight handheld drift on the tags; joins next by dissolve to the ring.; View 2 (1371-1414, LS2 cool deep space): Orbit and push toward the ring; joins next by dissolve to the seafloor.; View 3 (1414-1460, LS7 teal ancient sea): Crane up from the trilobite to the ring; joins next by dissolve to a plain.; View 4 (1460-1511, LS8 pale dawn): Slow pull back to a wide; joins next by whip to the bedroom.",
+        "fps": 30
+      },
+      "captions": [
+        {
+          "text": "Some experts doubt the crater ages, but if the study is right, Earth once wore a ring, long before the dinosaurs.",
+          "startFrame": 1308,
+          "endFrame": 1508,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "dissolve",
+        "out": "fade-through"
+      },
+      "assets": [
+        "BG-SPACE",
+        "PROP-AGE-TAGS",
+        "PROP-PAPER-STAMP",
+        "BG-SEAFLOOR",
+        "BG-DAWN-PLAIN",
+        "CHAR-TRILOBITE",
+        "CHAR-DINO",
+        "PROP-GLOBE-ANCIENT"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP003",
+          "startMs": 43533,
+          "endMs": 50367,
+          "kind": "narration",
+          "syncNote": "Measured from EP003-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+          "sourceFile": "audio/EP003-narration-v2.mp3"
+        },
+        {
+          "assetId": "SFX-QUESTION-FLICKER",
+          "startMs": 43700,
+          "endMs": 45500,
+          "kind": "sfx",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "AMB-SHALLOW-SEA",
+          "startMs": 47100,
+          "endMs": 48700,
+          "kind": "ambience",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "SFX-DINO-STEP",
+          "startMs": 49500,
+          "endMs": 50367,
+          "kind": "sfx",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+          "startMs": 43533,
+          "endMs": 50367,
+          "kind": "music",
+          "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+        }
+      ]
+    },
+    {
+      "shotId": "S10",
+      "startFrame": 1511,
+      "endFrame": 1575,
+      "narrationStartMs": 50367,
+      "narrationEndMs": 52506,
+      "narrationSegments": [
+        {
+          "text": "A what-if that may have been real.",
+          "startMs": 50445,
+          "endMs": 52393
+        }
+      ],
+      "visual": "Set: V1: The kid's bedroom window at dawn; the sky is empty with the faintest stripe fading. Final hold, then fade to black.",
+      "characters": [
+        {
+          "characterId": "CHAR-KID",
+          "poseId": "POSE-KID-LOOK-UP",
+          "action": "Stands at the window looking up (silhouette)."
+        }
+      ],
+      "characterMotion": {
+        "poseFps": 15,
+        "exposureFrames": 2,
+        "action": "Poses swap instantly and are held at least 2 frames; the camera does most of the acting."
+      },
+      "camera": {
+        "description": "View 1 (1511-1575, LS8 pale dawn): Slow push-in toward the window, a gentle push over the last frames; joins next by fade-out.",
+        "fps": 30
+      },
+      "captions": [
+        {
+          "text": "A what-if that may have been real.",
+          "startFrame": 1513,
+          "endFrame": 1572,
+          "position": "bottom",
+          "styleId": "CAPTION-WORD-BY-WORD"
+        }
+      ],
+      "transition": {
+        "in": "whip",
+        "out": "fade-out"
+      },
+      "assets": [
+        "BG-BEDROOM-MORNING",
+        "CHAR-KID",
+        "PROP-CURTAINS"
+      ],
+      "audio": [
+        {
+          "assetId": "AUDIO-NARRATION-EP003",
+          "startMs": 50367,
+          "endMs": 52506,
+          "kind": "narration",
+          "syncNote": "Measured from EP003-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+          "sourceFile": "audio/EP003-narration-v2.mp3"
+        },
+        {
+          "assetId": "AMB-MORNING-BIRDS",
+          "startMs": 50367,
+          "endMs": 52500,
+          "kind": "ambience",
+          "syncNote": "CapCut hand-off cue; timed to measured narration."
+        },
+        {
+          "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+          "startMs": 50367,
+          "endMs": 52506,
+          "kind": "music",
+          "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+        }
+      ]
+    }
+  ],
+  "exports": {
+    "preview": {
+      "filename": "EP003-preview.mp4",
+      "format": "mp4",
+      "includesBurnedCaptions": true
+    },
+    "scenes": [
+      {
+        "shotId": "S01",
+        "filename": "EP003-S01.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30
+      },
+      {
+        "shotId": "S02",
+        "filename": "EP003-S02.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30
+      },
+      {
+        "shotId": "S03",
+        "filename": "EP003-S03.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30
+      },
+      {
+        "shotId": "S04",
+        "filename": "EP003-S04.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30
+      },
+      {
+        "shotId": "S05",
+        "filename": "EP003-S05.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30
+      },
+      {
+        "shotId": "S06",
+        "filename": "EP003-S06.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30
+      },
+      {
+        "shotId": "S07",
+        "filename": "EP003-S07.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30
+      },
+      {
+        "shotId": "S08",
+        "filename": "EP003-S08.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30
+      },
+      {
+        "shotId": "S09",
+        "filename": "EP003-S09.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30
+      },
+      {
+        "shotId": "S10",
+        "filename": "EP003-S10.mp4",
+        "format": "mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30
+      }
+    ]
+  }
+}

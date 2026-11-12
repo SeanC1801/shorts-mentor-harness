@@ -1,0 +1,115 @@
+{
+  "episodeId": "EP004",
+  "stage": "ideation",
+  "invalidationRule": "Any upstream change invalidates all downstream approvals.",
+  "approvals": {
+    "idea": {
+      "status": "approved",
+      "artifactFiles": [
+        "idea.md"
+      ],
+      "currentContentHash": "8ed2dcf316eea47a5486899d3fd0b984d2938dc97d289bc73f69a9b2f293fa13",
+      "version": "v3",
+      "approvedBy": "Sean Caling",
+      "approvedAt": "2026-11-10T15:33:56Z",
+      "contentHash": "8ed2dcf316eea47a5486899d3fd0b984d2938dc97d289bc73f69a9b2f293fa13",
+      "dependencyHashes": {},
+      "approvalText": "I approve idea v3"
+    },
+    "script": {
+      "status": "approved",
+      "artifactFiles": [
+        "research.md",
+        "script.md"
+      ],
+      "currentContentHash": "4e7ac56c1c29f2dc4ef08771b88d94e795c498e302cbc94d808da65153622029",
+      "version": "v2",
+      "approvedBy": "Sean Caling",
+      "approvedAt": "2026-11-10T18:14:05Z",
+      "contentHash": "4e7ac56c1c29f2dc4ef08771b88d94e795c498e302cbc94d808da65153622029",
+      "dependencyHashes": {
+        "idea": "8ed2dcf316eea47a5486899d3fd0b984d2938dc97d289bc73f69a9b2f293fa13"
+      },
+      "approvalText": "I approve script v2"
+    },
+    "storyboard": {
+      "status": "approved",
+      "artifactFiles": [
+        "storyboard.md",
+        "episode.json"
+      ],
+      "currentContentHash": "3d4d83fa857bbac05ea66c4552750b33ba757f70d4ab84f75811c9639418bd1c",
+      "version": "v2",
+      "approvedBy": "Sean Caling",
+      "approvedAt": "2026-11-10T18:18:12Z",
+      "contentHash": "3d4d83fa857bbac05ea66c4552750b33ba757f70d4ab84f75811c9639418bd1c",
+      "dependencyHashes": {
+        "script": "4e7ac56c1c29f2dc4ef08771b88d94e795c498e302cbc94d808da65153622029"
+      },
+      "approvalText": "I approve storyboard v2"
+    },
+    "animationPreview": {
+      "status": "blocked",
+      "artifactFiles": [
+        "animation-preview.mp4"
+      ],
+      "currentContentHash": null
+    }
+  },
+  "history": [
+    {
+      "at": "2026-11-10T15:33:56Z",
+      "event": "idea approved",
+      "version": "v3",
+      "contentHash": "8ed2dcf316eea47a5486899d3fd0b984d2938dc97d289bc73f69a9b2f293fa13",
+      "approvedBy": "Sean Caling"
+    },
+    {
+      "at": "2026-11-10T15:41:03Z",
+      "event": "script approved",
+      "version": "v1",
+      "contentHash": "69ba7c01b817e742492e36dc804750d54807fce300de3e7fece317c8d62d192f",
+      "approvedBy": "Sean Caling"
+    },
+    {
+      "at": "2026-11-10T15:41:03Z",
+      "event": "script approval invalidated: artifact content changed"
+    },
+    {
+      "at": "2026-11-10T15:41:12Z",
+      "event": "script approved",
+      "version": "v1",
+      "contentHash": "69ba7c01b817e742492e36dc804750d54807fce300de3e7fece317c8d62d192f",
+      "approvedBy": "Sean Caling"
+    },
+    {
+      "at": "2026-11-10T16:13:04Z",
+      "event": "storyboard approved",
+      "version": "v1",
+      "contentHash": "6d9aa0258a8557c29b7d9e8e1f7723ea5644288fbbf1e3d21d3a067416261a60",
+      "approvedBy": "Sean Caling"
+    },
+    {
+      "at": "2026-11-10T18:12:08Z",
+      "event": "script approval invalidated: artifact content changed"
+    },
+    {
+      "at": "2026-11-10T18:12:08Z",
+      "event": "storyboard approval invalidated: upstream approval changed"
+    },
+    {
+      "at": "2026-11-10T18:14:05Z",
+      "event": "script approved",
+      "version": "v2",
+      "contentHash": "4e7ac56c1c29f2dc4ef08771b88d94e795c498e302cbc94d808da65153622029",
+      "approvedBy": "Sean Caling"
+    },
+    {
+      "at": "2026-11-10T18:18:12Z",
+      "event": "storyboard approved",
+      "version": "v2",
+      "contentHash": "3d4d83fa857bbac05ea66c4552750b33ba757f70d4ab84f75811c9639418bd1c",
+      "approvedBy": "Sean Caling"
+    }
+  ]
+}

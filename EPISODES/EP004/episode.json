@@ -1,0 +1,1096 @@
+{
+ "episodeId": "EP004",
+ "version": "0.2.0",
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "narration": {
+  "assetId": "AUDIO-NARRATION-EP004",
+  "durationMs": 53551,
+  "syncSource": "measured-audio",
+  "sourceFile": "audio/EP004-narration-v2.mp3",
+  "voiceModel": "ElevenLabs export (creator): voice 'Shorts Voice' (voice clone made in ElevenLabs by the creator); Script v2 narration (creator, 2026-11-11); export settings in file name: stability 61, similarity boost 75, model v4."
+ },
+ "syncToleranceMs": 80,
+ "totalFrames": 1607,
+ "exports": {
+  "preview": {
+   "filename": "EP004-preview.mp4",
+   "format": "mp4",
+   "includesBurnedCaptions": true
+  },
+  "scenes": [
+   {
+    "shotId": "S01",
+    "filename": "EP004-S01.mp4",
+    "format": "mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+   },
+   {
+    "shotId": "S02",
+    "filename": "EP004-S02.mp4",
+    "format": "mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+   },
+   {
+    "shotId": "S03",
+    "filename": "EP004-S03.mp4",
+    "format": "mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+   },
+   {
+    "shotId": "S04",
+    "filename": "EP004-S04.mp4",
+    "format": "mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+   },
+   {
+    "shotId": "S05",
+    "filename": "EP004-S05.mp4",
+    "format": "mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+   },
+   {
+    "shotId": "S06",
+    "filename": "EP004-S06.mp4",
+    "format": "mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+   },
+   {
+    "shotId": "S07",
+    "filename": "EP004-S07.mp4",
+    "format": "mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+   },
+   {
+    "shotId": "S08",
+    "filename": "EP004-S08.mp4",
+    "format": "mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+   },
+   {
+    "shotId": "S09",
+    "filename": "EP004-S09.mp4",
+    "format": "mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+   },
+   {
+    "shotId": "S10",
+    "filename": "EP004-S10.mp4",
+    "format": "mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+   },
+   {
+    "shotId": "S11",
+    "filename": "EP004-S11.mp4",
+    "format": "mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+   },
+   {
+    "shotId": "S12",
+    "filename": "EP004-S12.mp4",
+    "format": "mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+   }
+  ]
+ },
+ "shots": [
+  {
+   "shotId": "S01",
+   "startFrame": 0,
+   "endFrame": 120,
+   "narrationStartMs": 0,
+   "narrationEndMs": 4000,
+   "narrationSegments": [
+    {
+     "text": "Follow the rain on a window backwards far enough, and it leads to the sea.",
+     "startMs": 0,
+     "endMs": 3930
+    }
+   ],
+   "visual": "V1: Close on one raindrop sliding down a rainy window; the kid's face behind the glass, softly out of focus (POSE-RAINKID-WINDOW, curious).; V2: The drop rewinds: it slides back up the glass and lifts off into the grey sky over wet rooftops.; V3: The drop rewinds through a cloud and down to a sunlit sea, landing back in the water.",
+   "characters": [
+    {
+     "characterId": "CHAR-RAINKID",
+     "poseId": "POSE-RAINKID-WINDOW",
+     "action": "Watches a raindrop on the glass from behind the window. Outfit OUTFIT-RAINKID-INDOOR; face FACE-RAINKID-CURIOUS."
+    }
+   ],
+   "characterMotion": {
+    "poseFps": 15,
+    "exposureFrames": 2,
+    "action": "Poses and faces swap instantly and are held at least 2 frames; the camera does most of the acting."
+   },
+   "camera": {
+    "description": "View 1 (0-42, LS1 grey rainy day (indoor, cool)): Slow push-in on the drop; joins next by follow the drop.; View 2 (42-81, LS1 grey rainy day (indoor, cool)): Tilt up following the drop; joins next by follow the drop into the cloud.; View 3 (81-120, LS2 warm sunny sea): Dive down with the drop to the sea surface; joins next by follow (camera stays on the water).",
+    "fps": 30
+   },
+   "captions": [
+    {
+     "text": "Follow the rain on a window backwards far enough, and it leads to the sea.",
+     "startFrame": 0,
+     "endFrame": 120,
+     "position": "bottom",
+     "styleId": "CAPTION-WORD-BY-WORD"
+    }
+   ],
+   "transition": {
+    "in": "fade-in",
+    "out": "follow"
+   },
+   "assets": [
+    "BG-WINDOW-RAINY",
+    "PROP-RAINDROP",
+    "BG-SEA-SUNNY",
+    "CHAR-RAINKID"
+   ],
+   "audio": [
+    {
+     "assetId": "AUDIO-NARRATION-EP004",
+     "startMs": 0,
+     "endMs": 4000,
+     "kind": "narration",
+     "syncNote": "Measured from EP004-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+     "sourceFile": "audio/EP004-narration-v2.mp3"
+    },
+    {
+     "assetId": "SFX-RAIN-PATTER",
+     "startMs": 0,
+     "endMs": 3969,
+     "kind": "ambience",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "SFX-REWIND-WHOOSH",
+     "startMs": 1417,
+     "endMs": 2740,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+     "startMs": 0,
+     "endMs": 4000,
+     "kind": "music",
+     "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+    }
+   ]
+  },
+  {
+   "shotId": "S02",
+   "startFrame": 120,
+   "endFrame": 254,
+   "narrationStartMs": 4000,
+   "narrationEndMs": 8467,
+   "narrationSegments": [
+    {
+     "text": "Sunlight warms the ocean, and water rises off it as invisible vapor.",
+     "startMs": 4100,
+     "endMs": 8390
+    }
+   ],
+   "visual": "V1: Sunny open sea; sunlight glints across the waves as they warm.; V2: Faint, shimmering curls rise off the surface (stylized: real vapor is invisible, so it is drawn as a faint heat-haze shimmer).",
+   "characters": [],
+   "characterMotion": {
+    "poseFps": 15,
+    "exposureFrames": 2,
+    "action": "Poses and faces swap instantly and are held at least 2 frames; the camera does most of the acting."
+   },
+   "camera": {
+    "description": "View 1 (120-184, LS2 warm sunny sea): Low glide over the waves toward the sun; joins next by follow the glints up.; View 2 (184-254, LS2 warm sunny sea): Crane up with the rising curls; joins next by follow the curls up.",
+    "fps": 30
+   },
+   "captions": [
+    {
+     "text": "Sunlight warms the ocean, and water rises off it as invisible vapor.",
+     "startFrame": 123,
+     "endFrame": 254,
+     "position": "bottom",
+     "styleId": "CAPTION-WORD-BY-WORD"
+    }
+   ],
+   "transition": {
+    "in": "follow",
+    "out": "follow"
+   },
+   "assets": [
+    "BG-SEA-SUNNY",
+    "FX-VAPOR-CURLS"
+   ],
+   "audio": [
+    {
+     "assetId": "AUDIO-NARRATION-EP004",
+     "startMs": 4000,
+     "endMs": 8467,
+     "kind": "narration",
+     "syncNote": "Measured from EP004-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+     "sourceFile": "audio/EP004-narration-v2.mp3"
+    },
+    {
+     "assetId": "AMB-SEA-WAVES",
+     "startMs": 4007,
+     "endMs": 8463,
+     "kind": "ambience",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+     "startMs": 4000,
+     "endMs": 8467,
+     "kind": "music",
+     "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+    }
+   ]
+  },
+  {
+   "shotId": "S03",
+   "startFrame": 254,
+   "endFrame": 401,
+   "narrationStartMs": 8467,
+   "narrationEndMs": 13367,
+   "narrationSegments": [
+    {
+     "text": "High up, the vapor cools into tiny droplets, and the droplets gather into clouds.",
+     "startMs": 8560,
+     "endMs": 13310
+    }
+   ],
+   "visual": "V1: High up, the sky turns cooler blue; the curls slow down and turn into tiny sparkling droplets.; V2: The droplets drift together and clump.; V3: Pull back: a fluffy white cloud has formed over the sea.",
+   "characters": [],
+   "characterMotion": {
+    "poseFps": 15,
+    "exposureFrames": 2,
+    "action": "Poses and faces swap instantly and are held at least 2 frames; the camera does most of the acting."
+   },
+   "camera": {
+    "description": "View 1 (254-301, LS3 cool high sky): Keep rising, slow orbit around the curls; joins next by push in on the droplets.; View 2 (301-351, LS3 cool high sky): Push in as they gather; joins next by pull back.; View 3 (351-401, LS3 cool high sky): Pull back to a wide of the cloud; joins next by follow the cloud on the wind.",
+    "fps": 30
+   },
+   "captions": [
+    {
+     "text": "High up, the vapor cools into tiny droplets, and the droplets gather into clouds.",
+     "startFrame": 257,
+     "endFrame": 401,
+     "position": "bottom",
+     "styleId": "CAPTION-WORD-BY-WORD"
+    }
+   ],
+   "transition": {
+    "in": "follow",
+    "out": "follow"
+   },
+   "assets": [
+    "BG-HIGH-SKY",
+    "FX-VAPOR-CURLS",
+    "FX-DROPLETS",
+    "PROP-CLOUD"
+   ],
+   "audio": [
+    {
+     "assetId": "AUDIO-NARRATION-EP004",
+     "startMs": 8467,
+     "endMs": 13367,
+     "kind": "narration",
+     "syncNote": "Measured from EP004-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+     "sourceFile": "audio/EP004-narration-v2.mp3"
+    },
+    {
+     "assetId": "SFX-SPARKLE-TINKLE",
+     "startMs": 9133,
+     "endMs": 11333,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "SFX-CLOUD-PUFF",
+     "startMs": 11833,
+     "endMs": 13133,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+     "startMs": 8467,
+     "endMs": 13367,
+     "kind": "music",
+     "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+    }
+   ]
+  },
+  {
+   "shotId": "S04",
+   "startFrame": 401,
+   "endFrame": 543,
+   "narrationStartMs": 13367,
+   "narrationEndMs": 18100,
+   "narrationSegments": [
+    {
+     "text": "Wind carries those clouds over land, and they fall as rain on that same window.",
+     "startMs": 13450,
+     "endMs": 17980
+    }
+   ],
+   "visual": "V1: Wind streaks push the clouds off the sea, over the coastline and toward a small town.; V2: Rain falls on the town; one drop lands on the kid's window (POSE-RAINKID-WINDOW, curious). The loop is complete.",
+   "characters": [
+    {
+     "characterId": "CHAR-RAINKID",
+     "poseId": "POSE-RAINKID-WINDOW",
+     "action": "Watches as a drop hits the window. Outfit OUTFIT-RAINKID-INDOOR; face FACE-RAINKID-CURIOUS."
+    }
+   ],
+   "characterMotion": {
+    "poseFps": 15,
+    "exposureFrames": 2,
+    "action": "Poses and faces swap instantly and are held at least 2 frames; the camera does most of the acting."
+   },
+   "camera": {
+    "description": "View 1 (401-471, LS3 cool high sky): Track alongside the clouds, coast passing below; joins next by follow the rain down.; View 2 (471-543, LS1 grey rainy day (indoor, cool)): Follow one drop down onto the glass, then settle on the kid; joins next by whip to the sea.",
+    "fps": 30
+   },
+   "captions": [
+    {
+     "text": "Wind carries those clouds over land, and they fall as rain on that same window.",
+     "startFrame": 404,
+     "endFrame": 541,
+     "position": "bottom",
+     "styleId": "CAPTION-WORD-BY-WORD"
+    }
+   ],
+   "transition": {
+    "in": "follow",
+    "out": "whip"
+   },
+   "assets": [
+    "BG-COAST-TOWN",
+    "PROP-CLOUD",
+    "FX-RAIN",
+    "BG-WINDOW-RAINY",
+    "CHAR-RAINKID"
+   ],
+   "audio": [
+    {
+     "assetId": "AUDIO-NARRATION-EP004",
+     "startMs": 13367,
+     "endMs": 18100,
+     "kind": "narration",
+     "syncNote": "Measured from EP004-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+     "sourceFile": "audio/EP004-narration-v2.mp3"
+    },
+    {
+     "assetId": "SFX-WIND-GUST",
+     "startMs": 13439,
+     "endMs": 15733,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "SFX-RAIN-PATTER",
+     "startMs": 15733,
+     "endMs": 18093,
+     "kind": "ambience",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "SFX-DROP-TAP",
+     "startMs": 17153,
+     "endMs": 17699,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+     "startMs": 13367,
+     "endMs": 18100,
+     "kind": "music",
+     "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+    }
+   ]
+  },
+  {
+   "shotId": "S05",
+   "startFrame": 543,
+   "endFrame": 606,
+   "narrationStartMs": 18100,
+   "narrationEndMs": 20200,
+   "narrationSegments": [
+    {
+     "text": "Now drain the ocean overnight.",
+     "startMs": 18210,
+     "endMs": 20120
+    }
+   ],
+   "visual": "V1: Night turns to dawn in a fast time-lapse while the whole sea drains away from the shore, leaving the beach high and dry.; V2: The kid on the shore in a raincoat flings both arms up (POSE-RAINKID-SHOCK, shocked).",
+   "characters": [
+    {
+     "characterId": "CHAR-RAINKID",
+     "poseId": "POSE-RAINKID-SHOCK",
+     "action": "Flings arms up as the sea drains. Outfit OUTFIT-RAINKID-RAIN; face FACE-RAINKID-SHOCKED."
+    }
+   ],
+   "characterMotion": {
+    "poseFps": 15,
+    "exposureFrames": 2,
+    "action": "Poses and faces swap instantly and are held at least 2 frames; the camera does most of the acting."
+   },
+   "camera": {
+    "description": "View 1 (543-576, LS4 pale dawn shore): Whip in, then a fast pull up and back; joins next by follow down to the kid.; View 2 (576-606, LS4 pale dawn shore): Quick push-in on the kid; joins next by follow the kid's gaze out.",
+    "fps": 30
+   },
+   "captions": [
+    {
+     "text": "Now drain the ocean overnight.",
+     "startFrame": 546,
+     "endFrame": 606,
+     "position": "bottom",
+     "styleId": "CAPTION-WORD-BY-WORD"
+    }
+   ],
+   "transition": {
+    "in": "whip",
+    "out": "follow"
+   },
+   "assets": [
+    "BG-SHORE-DRAINING",
+    "FX-WATER-DRAIN",
+    "CHAR-RAINKID"
+   ],
+   "audio": [
+    {
+     "assetId": "AUDIO-NARRATION-EP004",
+     "startMs": 18100,
+     "endMs": 20200,
+     "kind": "narration",
+     "syncNote": "Measured from EP004-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+     "sourceFile": "audio/EP004-narration-v2.mp3"
+    },
+    {
+     "assetId": "SFX-DRAIN-GLUG",
+     "startMs": 18103,
+     "endMs": 19511,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "SFX-WHOOSH",
+     "startMs": 18103,
+     "endMs": 18527,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+     "startMs": 18100,
+     "endMs": 20200,
+     "kind": "music",
+     "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+    }
+   ]
+  },
+  {
+   "shotId": "S06",
+   "startFrame": 606,
+   "endFrame": 672,
+   "narrationStartMs": 20200,
+   "narrationEndMs": 22400,
+   "narrationSegments": [
+    {
+     "text": "Nothing rises from the empty seafloor.",
+     "startMs": 20270,
+     "endMs": 22290
+    }
+   ],
+   "visual": "V1: The empty seafloor: damp sand, shells, a boat on its side. Nothing rises from it.; V2: The kid seen from behind at the shore (POSE-RAINKID-SHORE), the empty bowl of the seabed ahead, a bare sky above.",
+   "characters": [
+    {
+     "characterId": "CHAR-RAINKID",
+     "poseId": "POSE-RAINKID-SHORE",
+     "action": "Stands at the edge, looking out over the empty seabed. Outfit OUTFIT-RAINKID-RAIN; face none (back view)."
+    }
+   ],
+   "characterMotion": {
+    "poseFps": 15,
+    "exposureFrames": 2,
+    "action": "Poses and faces swap instantly and are held at least 2 frames; the camera does most of the acting."
+   },
+   "camera": {
+    "description": "View 1 (606-640, LS5 bright dry day): Low drift across the seabed; joins next by follow to the shore.; View 2 (640-672, LS5 bright dry day): Slow crane up behind the kid; joins next by dissolve inland.",
+    "fps": 30
+   },
+   "captions": [
+    {
+     "text": "Nothing rises from the empty seafloor.",
+     "startFrame": 608,
+     "endFrame": 671,
+     "position": "bottom",
+     "styleId": "CAPTION-WORD-BY-WORD"
+    }
+   ],
+   "transition": {
+    "in": "follow",
+    "out": "dissolve"
+   },
+   "assets": [
+    "BG-SEABED-EMPTY",
+    "CHAR-RAINKID"
+   ],
+   "audio": [
+    {
+     "assetId": "AUDIO-NARRATION-EP004",
+     "startMs": 20200,
+     "endMs": 22400,
+     "kind": "narration",
+     "syncNote": "Measured from EP004-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+     "sourceFile": "audio/EP004-narration-v2.mp3"
+    },
+    {
+     "assetId": "AMB-EMPTY-WIND",
+     "startMs": 20200,
+     "endMs": 22400,
+     "kind": "ambience",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+     "startMs": 20200,
+     "endMs": 22400,
+     "kind": "music",
+     "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+    }
+   ]
+  },
+  {
+   "shotId": "S07",
+   "startFrame": 672,
+   "endFrame": 861,
+   "narrationStartMs": 22400,
+   "narrationEndMs": 28700,
+   "narrationSegments": [
+    {
+     "text": "A little water still lifts off lakes, soil and plants, so the clouds wouldn't vanish at once.",
+     "startMs": 22480,
+     "endMs": 27660
+    },
+    {
+     "text": "They'd thin out.",
+     "startMs": 27800,
+     "endMs": 28590
+    }
+   ],
+   "visual": "V1: Inland: a lake; a few faint curls lift off it.; V2: A field and a tree; faint curls rise from the soil, then the plants (one by one on the words).; V3: Above: a cloud still forms, but it is small and patchy.; V4: The clouds thin, gaps opening; the kid points up (POSE-RAINKID-POINT-UP, worried).",
+   "characters": [
+    {
+     "characterId": "CHAR-RAINKID",
+     "poseId": "POSE-RAINKID-POINT-UP",
+     "action": "Points up at the thinning clouds. Outfit OUTFIT-RAINKID-RAIN; face FACE-RAINKID-WORRIED."
+    }
+   ],
+   "characterMotion": {
+    "poseFps": 15,
+    "exposureFrames": 2,
+    "action": "Poses and faces swap instantly and are held at least 2 frames; the camera does most of the acting."
+   },
+   "camera": {
+    "description": "View 1 (672-727, LS5 bright dry day): Pan across the lake; joins next by pan on to the field.; View 2 (727-774, LS5 bright dry day): Continue the pan, slight push-in; joins next by tilt up to the sky.; View 3 (774-818, LS5 bright dry day): Tilt up and push toward the cloud; joins next by follow down to the kid.; View 4 (818-861, LS5 bright dry day): Low angle, slow push-in; joins next by follow the gaps.",
+    "fps": 30
+   },
+   "captions": [
+    {
+     "text": "A little water still lifts off lakes, soil and plants, so the clouds wouldn't vanish at once.",
+     "startFrame": 674,
+     "endFrame": 832,
+     "position": "bottom",
+     "styleId": "CAPTION-WORD-BY-WORD"
+    },
+    {
+     "text": "They'd thin out.",
+     "startFrame": 834,
+     "endFrame": 860,
+     "position": "bottom",
+     "styleId": "CAPTION-WORD-BY-WORD"
+    }
+   ],
+   "transition": {
+    "in": "dissolve",
+    "out": "follow"
+   },
+   "assets": [
+    "BG-INLAND",
+    "FX-VAPOR-CURLS",
+    "PROP-CLOUD",
+    "CHAR-RAINKID"
+   ],
+   "audio": [
+    {
+     "assetId": "AUDIO-NARRATION-EP004",
+     "startMs": 22400,
+     "endMs": 28700,
+     "kind": "narration",
+     "syncNote": "Measured from EP004-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+     "sourceFile": "audio/EP004-narration-v2.mp3"
+    },
+    {
+     "assetId": "SFX-POP-SOFT",
+     "startMs": 23030,
+     "endMs": 25716,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "AMB-LIGHT-WIND",
+     "startMs": 22403,
+     "endMs": 28700,
+     "kind": "ambience",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+     "startMs": 22400,
+     "endMs": 28700,
+     "kind": "music",
+     "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+    }
+   ]
+  },
+  {
+   "shotId": "S08",
+   "startFrame": 861,
+   "endFrame": 1029,
+   "narrationStartMs": 28700,
+   "narrationEndMs": 34300,
+   "narrationSegments": [
+    {
+     "text": "Less cloud means less rain, and less rain means drier ground with even less water to give.",
+     "startMs": 28790,
+     "endMs": 34220
+    }
+   ],
+   "visual": "V1: A thin cloud drops only a sparse sprinkle.; V2: The ground dries; cracks spread across the field; plants droop.; V3: One faint curl tries to rise from the cracked ground and fizzles out; above, the sky is nearly clear.",
+   "characters": [],
+   "characterMotion": {
+    "poseFps": 15,
+    "exposureFrames": 2,
+    "action": "Poses and faces swap instantly and are held at least 2 frames; the camera does most of the acting."
+   },
+   "camera": {
+    "description": "View 1 (861-918, LS5 bright dry day): Follow a few drops down; joins next by follow them to the ground.; View 2 (918-975, LS5 bright dry day): Push across the cracking ground; joins next by crane up.; View 3 (975-1029, LS5 bright dry day): Crane up past the fizzling curl to the clear sky; joins next by follow up to the bright sky.",
+    "fps": 30
+   },
+   "captions": [
+    {
+     "text": "Less cloud means less rain, and less rain means drier ground with even less water to give.",
+     "startFrame": 864,
+     "endFrame": 1029,
+     "position": "bottom",
+     "styleId": "CAPTION-WORD-BY-WORD"
+    }
+   ],
+   "transition": {
+    "in": "follow",
+    "out": "follow"
+   },
+   "assets": [
+    "BG-INLAND",
+    "PROP-CLOUD",
+    "FX-RAIN",
+    "FX-CRACKS",
+    "FX-VAPOR-CURLS"
+   ],
+   "audio": [
+    {
+     "assetId": "AUDIO-NARRATION-EP004",
+     "startMs": 28700,
+     "endMs": 34300,
+     "kind": "narration",
+     "syncNote": "Measured from EP004-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+     "sourceFile": "audio/EP004-narration-v2.mp3"
+    },
+    {
+     "assetId": "SFX-SPRINKLE",
+     "startMs": 28700,
+     "endMs": 30511,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "SFX-CRACKLE",
+     "startMs": 30611,
+     "endMs": 32523,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "SFX-FIZZLE",
+     "startMs": 32623,
+     "endMs": 34132,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+     "startMs": 28700,
+     "endMs": 34300,
+     "kind": "music",
+     "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+    }
+   ]
+  },
+  {
+   "shotId": "S09",
+   "startFrame": 1029,
+   "endFrame": 1140,
+   "narrationStartMs": 34300,
+   "narrationEndMs": 38000,
+   "narrationSegments": [
+    {
+     "text": "A clearer sky sounds calmer.",
+     "startMs": 34390,
+     "endMs": 36230
+    },
+    {
+     "text": "But clouds do a second job.",
+     "startMs": 36460,
+     "endMs": 37910
+    }
+   ],
+   "visual": "V1: A calm, clear blue sky; the kid, now in sun clothes, stands deadpan (POSE-RAINKID-STAND from the outfit sheet).; V2: A thin cloud slides across the sun and the ground dims under it; it slides off and the glare snaps back.",
+   "characters": [
+    {
+     "characterId": "CHAR-RAINKID",
+     "poseId": "POSE-RAINKID-STAND",
+     "action": "Stands under the clear sky, unimpressed. Outfit OUTFIT-RAINKID-SUN; face FACE-RAINKID-DEADPAN."
+    }
+   ],
+   "characterMotion": {
+    "poseFps": 15,
+    "exposureFrames": 2,
+    "action": "Poses and faces swap instantly and are held at least 2 frames; the camera does most of the acting."
+   },
+   "camera": {
+    "description": "View 1 (1029-1091, LS5 bright dry day): Slow push-in on the kid; joins next by tilt up to the sun.; View 2 (1091-1140, LS6 harsh noon glare): Tilt up to the sun, flare crossing the lens; joins next by push through the glare to space.",
+    "fps": 30
+   },
+   "captions": [
+    {
+     "text": "A clearer sky sounds calmer.",
+     "startFrame": 1032,
+     "endFrame": 1089,
+     "position": "bottom",
+     "styleId": "CAPTION-WORD-BY-WORD"
+    },
+    {
+     "text": "But clouds do a second job.",
+     "startFrame": 1094,
+     "endFrame": 1139,
+     "position": "bottom",
+     "styleId": "CAPTION-WORD-BY-WORD"
+    }
+   ],
+   "transition": {
+    "in": "follow",
+    "out": "push-through"
+   },
+   "assets": [
+    "BG-DRY-PLAIN",
+    "FX-SUN-FLARE",
+    "PROP-CLOUD",
+    "CHAR-RAINKID"
+   ],
+   "audio": [
+    {
+     "assetId": "AUDIO-NARRATION-EP004",
+     "startMs": 34300,
+     "endMs": 38000,
+     "kind": "narration",
+     "syncNote": "Measured from EP004-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+     "sourceFile": "audio/EP004-narration-v2.mp3"
+    },
+    {
+     "assetId": "SFX-CALM-BREEZE",
+     "startMs": 34303,
+     "endMs": 36377,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "SFX-STING-SOFT",
+     "startMs": 36475,
+     "endMs": 37156,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+     "startMs": 34300,
+     "endMs": 38000,
+     "kind": "music",
+     "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+    }
+   ]
+  },
+  {
+   "shotId": "S10",
+   "startFrame": 1140,
+   "endFrame": 1401,
+   "narrationStartMs": 38000,
+   "narrationEndMs": 46700,
+   "narrationSegments": [
+    {
+     "text": "It turns out they're the planet's sunshade, bouncing sunlight back to space before it lands, so with fewer of them, more sun would pour onto the bare ground.",
+     "startMs": 38090,
+     "endMs": 46620
+    }
+   ],
+   "visual": "V1: Earth from space: sunbeams (drawn as soft arrows of light) hit bright cloud tops and bounce back out to space.; V2: Closer: the cloud layer works like a parasol, its shadow cooling the land beneath.; V3: The clouds thin; beams pour through the gaps and hit the ground, warming it.; V4: Bare cracked ground under a blazing sky; heat shimmer rises.",
+   "characters": [],
+   "characterMotion": {
+    "poseFps": 15,
+    "exposureFrames": 2,
+    "action": "Poses and faces swap instantly and are held at least 2 frames; the camera does most of the acting."
+   },
+   "camera": {
+    "description": "View 1 (1140-1204, LS8 cool deep space): Slow orbit around Earth; joins next by push down toward the clouds.; View 2 (1204-1269, LS8 cool deep space): Push down through the cloud layer; joins next by follow the beams.; View 3 (1269-1335, LS6 harsh noon glare): Follow the beams down; joins next by follow to the ground.; View 4 (1335-1401, LS6 harsh noon glare): Low push across the ground; joins next by follow to the kid.",
+    "fps": 30
+   },
+   "captions": [
+    {
+     "text": "It turns out they're the planet's sunshade, bouncing sunlight back to space before it lands, so with fewer of them, more sun would pour onto the bare ground.",
+     "startFrame": 1143,
+     "endFrame": 1401,
+     "position": "bottom",
+     "styleId": "CAPTION-WORD-BY-WORD"
+    }
+   ],
+   "transition": {
+    "in": "push-through",
+    "out": "follow"
+   },
+   "assets": [
+    "BG-SPACE-EARTH",
+    "FX-SUNBEAMS",
+    "PROP-CLOUD-LAYER",
+    "BG-DRY-PLAIN",
+    "FX-HEAT-SHIMMER"
+   ],
+   "audio": [
+    {
+     "assetId": "AUDIO-NARRATION-EP004",
+     "startMs": 38000,
+     "endMs": 46700,
+     "kind": "narration",
+     "syncNote": "Measured from EP004-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+     "sourceFile": "audio/EP004-narration-v2.mp3"
+    },
+    {
+     "assetId": "SFX-SHIMMER",
+     "startMs": 38003,
+     "endMs": 40125,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "SFX-BEAM-ZING",
+     "startMs": 40125,
+     "endMs": 44110,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "SFX-HEAT-HUM",
+     "startMs": 44110,
+     "endMs": 46700,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+     "startMs": 38000,
+     "endMs": 46700,
+     "kind": "music",
+     "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+    }
+   ]
+  },
+  {
+   "shotId": "S11",
+   "startFrame": 1401,
+   "endFrame": 1526,
+   "narrationStartMs": 46700,
+   "narrationEndMs": 50867,
+   "narrationSegments": [
+    {
+     "text": "Hot, bright days, then cold, clear nights, like a desert.",
+     "startMs": 46800,
+     "endMs": 50750
+    }
+   ],
+   "visual": "V1: Harsh glare: the kid shields the eyes (POSE-RAINKID-SHIELD, squinting), then fans itself (POSE-RAINKID-FAN).; V2: The sun drops and the sky snaps to a starry night; the kid in winter clothes shivers (POSE-RAINKID-SHIVER).; V3: Wide: a desert-like plain under stars, frost glinting on the cracks; the kid small in frame.",
+   "characters": [
+    {
+     "characterId": "CHAR-RAINKID",
+     "poseId": "POSE-RAINKID-SHIELD",
+     "action": "Shields the eyes from the glare, then swaps to POSE-RAINKID-FAN. Outfit OUTFIT-RAINKID-SUN; face FACE-RAINKID-SQUINT."
+    },
+    {
+     "characterId": "CHAR-RAINKID",
+     "poseId": "POSE-RAINKID-SHIVER",
+     "action": "Shivers in the cold night. Outfit OUTFIT-RAINKID-NIGHT; face FACE-RAINKID-SHIVER."
+    }
+   ],
+   "characterMotion": {
+    "poseFps": 15,
+    "exposureFrames": 2,
+    "action": "Poses and faces swap instantly and are held at least 2 frames; the camera does most of the acting."
+   },
+   "camera": {
+    "description": "View 1 (1401-1449, LS6 harsh noon glare): Push-in on the kid; joins next by whip the sun down.; View 2 (1449-1488, LS7 cold clear night): Quick pull back as the light flips; joins next by pull back further.; View 3 (1488-1526, LS7 cold clear night): Slow pull back to a wide; joins next by dissolve to the window.",
+    "fps": 30
+   },
+   "captions": [
+    {
+     "text": "Hot, bright days, then cold, clear nights, like a desert.",
+     "startFrame": 1404,
+     "endFrame": 1524,
+     "position": "bottom",
+     "styleId": "CAPTION-WORD-BY-WORD"
+    }
+   ],
+   "transition": {
+    "in": "follow",
+    "out": "dissolve"
+   },
+   "assets": [
+    "BG-DRY-PLAIN",
+    "FX-HEAT-SHIMMER",
+    "FX-STARS-FROST",
+    "CHAR-RAINKID"
+   ],
+   "audio": [
+    {
+     "assetId": "AUDIO-NARRATION-EP004",
+     "startMs": 46700,
+     "endMs": 50867,
+     "kind": "narration",
+     "syncNote": "Measured from EP004-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+     "sourceFile": "audio/EP004-narration-v2.mp3"
+    },
+    {
+     "assetId": "SFX-SIZZLE",
+     "startMs": 46700,
+     "endMs": 48111,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "SFX-NIGHT-WIND",
+     "startMs": 48212,
+     "endMs": 50833,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+     "startMs": 46700,
+     "endMs": 50867,
+     "kind": "music",
+     "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+    }
+   ]
+  },
+  {
+   "shotId": "S12",
+   "startFrame": 1526,
+   "endFrame": 1607,
+   "narrationStartMs": 50867,
+   "narrationEndMs": 53551,
+   "narrationSegments": [
+    {
+     "text": "The sky was running on the ocean all along.",
+     "startMs": 50960,
+     "endMs": 53430
+    }
+   ],
+   "visual": "V1: The kid's window again (POSE-RAINKID-WINDOW, wistful); a dry pane and a thin, bright sky outside.; V2: Pull back from the window to the town under the bright sky; fade to black.",
+   "characters": [
+    {
+     "characterId": "CHAR-RAINKID",
+     "poseId": "POSE-RAINKID-WINDOW",
+     "action": "Back at the window, looking out. Outfit OUTFIT-RAINKID-INDOOR; face FACE-RAINKID-WISTFUL."
+    }
+   ],
+   "characterMotion": {
+    "poseFps": 15,
+    "exposureFrames": 2,
+    "action": "Poses and faces swap instantly and are held at least 2 frames; the camera does most of the acting."
+   },
+   "camera": {
+    "description": "View 1 (1526-1568, LS5 bright dry day): Slow push-in on the kid; joins next by pull back.; View 2 (1568-1607, LS5 bright dry day): Slow pull back through the fade-out; joins next by fade-out.",
+    "fps": 30
+   },
+   "captions": [
+    {
+     "text": "The sky was running on the ocean all along.",
+     "startFrame": 1529,
+     "endFrame": 1605,
+     "position": "bottom",
+     "styleId": "CAPTION-WORD-BY-WORD"
+    }
+   ],
+   "transition": {
+    "in": "dissolve",
+    "out": "fade-out"
+   },
+   "assets": [
+    "BG-WINDOW-RAINY",
+    "CHAR-RAINKID"
+   ],
+   "audio": [
+    {
+     "assetId": "AUDIO-NARRATION-EP004",
+     "startMs": 50867,
+     "endMs": 53551,
+     "kind": "narration",
+     "syncNote": "Measured from EP004-narration-v2.mp3 (word times by pause anchors, about +/-0.1 s).",
+     "sourceFile": "audio/EP004-narration-v2.mp3"
+    },
+    {
+     "assetId": "SFX-SOFT-CHIME",
+     "startMs": 51121,
+     "endMs": 52074,
+     "kind": "sfx",
+     "syncNote": "CapCut hand-off cue; timed to measured narration."
+    },
+    {
+     "assetId": "MUSIC-BED-LIGHT-CURIOUS",
+     "startMs": 50867,
+     "endMs": 53551,
+     "kind": "music",
+     "syncNote": "Soft curious bed, ducked under narration; creator picks the track in CapCut."
+    }
+   ]
+  }
+ ]
+}

@@ -1,3 +1,10 @@
 # Asset backlog
 | Asset ID | Description | Type | Priority | Status | Provenance/rights | Approval |
 |---|---|---|---|---|---|---|
+| CHAR-KID | EP003 kid: master (front and back), face sheet, 5 poses, 3 outfits | character | high | batches 1-2 approved (master, faces, 5 poses, beach and far-north outfits); art complete | Claude-written SVG planned; see provenance-log.md | spec v1 approved 2026-11-02 |
+| CHAR-TRILOBITE | EP003 trilobite: face sheet, look-up pose | character | medium | batch 3 approved 2026-11-02; art complete | Claude-written SVG planned | spec v1 approved 2026-11-02 |
+| CHAR-DINO | EP003 dinosaur: face sheet, two step poses, look-up pose | character | medium | batch 3 approved 2026-11-02; art complete | Claude-written SVG planned | spec v1 approved 2026-11-02 |
+| SETS-EP003 | 8 sets: bedroom, rooftops, beach, city rooftop, north town, space, seafloor, dawn plain | backgrounds | high | spec v1 approved; bedroom look test and all 7 remaining sets approved 2026-11-02 (`renderer-blender/ep003_sets.py`) | Claude-built Blender sets with generated painted textures | spec v1 approved 2026-11-02 |
+| PROPS-FX-EP003 | Globes, asteroid, rock ring, curtains, poster, paper stamp, timeline card, age tags, ring and debris effects | props | high | approved 2026-11-02 (printed SVGs in `02_CONTEXT/assets/props/`, 3D builders in `renderer-blender/ep003_props.py`) | Claude-built (3D props) and Claude-written SVG (printed cutouts) | props batch approved 2026-11-02 |
+| CHAR-RAINKID | EP004 kid: master front, face sheet (7), 7 poses, 4 outfits | character | high | batches 1-2 approved 2026-11-11 (master, 7 faces, 7 poses, 4 outfits); art complete | Claude-written SVG planned | spec v2 approved 2026-11-10 |
+| SETS-EP004 | 8 builds for 9 set IDs: rainy window, sunny sea, high sky, coast town, shore/seabed, inland, dry plain, space Earth; 12 props/effects | backgrounds | high | spec v1 approved 2026-11-11; look test (BG-WINDOW-RAINY, both states) approved 2026-11-11; other sets not built | Claude-built Blender sets (new EP004 files) | spec v1 approved 2026-11-11 |

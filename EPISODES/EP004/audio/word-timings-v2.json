@@ -1,0 +1,846 @@
+{
+ "episodeId": "EP004",
+ "audio": "EPISODES/EP004/audio/EP004-narration-v2.mp3",
+ "audioDurationMs": 53551,
+ "method": "Phrase boundaries aligned to pauses found with ffmpeg silencedetect (-30 dB, 0.07 s) by a best-fit of syllable counts to speech time; words spread by syllable count inside each speech chunk. Expected error about +/-0.1 s per word, more inside long chunks; sentence pauses are measured. Script v2 narration supplied by the creator 2026-11-11 (ElevenLabs export settings in file name: stability 61, similarity 75, v4).",
+ "sentences": {
+  "S1": [
+   {
+    "text": "Follow",
+    "startMs": 0,
+    "endMs": 402
+   },
+   {
+    "text": "the",
+    "startMs": 402,
+    "endMs": 602
+   },
+   {
+    "text": "rain",
+    "startMs": 602,
+    "endMs": 803
+   },
+   {
+    "text": "on",
+    "startMs": 803,
+    "endMs": 1004
+   },
+   {
+    "text": "a",
+    "startMs": 1004,
+    "endMs": 1205
+   },
+   {
+    "text": "window",
+    "startMs": 1205,
+    "endMs": 1606
+   },
+   {
+    "text": "backwards",
+    "startMs": 1606,
+    "endMs": 2008
+   },
+   {
+    "text": "far",
+    "startMs": 2008,
+    "endMs": 2208
+   },
+   {
+    "text": "enough,",
+    "startMs": 2208,
+    "endMs": 2610
+   },
+   {
+    "text": "and",
+    "startMs": 2720,
+    "endMs": 2922
+   },
+   {
+    "text": "it",
+    "startMs": 2922,
+    "endMs": 3123
+   },
+   {
+    "text": "leads",
+    "startMs": 3123,
+    "endMs": 3325
+   },
+   {
+    "text": "to",
+    "startMs": 3325,
+    "endMs": 3527
+   },
+   {
+    "text": "the",
+    "startMs": 3527,
+    "endMs": 3728
+   },
+   {
+    "text": "sea.",
+    "startMs": 3728,
+    "endMs": 3930
+   }
+  ],
+  "S2": [
+   {
+    "text": "Sunlight",
+    "startMs": 4100,
+    "endMs": 4623
+   },
+   {
+    "text": "warms",
+    "startMs": 4623,
+    "endMs": 4885
+   },
+   {
+    "text": "the",
+    "startMs": 4885,
+    "endMs": 5147
+   },
+   {
+    "text": "ocean,",
+    "startMs": 5147,
+    "endMs": 5670
+   },
+   {
+    "text": "and",
+    "startMs": 5770,
+    "endMs": 5957
+   },
+   {
+    "text": "water",
+    "startMs": 5957,
+    "endMs": 6331
+   },
+   {
+    "text": "rises",
+    "startMs": 6331,
+    "endMs": 6706
+   },
+   {
+    "text": "off",
+    "startMs": 6706,
+    "endMs": 6893
+   },
+   {
+    "text": "it",
+    "startMs": 6893,
+    "endMs": 7080
+   },
+   {
+    "text": "as",
+    "startMs": 7080,
+    "endMs": 7267
+   },
+   {
+    "text": "invisible",
+    "startMs": 7267,
+    "endMs": 8016
+   },
+   {
+    "text": "vapor.",
+    "startMs": 8016,
+    "endMs": 8390
+   }
+  ],
+  "S3": [
+   {
+    "text": "High",
+    "startMs": 8560,
+    "endMs": 8790
+   },
+   {
+    "text": "up,",
+    "startMs": 8790,
+    "endMs": 9020
+   },
+   {
+    "text": "the",
+    "startMs": 9190,
+    "endMs": 9412
+   },
+   {
+    "text": "vapor",
+    "startMs": 9412,
+    "endMs": 9856
+   },
+   {
+    "text": "cools",
+    "startMs": 9856,
+    "endMs": 10078
+   },
+   {
+    "text": "into",
+    "startMs": 10078,
+    "endMs": 10522
+   },
+   {
+    "text": "tiny",
+    "startMs": 10522,
+    "endMs": 10966
+   },
+   {
+    "text": "droplets,",
+    "startMs": 10966,
+    "endMs": 11410
+   },
+   {
+    "text": "and",
+    "startMs": 11500,
+    "endMs": 11701
+   },
+   {
+    "text": "the",
+    "startMs": 11701,
+    "endMs": 11902
+   },
+   {
+    "text": "droplets",
+    "startMs": 11902,
+    "endMs": 12304
+   },
+   {
+    "text": "gather",
+    "startMs": 12304,
+    "endMs": 12707
+   },
+   {
+    "text": "into",
+    "startMs": 12707,
+    "endMs": 13109
+   },
+   {
+    "text": "clouds.",
+    "startMs": 13109,
+    "endMs": 13310
+   }
+  ],
+  "S4": [
+   {
+    "text": "Wind",
+    "startMs": 13450,
+    "endMs": 13714
+   },
+   {
+    "text": "carries",
+    "startMs": 13714,
+    "endMs": 14241
+   },
+   {
+    "text": "those",
+    "startMs": 14241,
+    "endMs": 14505
+   },
+   {
+    "text": "clouds",
+    "startMs": 14505,
+    "endMs": 14769
+   },
+   {
+    "text": "over",
+    "startMs": 14769,
+    "endMs": 15296
+   },
+   {
+    "text": "land,",
+    "startMs": 15296,
+    "endMs": 15560
+   },
+   {
+    "text": "and",
+    "startMs": 15690,
+    "endMs": 15919
+   },
+   {
+    "text": "they",
+    "startMs": 15919,
+    "endMs": 16148
+   },
+   {
+    "text": "fall",
+    "startMs": 16148,
+    "endMs": 16377
+   },
+   {
+    "text": "as",
+    "startMs": 16377,
+    "endMs": 16606
+   },
+   {
+    "text": "rain",
+    "startMs": 16606,
+    "endMs": 16835
+   },
+   {
+    "text": "on",
+    "startMs": 16835,
+    "endMs": 17064
+   },
+   {
+    "text": "that",
+    "startMs": 17064,
+    "endMs": 17293
+   },
+   {
+    "text": "same",
+    "startMs": 17293,
+    "endMs": 17522
+   },
+   {
+    "text": "window.",
+    "startMs": 17522,
+    "endMs": 17980
+   }
+  ],
+  "S5": [
+   {
+    "text": "Now",
+    "startMs": 18210,
+    "endMs": 18449
+   },
+   {
+    "text": "drain",
+    "startMs": 18449,
+    "endMs": 18688
+   },
+   {
+    "text": "the",
+    "startMs": 18688,
+    "endMs": 18926
+   },
+   {
+    "text": "ocean",
+    "startMs": 18926,
+    "endMs": 19404
+   },
+   {
+    "text": "overnight.",
+    "startMs": 19404,
+    "endMs": 20120
+   }
+  ],
+  "S6": [
+   {
+    "text": "Nothing",
+    "startMs": 20270,
+    "endMs": 20674
+   },
+   {
+    "text": "rises",
+    "startMs": 20674,
+    "endMs": 21078
+   },
+   {
+    "text": "from",
+    "startMs": 21078,
+    "endMs": 21280
+   },
+   {
+    "text": "the",
+    "startMs": 21280,
+    "endMs": 21482
+   },
+   {
+    "text": "empty",
+    "startMs": 21482,
+    "endMs": 21886
+   },
+   {
+    "text": "seafloor.",
+    "startMs": 21886,
+    "endMs": 22290
+   }
+  ],
+  "S7": [
+   {
+    "text": "A",
+    "startMs": 22480,
+    "endMs": 22728
+   },
+   {
+    "text": "little",
+    "startMs": 22728,
+    "endMs": 23223
+   },
+   {
+    "text": "water",
+    "startMs": 23223,
+    "endMs": 23718
+   },
+   {
+    "text": "still",
+    "startMs": 23718,
+    "endMs": 23966
+   },
+   {
+    "text": "lifts",
+    "startMs": 23966,
+    "endMs": 24214
+   },
+   {
+    "text": "off",
+    "startMs": 24214,
+    "endMs": 24462
+   },
+   {
+    "text": "lakes,",
+    "startMs": 24462,
+    "endMs": 24957
+   },
+   {
+    "text": "soil",
+    "startMs": 24957,
+    "endMs": 25205
+   },
+   {
+    "text": "and",
+    "startMs": 25205,
+    "endMs": 25452
+   },
+   {
+    "text": "plants,",
+    "startMs": 25452,
+    "endMs": 25700
+   },
+   {
+    "text": "so",
+    "startMs": 25790,
+    "endMs": 26024
+   },
+   {
+    "text": "the",
+    "startMs": 26024,
+    "endMs": 26258
+   },
+   {
+    "text": "clouds",
+    "startMs": 26258,
+    "endMs": 26491
+   },
+   {
+    "text": "wouldn't",
+    "startMs": 26491,
+    "endMs": 26725
+   },
+   {
+    "text": "vanish",
+    "startMs": 26725,
+    "endMs": 27193
+   },
+   {
+    "text": "at",
+    "startMs": 27193,
+    "endMs": 27426
+   },
+   {
+    "text": "once.",
+    "startMs": 27426,
+    "endMs": 27660
+   }
+  ],
+  "S8": [
+   {
+    "text": "They'd",
+    "startMs": 27800,
+    "endMs": 28063
+   },
+   {
+    "text": "thin",
+    "startMs": 28063,
+    "endMs": 28327
+   },
+   {
+    "text": "out.",
+    "startMs": 28327,
+    "endMs": 28590
+   }
+  ],
+  "S9": [
+   {
+    "text": "Less",
+    "startMs": 28790,
+    "endMs": 29132
+   },
+   {
+    "text": "cloud",
+    "startMs": 29132,
+    "endMs": 29474
+   },
+   {
+    "text": "means",
+    "startMs": 29474,
+    "endMs": 29816
+   },
+   {
+    "text": "less",
+    "startMs": 29816,
+    "endMs": 30158
+   },
+   {
+    "text": "rain,",
+    "startMs": 30158,
+    "endMs": 30500
+   },
+   {
+    "text": "and",
+    "startMs": 30610,
+    "endMs": 30868
+   },
+   {
+    "text": "less",
+    "startMs": 30868,
+    "endMs": 31126
+   },
+   {
+    "text": "rain",
+    "startMs": 31126,
+    "endMs": 31384
+   },
+   {
+    "text": "means",
+    "startMs": 31384,
+    "endMs": 31641
+   },
+   {
+    "text": "drier",
+    "startMs": 31641,
+    "endMs": 31899
+   },
+   {
+    "text": "ground",
+    "startMs": 31899,
+    "endMs": 32157
+   },
+   {
+    "text": "with",
+    "startMs": 32157,
+    "endMs": 32415
+   },
+   {
+    "text": "even",
+    "startMs": 32415,
+    "endMs": 32931
+   },
+   {
+    "text": "less",
+    "startMs": 32931,
+    "endMs": 33189
+   },
+   {
+    "text": "water",
+    "startMs": 33189,
+    "endMs": 33704
+   },
+   {
+    "text": "to",
+    "startMs": 33704,
+    "endMs": 33962
+   },
+   {
+    "text": "give.",
+    "startMs": 33962,
+    "endMs": 34220
+   }
+  ],
+  "S10": [
+   {
+    "text": "A",
+    "startMs": 34390,
+    "endMs": 34653
+   },
+   {
+    "text": "clearer",
+    "startMs": 34653,
+    "endMs": 35179
+   },
+   {
+    "text": "sky",
+    "startMs": 35179,
+    "endMs": 35441
+   },
+   {
+    "text": "sounds",
+    "startMs": 35441,
+    "endMs": 35704
+   },
+   {
+    "text": "calmer.",
+    "startMs": 35704,
+    "endMs": 36230
+   }
+  ],
+  "S11": [
+   {
+    "text": "But",
+    "startMs": 36460,
+    "endMs": 36667
+   },
+   {
+    "text": "clouds",
+    "startMs": 36667,
+    "endMs": 36874
+   },
+   {
+    "text": "do",
+    "startMs": 36874,
+    "endMs": 37081
+   },
+   {
+    "text": "a",
+    "startMs": 37081,
+    "endMs": 37289
+   },
+   {
+    "text": "second",
+    "startMs": 37289,
+    "endMs": 37703
+   },
+   {
+    "text": "job.",
+    "startMs": 37703,
+    "endMs": 37910
+   }
+  ],
+  "S12": [
+   {
+    "text": "It",
+    "startMs": 38090,
+    "endMs": 38313
+   },
+   {
+    "text": "turns",
+    "startMs": 38313,
+    "endMs": 38537
+   },
+   {
+    "text": "out",
+    "startMs": 38537,
+    "endMs": 38760
+   },
+   {
+    "text": "they're",
+    "startMs": 38760,
+    "endMs": 38983
+   },
+   {
+    "text": "the",
+    "startMs": 38983,
+    "endMs": 39207
+   },
+   {
+    "text": "planet's",
+    "startMs": 39207,
+    "endMs": 39653
+   },
+   {
+    "text": "sunshade,",
+    "startMs": 39653,
+    "endMs": 40100
+   },
+   {
+    "text": "bouncing",
+    "startMs": 40210,
+    "endMs": 40694
+   },
+   {
+    "text": "sunlight",
+    "startMs": 40694,
+    "endMs": 41177
+   },
+   {
+    "text": "back",
+    "startMs": 41177,
+    "endMs": 41419
+   },
+   {
+    "text": "to",
+    "startMs": 41419,
+    "endMs": 41661
+   },
+   {
+    "text": "space",
+    "startMs": 41661,
+    "endMs": 41903
+   },
+   {
+    "text": "before",
+    "startMs": 41903,
+    "endMs": 42386
+   },
+   {
+    "text": "it",
+    "startMs": 42386,
+    "endMs": 42628
+   },
+   {
+    "text": "lands,",
+    "startMs": 42628,
+    "endMs": 42870
+   },
+   {
+    "text": "so",
+    "startMs": 42990,
+    "endMs": 43198
+   },
+   {
+    "text": "with",
+    "startMs": 43198,
+    "endMs": 43407
+   },
+   {
+    "text": "fewer",
+    "startMs": 43407,
+    "endMs": 43823
+   },
+   {
+    "text": "of",
+    "startMs": 43823,
+    "endMs": 44032
+   },
+   {
+    "text": "them,",
+    "startMs": 44032,
+    "endMs": 44240
+   },
+   {
+    "text": "more",
+    "startMs": 44320,
+    "endMs": 44576
+   },
+   {
+    "text": "sun",
+    "startMs": 44576,
+    "endMs": 44831
+   },
+   {
+    "text": "would",
+    "startMs": 44831,
+    "endMs": 45087
+   },
+   {
+    "text": "pour",
+    "startMs": 45087,
+    "endMs": 45342
+   },
+   {
+    "text": "onto",
+    "startMs": 45342,
+    "endMs": 45853
+   },
+   {
+    "text": "the",
+    "startMs": 45853,
+    "endMs": 46109
+   },
+   {
+    "text": "bare",
+    "startMs": 46109,
+    "endMs": 46364
+   },
+   {
+    "text": "ground.",
+    "startMs": 46364,
+    "endMs": 46620
+   }
+  ],
+  "S13": [
+   {
+    "text": "Hot,",
+    "startMs": 46800,
+    "endMs": 47080
+   },
+   {
+    "text": "bright",
+    "startMs": 47190,
+    "endMs": 47430
+   },
+   {
+    "text": "days,",
+    "startMs": 47430,
+    "endMs": 47670
+   },
+   {
+    "text": "then",
+    "startMs": 47670,
+    "endMs": 47910
+   },
+   {
+    "text": "cold,",
+    "startMs": 47910,
+    "endMs": 48150
+   },
+   {
+    "text": "clear",
+    "startMs": 48260,
+    "endMs": 48600
+   },
+   {
+    "text": "nights,",
+    "startMs": 48600,
+    "endMs": 48940
+   },
+   {
+    "text": "like",
+    "startMs": 49050,
+    "endMs": 49475
+   },
+   {
+    "text": "a",
+    "startMs": 49475,
+    "endMs": 49900
+   },
+   {
+    "text": "desert.",
+    "startMs": 49900,
+    "endMs": 50750
+   }
+  ],
+  "S14": [
+   {
+    "text": "The",
+    "startMs": 50960,
+    "endMs": 51166
+   },
+   {
+    "text": "sky",
+    "startMs": 51166,
+    "endMs": 51372
+   },
+   {
+    "text": "was",
+    "startMs": 51372,
+    "endMs": 51577
+   },
+   {
+    "text": "running",
+    "startMs": 51577,
+    "endMs": 51989
+   },
+   {
+    "text": "on",
+    "startMs": 51989,
+    "endMs": 52195
+   },
+   {
+    "text": "the",
+    "startMs": 52195,
+    "endMs": 52401
+   },
+   {
+    "text": "ocean",
+    "startMs": 52401,
+    "endMs": 52812
+   },
+   {
+    "text": "all",
+    "startMs": 52812,
+    "endMs": 53018
+   },
+   {
+    "text": "along.",
+    "startMs": 53018,
+    "endMs": 53430
+   }
+  ]
+ }
+}
