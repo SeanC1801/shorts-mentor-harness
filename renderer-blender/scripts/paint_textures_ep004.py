@@ -47,6 +47,16 @@ def textures():
     wood(512, "#C9A06A", 5, "ep4_boat.png")
     # BG-INLAND sky card: the LS5 bright sky with no painted clouds (S07-S08's thinning 3D clouds stand alone)
     equirect("ep4_sky_thin_eq.png", "#6FB4EA", "#DCEFF8", "#C9DDC4", clouds=[])
+    # S08 drying: dusty soil and dried leaves (mixed in over the moist versions)
+    plain("ep4_soil_dry.png", "#A8835C", amt=0.3)
+    plain("ep4_leaf_dry.png", "#A99A58", amt=0.3, stroke_ang=60)
+    # BG-DRY-PLAIN (S09-S11): sun-baked ochre ground, flat-topped hills, bleached day sky, LS6 glare sky
+    speckle("ep4_plain_dry.png", "#D2AC76", [("#B38D5C", 900, 3), ("#E6CB9C", 500, 3)])
+    plain("ep4_mesa.png", "#C68A5A", amt=0.25)
+    equirect("ep4_sky_dry_eq.png", "#7DBCEB", "#E8F0EA", "#D2AC76", clouds=[])
+    equirect("ep4_sky_glare_eq.png", "#D9D6BE", "#FFF3D6", "#D2AC76", clouds=[])
+    # BG-DRY-PLAIN night (S11, LS7): deep blue-violet star card
+    equirect("ep4_sky_night_eq.png", "#141A3E", "#3B3F7C", "#2A2742", clouds=[], stars=1600)
 
 
 def books(name="ep4_books.png", S=512):
@@ -72,12 +82,20 @@ CARD_JOBS = [  # (pose, outfit, face, card file)
     ("POSE-RAINKID-SHOCK", "OUTFIT-RAINKID-RAIN", "shocked", "RAINKID-SHOCK-RAIN.png"),
     ("POSE-RAINKID-SHORE", "OUTFIT-RAINKID-RAIN", "deadpan", "RAINKID-SHORE-RAIN.png"),
     ("POSE-RAINKID-POINT-UP", "OUTFIT-RAINKID-RAIN", "worried", "RAINKID-POINTUP-RAIN.png"),   # S07 V4
+    ("POSE-RAINKID-STAND", "OUTFIT-RAINKID-SUN", "deadpan", "RAINKID-STAND-SUN.png"),          # S09 V1
+    ("POSE-RAINKID-SHIELD", "OUTFIT-RAINKID-SUN", "squint", "RAINKID-SHIELD-SUN.png"),         # S11 V1 (as on the approved poses sheet)
+    ("POSE-RAINKID-FAN", "OUTFIT-RAINKID-SUN", "deadpan", "RAINKID-FAN-SUN.png"),              # S11 V1
+    ("POSE-RAINKID-SHIVER", "OUTFIT-RAINKID-NIGHT", "shiver", "RAINKID-SHIVER-NIGHT.png"),     # S11 V2-V3
 ]
+# POSE-RAINKID-STAND is the standing figure from the approved outfit sheet (arms down, front view);
+# the generator only defines it inside its sheet function, so the same arm values are registered here.
+STAND = dict(arms=[((-112, -404), (-128, -318), "nub"), ((112, -404), (128, -318), "nub")], front=False)
 
 
 def cards(only=None):
     """Cut the kid cards; `only` limits the run to the named card files (earlier cards stay untouched)."""
     import make_rainkid_batch2_v001 as b2
+    b2.POSES.setdefault("POSE-RAINKID-STAND", STAND)
     tmp = os.path.join(CARDS, "_svg"); os.makedirs(tmp, exist_ok=True)
     paths = []
     for pose, outfit, face, out in CARD_JOBS:

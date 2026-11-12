@@ -537,6 +537,418 @@ def inland_set(O, seed=31):
     # undersides seen from the ground lift out of the violet shadow band; the ground (facing up) gets none
     fill = light("fill_under", "SUN", O + V((0, 0, 10)), 2.4, "#FFF8F0", rot=deg(150, 0, 0), angle=10)
     fill.data.use_shadow = False      # otherwise the ground itself blocks a light from below
+
+    # ---- S08 drying state: built here, hidden or neutral until S08 (S07 looks exactly as approved) ----
+    r8 = random.Random(seed + 100)    # own stream, so nothing above changes
+    dry_mix = []
+
+    def dryable(mat, dry_tex):
+        """Copy a painted material and mix a dry texture over it (factor 0 = unchanged)."""
+        m = mat.copy(); nt = m.node_tree
+        it = next(nd for nd in nt.nodes if nd.bl_idname == "ShaderNodeTexImage")
+        it2 = nt.nodes.new("ShaderNodeTexImage"); it2.image = pc.image(dry_tex)
+        it2.projection, it2.projection_blend = it.projection, it.projection_blend
+        nt.links.new(it.inputs[0].links[0].from_socket, it2.inputs[0])
+        mx = nt.nodes.new("ShaderNodeMix"); mx.data_type, mx.blend_type = "RGBA", "MIX"
+        sock = lambda ident: next(sk for sk in mx.inputs if sk.identifier == ident)
+        outs = [lk.to_socket for lk in it.outputs["Color"].links]
+        for lk in list(it.outputs["Color"].links):
+            nt.links.remove(lk)
+        nt.links.new(it.outputs["Color"], sock("A_Color")); nt.links.new(it2.outputs["Color"], sock("B_Color"))
+        res = next(sk for sk in mx.outputs if sk.identifier == "Result_Color")
+        for to in outs:
+            nt.links.new(res, to)
+        f_in = sock("Factor_Float"); f_in.default_value = 0.0
+        dry_mix.append(f_in)
+        return m, f_in
+
+    soil_m, soil_f = dryable(me.materials[1], "ep4_soil_dry.png"); me.materials[1] = soil_m
+    mud_m, mud_f = dryable(me.materials[2], "ep4_seabed_dry.png"); me.materials[2] = mud_m
+    ridge_m, ridge_f = dryable(ridges[0].data.materials[0], "ep4_soil_dry.png")
+    for rg in ridges:
+        rg.data.materials[0] = ridge_m
+        rg["base_sz"] = rg.scale.z
+    clods = [ob for ob in bpy.context.collection.objects if ob.name.startswith("clod")]
+    if clods:
+        clod_m, clod_f = dryable(clods[0].data.materials[0], "ep4_soil_dry.png")
+        for ob in clods:
+            ob.data.materials[0] = clod_m
+    else:
+        clod_f = None
+    leaf_m, leaf_f = dryable(plants[0][1].data.materials[0], "ep4_leaf_dry.png")
+    stem_m, stem_f = dryable(plants[0][0].data.materials[0], "ep4_leaf_dry.png")
+    droop = []
+    for stem, leaf, lbase in plants:
+        stem.data.materials[0] = stem_m; leaf.data.materials[0] = leaf_m
+        base = stem.location.copy() - V((0, 0, 0.12))
+        a = r8.uniform(0, 2 * math.pi)
+        droop.append((stem, leaf, base, V((math.cos(a), math.sin(a), 0)), r8.uniform(0.7, 1.0), tuple(leaf.scale)))
+    crown_m, crown_f = dryable(crown[0].data.materials[0], "ep4_leaf_dry.png")
+    for cb in crown:
+        cb.data.materials[0] = crown_m
+        cb["base_scale"] = tuple(cb.scale)
+    # cloud puffs remember where they started (S08 drifts them toward the camera)
+    for p in cl_main + [q for cs in cl_side for q in cs]:
+        p["base_loc"] = tuple(p.location)
+    # FX-RAIN sprinkle: a few streaks falling from the thinned cloud (sparse)
+    sprinkle = []
+    for k in range(28):
+        p0 = O + V((r8.uniform(4.5, 9.5), r8.uniform(31.0, 37.0), 13.2))
+        st = plane("sprinkle", p0, (0.045, r8.uniform(1.0, 1.5)), deg(90, 0, 0), glassy("#EEF3F8", 0.55))
+        st.hide_render = True
+        sprinkle.append((st, p0.copy(), r8.uniform(0, 1)))
+    # FX-CRACKS: dark crack lines that grow across the field (and the lake's dry rim), segment by segment
+    nx_r = 11
+    ridge_x = [x0 + 0.6 + r * (x1 - x0 - 1.2) / (nx_r - 1) for r in range(nx_r)]
+    ridge_hy = (y1 - y0) / 2 - 0.4
+    yc_f = (y0 + y1) / 2
+    RIDGE_H_DRY = 0.07
+
+    def surf(x, y):
+        """Ground or flattened-ridge top, whichever is higher, plus a hair (cracks lie on it)."""
+        g = z(x, y)
+        for rx in ridge_x:
+            q = 1 - ((x - rx) / 0.42) ** 2 - ((y - yc_f) / ridge_hy) ** 2
+            if q > 0:
+                g = max(g, z(rx, yc_f) + 0.02 + RIDGE_H_DRY * math.sqrt(q))
+        return g + 0.025
+
+    crack_mat = emit("#3B2717", 1.0)
+    cracks = []
+
+    def crack(x, y, ang, nseg, t0, inside, w0=0.11):
+        segs = []
+        for i in range(nseg):
+            L = r8.uniform(0.28, 0.42)
+            ang += r8.uniform(-0.7, 0.7)
+            nx2, ny2 = x + math.cos(ang) * L, y + math.sin(ang) * L
+            if not inside(nx2, ny2):
+                break
+            w = w0 * (1 - 0.6 * i / max(1, nseg - 1))
+            sg = strip("crack", [O + V((x, y, surf(x, y))), O + V((nx2, ny2, surf(nx2, ny2)))], [w, w * 0.85], crack_mat)
+            sg.hide_render = True
+            segs.append(sg)
+            if r8.random() < 0.18 and i > 1:      # a side branch
+                cracks.append((crack_branch(nx2, ny2, ang + r8.choice((-1, 1)) * r8.uniform(0.9, 1.5), t0 + i * 2), t0 + i * 2))
+            x, y = nx2, ny2
+        return segs
+
+    def crack_branch(x, y, ang, t0):
+        return crack(x, y, ang, r8.randint(2, 4), t0, in_field, w0=0.07)
+
+    in_field = lambda x, y: x0 + 0.2 < x < x1 - 0.2 and y0 + 0.2 < y < y1 - 0.2
+    for k in range(50):
+        cx, cy = r8.uniform(x0 + 0.5, x1 - 0.5), r8.uniform(y0 + 0.5, y1 - 0.5)
+        t0 = 916 + 34 * (cy - y0) / (y1 - y0) + r8.uniform(-4, 4)   # spreads from the near edge to the far edge
+        cracks.append((crack(cx, cy, r8.uniform(0, 2 * math.pi), r8.randint(5, 9), t0, in_field), t0))
+
+    def in_rim(x, y):
+        e = ((x - LAKE_C.x) / LAKE_R[0]) ** 2 + ((y - LAKE_C.y) / LAKE_R[1]) ** 2
+        return 0.5 < e < 1.0
+    for k in range(14):
+        a = r8.uniform(0, 2 * math.pi); rr = r8.uniform(0.78, 0.92)
+        cx, cy = LAKE_C.x + math.cos(a) * LAKE_R[0] * rr, LAKE_C.y + math.sin(a) * LAKE_R[1] * rr
+        cracks.append((crack(cx, cy, a + r8.uniform(-0.6, 0.6), r8.randint(3, 6), 950 + r8.uniform(0, 14), in_rim, w0=0.06), 950))
+    # one faint curl that tries to rise from the cracked ground and fizzles out (S08 V3)
+    fizzle = vapor_curls(O + V((9.9, 15.0, surf(9.9, 15.0) - 0.02)), 1, (0, 0), (0, 0), z0=0.0, height=0.9, seed=60, key=0.37)
+
     return dict(lake=lake, lake_base=(lake.location.copy(), tuple(lake.scale)), glints=glints, reeds=reeds, ridges=ridges,
                 plants=plants, trunk=trunk, crown=crown, c_lake=c_lake, c_soil=c_soil, c_plant=c_plant,
-                cl_main=cl_main, cl_side=cl_side, kid=(kid, kid_sh), z=z)
+                cl_main=cl_main, cl_side=cl_side, kid=(kid, kid_sh), z=z,
+                glint_base=[g.location.copy() for g in glints],
+                dry=dict(soil=soil_f, mud=mud_f, ridge=ridge_f, clod=clod_f, leaf=leaf_f, stem=stem_f, crown=crown_f),
+                droop=droop, sprinkle=sprinkle, cracks=cracks, fizzle=fizzle)
+
+
+# ---------------- BG-DRY-PLAIN (S09 day; S10 V4 and S11 add glare and night later) ----------------
+SUN_DIR = V((0.28, 0.75, 0.60)).normalized()     # S09 sun: ~37 deg up, a little right of straight ahead (+Y)
+KID_PLAIN = (0.0, 6.0)
+
+
+def plain_height(x, y):
+    """A flat baked plain with very slight swells (cracks lie on it, so it stays gentle)."""
+    return 0.07 * math.sin(x * 0.23 + 0.7) * math.sin(y * 0.19 + 0.3) + 0.04 * math.sin(x * 0.61 + y * 0.43)
+
+
+def billboard(name, mat, size, c):
+    """A centred square quad (normal local -Y) with UVs; the caller turns it to the camera."""
+    import bmesh as _bm
+    bm = _bm.new(); uv = bm.loops.layers.uv.new("UVMap"); h = size / 2
+    f = bm.faces.new([bm.verts.new(v) for v in ((-h, 0, -h), (h, 0, -h), (h, 0, h), (-h, 0, h))])
+    for lp, t in zip(f.loops, ((0, 0), (1, 0), (1, 1), (0, 1))):
+        lp[uv].uv = t
+    me = bpy.data.meshes.new(name); bm.to_mesh(me); bm.free()
+    me.materials.append(mat)
+    o = bpy.data.objects.new(name, me); bpy.context.collection.objects.link(o)
+    o.location = c
+    return o
+
+
+def flare_mat(color, strength):
+    """FX-SUN-FLARE ghost: the soft glow texture added on top of the picture (additive, not inked).
+    Returns (material, emission node) so the strength can fade per frame."""
+    m = bpy.data.materials.new("flare_" + color); m.use_nodes = True
+    n, l = m.node_tree.nodes, m.node_tree.links; n.clear()
+    it = n.new("ShaderNodeTexImage"); it.image = pc.image("glow.png")
+    mul = n.new("ShaderNodeMix"); mul.data_type, mul.blend_type = "RGBA", "MULTIPLY"; mul.inputs["Factor"].default_value = 1
+    mul.inputs["B"].default_value = pc.hexcol(color)
+    l.new(it.outputs["Color"], mul.inputs["A"])
+    am = n.new("ShaderNodeMix"); am.data_type, am.blend_type = "RGBA", "MULTIPLY"; am.inputs["Factor"].default_value = 1
+    l.new(mul.outputs["Result"], am.inputs["A"]); l.new(it.outputs["Alpha"], am.inputs["B"])
+    em = n.new("ShaderNodeEmission"); em.inputs[1].default_value = strength
+    l.new(am.outputs["Result"], em.inputs[0])
+    add = n.new("ShaderNodeAddShader"); tr = n.new("ShaderNodeBsdfTransparent")
+    l.new(tr.outputs[0], add.inputs[0]); l.new(em.outputs[0], add.inputs[1])
+    l.new(add.outputs[0], n.new("ShaderNodeOutputMaterial").inputs[0])
+    m.surface_render_method = "BLENDED"
+    return m, em
+
+
+def dry_plain_set(O, seed=41):
+    rnd = random.Random(seed)
+    O = V(O)
+    z = lambda x, y: plain_height(x, y)
+    import bmesh as _bm
+    bm = _bm.new()
+    xs = [-160 + 2 * i for i in range(161)]
+    ys = [-20 + 2 * j for j in range(121)]
+    vv = [[bm.verts.new((x, y, z(x, y))) for x in xs] for y in ys]
+    for j in range(len(ys) - 1):
+        for i in range(len(xs) - 1):
+            bm.faces.new((vv[j][i], vv[j][i + 1], vv[j + 1][i + 1], vv[j + 1][i])).smooth = True
+    me = bpy.data.meshes.new("plain"); o = bpy.data.objects.new("plain", me)
+    bpy.context.collection.objects.link(o)
+    me.materials.append(painted("ep4_plain_dry.png", 0.3))
+    bm.to_mesh(me); bm.free()
+    o.location = O
+    # FX-CRACKS (settled): a network of dark crack lines baked into the ground, denser near the camera
+    crack_mat = emit("#5C3D22", 1.0)
+    cracks = []
+    for k in range(170):
+        x, y = rnd.uniform(-14, 16), 1.5 + 45 * rnd.random() ** 1.6
+        if abs(x - KID_PLAIN[0]) < 0.5 and abs(y - KID_PLAIN[1]) < 0.4:
+            continue
+        ang = rnd.uniform(0, 2 * math.pi); pts = [(x, y)]
+        for i in range(rnd.randint(5, 11)):
+            ang += rnd.uniform(-0.6, 0.6); L = rnd.uniform(0.35, 0.7)
+            x, y = x + math.cos(ang) * L, y + math.sin(ang) * L
+            pts.append((x, y))
+        w0 = rnd.uniform(0.06, 0.1) * (1 + 0.02 * pts[0][1])
+        cracks.append(strip("crack_dry", [O + V((px, py, z(px, py) + 0.025)) for px, py in pts],
+                            [w0 * (1 - 0.55 * i / (len(pts) - 1)) for i in range(len(pts))], crack_mat))
+    # clods and small rocks, a round boulder
+    for k in range(40):
+        x, y = rnd.uniform(-9, 12), rnd.uniform(1.5, 26)
+        if abs(x - KID_PLAIN[0]) < 0.7 and abs(y - KID_PLAIN[1]) < 0.6:
+            continue
+        r = rnd.uniform(0.06, 0.16)
+        blob("clod" if k % 2 else "pebble", O + V((x, y, z(x, y) + r * 0.3)), r,
+             painted("ep4_seabed_dry.png", 1.5) if k % 2 else painted("rock.png", 2.0), scale=(1.3, 1, 0.6), sub=1)
+    blob("boulder", O + V((5.2, 14.5, z(5.2, 14.5) + 0.55)), 1.0, painted("rock.png", 0.6), scale=(1.25, 1.05, 0.8), sub=3)
+    # a few dry shrubs: tight clusters of brown-olive puffs over twigs
+    bark = painted("bark.png", 2.0)
+    for k, (sx, sy) in enumerate(((-3.2, 9.5), (2.6, 11.0), (-6.0, 15.0), (8.5, 20.0), (-1.5, 24.0), (11.0, 9.0), (-9.5, 7.5))):
+        g = z(sx, sy)
+        for i in range(4):
+            a = rnd.uniform(0, 2 * math.pi); h = rnd.uniform(0.3, 0.5)
+            strip("shrub_twig", [O + V((sx, sy, g)), O + V((sx + 0.2 * math.cos(a), sy + 0.2 * math.sin(a), g + h))], [0.04, 0.015], bark, up=(0, 1, 0))
+        for i in range(rnd.randint(5, 7)):
+            blob("shrub", O + V((sx + rnd.uniform(-0.3, 0.3), sy + rnd.uniform(-0.25, 0.25), g + rnd.uniform(0.2, 0.42))),
+                 rnd.uniform(0.13, 0.2), painted("ep4_leaf_dry.png", 1.6), scale=(1.2, 1.2, 0.85), sub=2)
+    # one bare tree: a trunk and forked branches
+    tx, ty = -6.5, 21.0
+    tb = O + V((tx, ty, z(tx, ty)))
+    cyl("bare_trunk", tb + V((0, 0, 1.1)), 0.2, 2.2, bark, r2=0.12, verts=12)
+
+    def branch(p, ang, tilt, L, w, depth):
+        d = V((math.cos(ang) * math.sin(tilt), 0.3 * math.sin(ang) * math.sin(tilt), math.cos(tilt)))
+        q = p + d * L
+        strip("bare_branch", [p, p.lerp(q, 0.5) + V((0, 0, 0.05 * L)), q], [w, w * 0.8, w * 0.55], bark, up=(0, 1, 0))
+        if depth:
+            for s in (-1, 1):
+                branch(q, ang + s * rnd.uniform(0.3, 0.6), tilt + rnd.uniform(-0.15, 0.25), L * 0.62, w * 0.55, depth - 1)
+    for ang, tilt in ((0.0, 0.5), (math.pi, 0.55), (0.3, 0.15), (math.pi - 0.4, 0.95)):
+        branch(tb + V((0, 0, 2.05)), ang, tilt, 1.15, 0.13, 2)
+    # low flat-topped hills on the horizon
+    mesa = painted("ep4_mesa.png", 0.05)
+    for k in range(9):
+        x, y = -150 + k * 37 + rnd.uniform(-10, 10), rnd.uniform(140, 200)
+        r, h = rnd.uniform(14, 26), rnd.uniform(7, 14)
+        cyl("mesa", O + V((x, y, h / 2 - 1.5)), r, h, mesa, verts=14, r2=r * rnd.uniform(0.6, 0.75))
+    # the kid, standing deadpan in sun clothes (POSE-RAINKID-STAND, OUTFIT-RAINKID-SUN)
+    kid = card("kid_stand", "RAINKID-STAND-SUN.png", 1.35, O + V((KID_PLAIN[0], KID_PLAIN[1], z(*KID_PLAIN))))
+    # the sun: light along SUN_DIR, a disc and a soft glare bloom far off in the same direction (they face the camera)
+    sun = light("sun", "SUN", O + V((0, 0, 10)), 4.2, "#FFF4E2", rot=tuple(SUN_DIR.to_track_quat("Z", "Y").to_euler()), angle=8)
+    fill = light("fill_under", "SUN", O + V((0, 0, 10)), 1.6, "#FFF8F0", rot=deg(150, 0, 0), angle=10)
+    fill.data.use_shadow = False
+    sun_disc = billboard("sun_disc", pc.flatcard("sun_disc.png", 1.0), 34, O + SUN_DIR * 400)
+    glow_m = pc.flatcard("glow.png", 1.0).copy()
+    glow = billboard("sun_glow", glow_m, 120, O + SUN_DIR * 430)
+    # FX-SUN-FLARE ghosts (placed each frame on the line from the sun through the frame centre)
+    ghosts = []
+    for col, s, size, g in (("#FFE9B0", 0.35, 0.55, 0.55), ("#BFE6D8", 0.22, 0.25, 0.2), ("#F7C7A0", 0.25, 0.4, -0.25),
+                            ("#C8D8FF", 0.2, 0.18, -0.6), ("#FFD9A8", 0.22, 0.7, -1.0)):
+        m, em = flare_mat(col, s)
+        ghosts.append((billboard("flare_ghost", m, size, O), em, s, g))
+    # PROP-CLOUD: one thin cloud that slides across the sun (S09); it rides along the sun's ray from the camera
+    veil_c = O + V((0.3, 2.5, 0.8)) + SUN_DIR * 70
+    veil = cloud("cloud_veil", veil_c, 5.5, seed=71, puffs=9)
+    vm = painted("ep4_cloud.png", 0.2, lift=1.12)
+    for p in veil:
+        p.data.materials[0] = vm
+        p.scale = (p.scale[0] * 1.5, p.scale[1] * 0.6, p.scale[2] * 0.7)
+        p["base_loc"] = tuple(p.location)
+    # ---- S10 additions: built hidden (S09 looks exactly as approved); own random stream ----
+    r10 = random.Random(seed + 200)
+    # PROP-CLOUD-LAYER: a wide sheet of cloud clusters high over the plain (its shadow is the parasol)
+    layer = []
+    for i in range(9):
+        for j in range(9):
+            if r10.random() < 0.15:
+                continue
+            c = O + V((-36 + 9 * i + r10.uniform(-2.5, 2.5), -14 + 9 * j + r10.uniform(-2.5, 2.5), 24 + r10.uniform(-1, 1)))
+            layer.append((c, cloud("cloud_layer", c, 3.6, seed=300 + 9 * i + j, puffs=5)))
+    for c, puffs in layer:
+        for p in puffs:
+            p["base_scale"] = tuple(p.scale); p.hide_render = True
+    # FX-SUNBEAMS: soft arrows of light (bounce off the layer's tops in V2; pour through gaps to the ground in V3-V4)
+    beam_m = emit("#FFE69C", 1.0, alpha=0.82)
+    tops = [c for c, _ in layer if -14 < c.x - O.x < 14 and 4 < c.y - O.y < 40]
+    r10.shuffle(tops)
+    bounce = []
+    for k, c in enumerate(tops[:9]):
+        nrm = V((r10.uniform(-0.25, 0.25), r10.uniform(-0.25, 0.25), 1)).normalized()
+        bounce.append((arrow("beam_in", 7.0, 1.7, beam_m), arrow("beam_out", 7.0, 1.7, beam_m), c + V((0, 0, 2.0)), nrm,
+                       1200 + 6.5 * k + r10.uniform(-2, 2)))
+    spot_m = emit("#FFB25E", 1.0, alpha=0.42)
+    pour = []
+    for k in range(16):
+        x, y = r10.uniform(-5, 6), r10.uniform(9, 26)
+        hit = O + V((x, y, z(x, y) + 0.03))
+        spot = cyl("warm_spot", hit, 1.0, 0.01, spot_m, verts=28)
+        spot.hide_render = True
+        pour.append((arrow("beam_down", 3.4, 0.6, beam_m), hit, spot, r10.uniform(0.7, 1.3), 1270 + 4.6 * k + r10.uniform(-2, 2)))
+    # FX-HEAT-SHIMMER: wavy see-through ribbons wobbling just above the hot ground (not inked)
+    shimmer = []
+    for k in range(16):
+        x, y = r10.uniform(-3.5, 4.0), r10.uniform(1.5, 16)
+        if abs(x) < 0.6 and abs(y - KID_PLAIN[1]) < 0.8:
+            continue
+        h, A, ph = r10.uniform(0.5, 1.1), r10.uniform(0.03, 0.07), r10.uniform(0, 6.28)
+        pts = [(A * math.sin(9 * u + ph), 0, u * h) for u in (i / 12 for i in range(13))]
+        ws = [0.02 + 0.07 * math.sin(math.pi * u) for u in (i / 12 for i in range(13))]
+        m = emit("#FFF4DA", 1.1, alpha=0.2 + 0.0001 * k)
+        o = strip("heat_shimmer", pts, ws, m, up=(0, 1, 0))
+        o.location = O + V((x, y, z(x, y)))
+        o.hide_render = True
+        shimmer.append((o, m, o.location.copy(), r10.uniform(0, 1)))
+    for a_in, a_out, *_ in bounce:
+        a_in.hide_render = a_out.hide_render = True
+    for a_dn, *_ in pour:
+        a_dn.hide_render = True
+    # ---- S11 additions: built hidden (S09-S10 unchanged); own random stream ----
+    r11 = random.Random(seed + 300)
+    kp = O + V((KID_PLAIN[0], KID_PLAIN[1], z(*KID_PLAIN)))
+    kids = {"stand": kid}
+    for key, tex, px in (("shield", "RAINKID-SHIELD-SUN.png", 1753), ("fan", "RAINKID-FAN-SUN.png", 1753),
+                         ("shiver", "RAINKID-SHIVER-NIGHT.png", 1852)):
+        kids[key] = card("kid_" + key, tex, 1.35 * px / 1753, kp)     # same body size as the standing card
+        for ob in kids[key]:
+            ob.hide_render = True
+    # FX-STARS-FROST: small frost glints on the cracks and a few twinkling stars low over the plain (not inked)
+    frost_m = emit("#EAF6FF", 1.6)
+    frost = []
+    for k in range(80):
+        cr = r11.choice(cracks)
+        p = cr.data.vertices[r11.randrange(len(cr.data.vertices))].co
+        g = blob("frost", V(p) + V((0, 0, 0.012)), r11.uniform(0.018, 0.03), frost_m, scale=(2.2, 0.8, 0.5), sub=1)
+        g.hide_render = True
+        frost.append((g, tuple(g.scale), r11.uniform(0, 1)))
+    star_m = emit("#F4F6FF", 1.0)
+    stars = []
+    for k in range(50):
+        a, el = math.radians(r11.uniform(-55, 55)), math.radians(r11.uniform(6, 48))
+        c = O + V((math.sin(a) * math.cos(el), math.cos(a) * math.cos(el), math.sin(el))) * 900
+        st = blob("star_twinkle", c, r11.uniform(1.2, 2.2), star_m, sub=1)
+        st.hide_render = True
+        stars.append((st, r11.uniform(0, 1)))
+    return dict(z=z, kid=kid, kids=kids, cracks=cracks, sun=sun, sun_disc=sun_disc, glow=glow, glow_m=glow_m, ghosts=ghosts,
+                veil=veil, veil_c=veil_c, layer=layer, bounce=bounce, pour=pour, shimmer=shimmer, frost=frost, stars=stars)
+
+
+def arrow(name, L, W, mat):
+    """FX-SUNBEAMS arrow: a flat shaft and head, tip at the origin pointing +X (not inked; turned to the camera per frame)."""
+    import bmesh as _bm
+    bm = _bm.new(); h = 0.32 * L; s = 0.22 * W
+    head = [bm.verts.new(v) for v in ((0, 0, 0), (-h, W / 2, 0), (-h, -W / 2, 0))]
+    bm.faces.new(head)
+    bm.faces.new([bm.verts.new(v) for v in ((-h, -s, 0), (-h, s, 0), (-L, s, 0), (-L, -s, 0))])
+    me = bpy.data.meshes.new(name); bm.to_mesh(me); bm.free()
+    me.materials.append(mat)
+    o = bpy.data.objects.new(name, me); bpy.context.collection.objects.link(o)
+    return o
+
+
+# ---------------- BG-SPACE-EARTH (S10 V1) ----------------
+EARTH_R = 30.0
+SPACE_CAM_DIR = V((0.0, -1.0, 0.28)).normalized()   # where the V1 camera sits, seen from the Earth's centre
+SPACE_LIGHT = V((0.55, -0.6, 0.6)).normalized()       # sunlight from the upper right, in front (most of the face lit)
+SPACE_BEAM = V((0.72, -0.22, 0.66)).normalized()      # the arrows come in from the upper right of the frame (the sun's side)
+
+
+def space_earth_set(O, seed=81):
+    rnd = random.Random(seed)
+    O = V(O)
+    earth = pc.sphere("earth", O, EARTH_R, painted("earth_map.png", 1.0, "UV", lift=1.1))
+    # turn the globe so Africa and Europe face the camera (earth_map u ~0.55, v ~0.35)
+    from mathutils import Euler as _E
+    me = earth.data
+    uvl = me.uv_layers.active.data
+    best = None
+    for spin in range(0, 360, 5):
+        R = _E((math.radians(23.4), 0, math.radians(spin))).to_matrix()
+        for poly in list(me.polygons)[::7]:
+            if (R @ poly.normal).dot(SPACE_CAM_DIR) > 0.995:
+                u = sum(uvl[i].uv.x for i in poly.loop_indices) / poly.loop_total
+                err = abs(u - 0.55)
+                if best is None or err < best[0]:
+                    best = (err, spin)
+    earth.rotation_euler = deg(23.4, 0, best[1] if best else 0)
+    # a thin blue atmosphere rim: an additive glow behind the globe (only its edge shows)
+    halo_m, _ = flare_mat("#6FA8FF", 0.6)
+    halo = billboard("atmosphere", halo_m, EARTH_R * 2.7, O - SPACE_CAM_DIR * 2)
+    # the cloud shell: clusters of flattened puffs riding just above the surface, mostly on the side we see
+    cl_m = painted("ep4_cloud.png", 0.2)
+    clusters = []
+    while len(clusters) < 58:
+        n = V((rnd.gauss(0, 1), rnd.gauss(0, 1), rnd.gauss(0, 1))).normalized()
+        if n.dot(SPACE_CAM_DIR) < 0.2:
+            continue
+        t1 = n.cross(V((0, 0, 1))).normalized(); t2 = n.cross(t1)
+        c = O + n * (EARTH_R + 0.9)
+        rot = n.to_track_quat("Z", "Y").to_euler()
+        for _ in range(5):
+            off = t1 * rnd.uniform(-2.6, 2.6) + t2 * rnd.uniform(-1.8, 1.8) + n * rnd.uniform(0, 0.4)
+            b = blob("cloud_shell", c + off, rnd.uniform(1.2, 2.0), cl_m, scale=(1.4, 1.1, 0.5), sub=2)
+            b.rotation_euler = rot
+        clusters.append((c, n))
+    light("sun", "SUN", O + V((0, 0, 60)), 4.4, "#FFF4E2", rot=tuple(SPACE_LIGHT.to_track_quat("Z", "Y").to_euler()), angle=2)
+    # the sun as a bright disc at the frame's upper-right edge (placed for the V1 camera; it is far away)
+    cam0 = O + SPACE_CAM_DIR * 185
+    sdir = (-SPACE_CAM_DIR + V((0.08, 0, 0)) + V((0, 0, 0.28))).normalized()
+    sun_disc = billboard("sun_disc", pc.flatcard("sun_disc.png", 1.0), 90, cam0 + sdir * 1500)
+    sun_glow = billboard("sun_glow", pc.flatcard("glow.png", 1.0), 300, cam0 + sdir * 1520)
+    # FX-SUNBEAMS: arrows from the sun side that hit bright cloud tops and bounce back out to space
+    beam_m = emit("#FFE69C", 1.0, alpha=0.85)
+    lit = [(c, n) for c, n in clusters if n.dot(SPACE_BEAM) > 0.3 and n.dot(SPACE_CAM_DIR) > 0.55]
+    rnd.shuffle(lit)
+    bounce = []
+    for k, (c, n) in enumerate(lit[:7]):
+        bounce.append((arrow("beam_in", 11.0, 2.6, beam_m), arrow("beam_out", 11.0, 2.6, beam_m), c + n * 1.0, n,
+                       1136 + 7.0 * k + rnd.uniform(-2, 2)))
+    for a_in, a_out, *_ in bounce:
+        a_in.hide_render = a_out.hide_render = True
+    # faint dust specks drifting near the lens (not inked; placed relative to the camera each frame)
+    dust = [(blob("dust", O, rnd.uniform(0.025, 0.05), glassy("#E4EAFF", 0.5), sub=1),
+             V((rnd.uniform(-1.6, 1.6), rnd.uniform(5, 9), rnd.uniform(-2.6, 2.6))), rnd.uniform(0, 6.28)) for _ in range(10)]
+    return dict(earth=earth, halo=halo, sun_disc=sun_disc, sun_glow=sun_glow, bounce=bounce, dust=dust)

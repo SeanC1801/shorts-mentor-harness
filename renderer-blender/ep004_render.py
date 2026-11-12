@@ -7,13 +7,21 @@ usage: blender -b -P renderer-blender/ep004_render.py -- OUT_DIR [scale%] [start
 import math, os, random, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bpy
-from mathutils import Vector
+from mathutils import Vector, Matrix
 import papercraft as pc
 pc.CEL = True
 import ep004_sets as s4
 
 argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else ["/tmp/ep004"]
 OUT = argv[0]
+_pos = []
+for _a in argv[1:]:
+    if _a.startswith("--"):
+        break
+    _pos.append(_a)
+for _a in _pos:   # a range passed as one argument ("861 917") once made every job render from frame 0
+    if not _a.isdigit():
+        sys.exit(f"ep004_render: argument {_a!r} is not a whole number (expected: OUT_DIR [scale] [start] [end])")
 SCALE = int(argv[1]) if len(argv) > 1 and argv[1].isdigit() else 100
 START = int(argv[2]) if len(argv) > 2 and argv[2].isdigit() else 0
 END = int(argv[3]) if len(argv) > 3 and argv[3].isdigit() else 1607
@@ -40,7 +48,11 @@ def deg(*a): return tuple(math.radians(x) for x in a)
 STATES = {"LS1": ("ep4_sky_rain_eq.png", 1.8, "#F2F4F9", 1.15), "LS5": ("ep4_sky_bright_eq.png", 0.9, "#F1EADC", 1.08),
           "LS2": ("sky_day_eq.png", 1.0, "#F6EBD8", 1.1), "LS3": ("ep4_sky_high_eq.png", 1.0, "#E9EFF8", 1.08),
           "LS4": ("sky_dawn_eq.png", 0.85, "#F6E0D4", 1.1),
-          "LS5i": ("ep4_sky_thin_eq.png", 0.9, "#F1EADC", 1.08)}   # LS5 lighting, inland sky card without painted clouds
+          "LS5i": ("ep4_sky_thin_eq.png", 0.9, "#F1EADC", 1.08),   # LS5 lighting, inland sky card without painted clouds
+          "LS5d": ("ep4_sky_dry_eq.png", 0.9, "#F1EADC", 1.08),    # LS5 lighting, BG-DRY-PLAIN's clear day sky
+          "LS6": ("ep4_sky_glare_eq.png", 1.0, "#FFF0D8", 1.0),    # harsh noon glare: bleached yellow-white sky
+          "LS8": ("space_eq.png", 0.35, "#E6E8FF", 1.1),           # cool deep space: star card (EP003's, reused)
+          "LS7": ("ep4_sky_night_eq.png", 1.0, "#B4BEEA", 1.0)}    # cold clear night: deep blue-violet star card
 COL, H = {}, {}
 
 
@@ -71,8 +83,11 @@ stage("sky", s4.high_sky_set, (0, 1400, 0))
 stage("coast", s4.coast_town_set, (0, 2200, 0))
 stage("shore", s4.shore_set, (0, 3000, 0))
 stage("inland", s4.inland_set, (0, 3800, 0))
-Wn, Sea, Sky, Co, Sh, In = H["window"], H["sea"], H["sky"], H["coast"], H["shore"], H["inland"]
-Wo, So, Ko, Cs, Ho, Io = Wn["O"], Sea["O"], Sky["O"], Co["O"], Sh["O"], In["O"]
+stage("plain", s4.dry_plain_set, (0, 4600, 0))
+stage("space", s4.space_earth_set, (0, 8000, 0))
+Sp = H["space"]; Eo = Sp["O"]
+Wn, Sea, Sky, Co, Sh, In, Pl = H["window"], H["sea"], H["sky"], H["coast"], H["shore"], H["inland"], H["plain"]
+Wo, So, Ko, Cs, Ho, Io, Po = Wn["O"], Sea["O"], Sky["O"], Co["O"], Sh["O"], In["O"], Pl["O"]
 Kc = Sky["C"]
 
 
@@ -360,6 +375,363 @@ def ev_s07(t, f, kid=False):
     show(In["kid"], kid)
 
 
+def ev_s08(t, f):
+    """Inland drying (v1 clock 855-1022). V1: the thinned cloud drifts in and drops only a sparse sprinkle.
+    V2 (912-968, 'drier ground' ~943-951): ridges settle, soil and leaves dry, plants droop, the lake shrinks
+    to a dry rim, cracks spread from the near edge of the field to the far edge. V3 (968-1022, 'even less
+    water to give' ~981-1020): one curl tries to rise and fizzles out; the last clouds clear."""
+    ev_s07(t, f, False)                        # same clouds (already thinned), S07 curls hidden by now
+    # clouds drift toward the camera; in V3 the side clouds clear and the main one shrinks to a scrap
+    drift = V((0, -0.07 * (f - 855), 0))
+    clear = ease((f - 972) / 36)
+    for p in In["cl_main"]:
+        p.location = V(p["base_loc"]) + drift
+        p.scale = p.scale * (1 - 0.55 * clear)
+    for cs in In["cl_side"]:
+        for p in cs:
+            p.location = V(p["base_loc"]) + drift
+            p.scale = p.scale * (1 - clear)
+            p.hide_render = p.hide_render or clear > 0.97
+    # sparse sprinkle under the cloud (V1 into early V2)
+    for o, p0, ph in In["sprinkle"]:
+        age = (f - 852 - ph * 40) % 34
+        on = 852 + ph * 40 <= f < 935
+        o.hide_render = not on
+        if on:
+            o.location = p0 + drift + V((0, -0.08 * age, -0.4 * age))
+    # drying
+    u = ease((f - 914) / 40)
+    for k, sock in In["dry"].items():
+        if sock is not None:
+            sock.default_value = u * {"leaf": 0.85, "stem": 0.85, "crown": 0.45}.get(k, 1.0)
+    settle = ease((f - 912) / 16)
+    for rg in In["ridges"]:
+        rg.scale.z = rg["base_sz"] * (1 - 0.65 * settle)
+    from mathutils import Matrix
+    for k, (stem, leaf, base, axis, amt, lsc) in enumerate(In["droop"]):
+        d = ease((f - 920 - (k % 9) * 2) / 26) * amt
+        R = Matrix.Rotation(math.radians(48) * d, 4, axis)          # the stem bends over
+        RL = Matrix.Rotation(math.radians(95) * d, 4, axis)         # the leaf hangs further, off the stem tip
+        stem.location = base + R @ V((0, 0, 0.12))
+        stem.rotation_euler = R.to_euler()
+        leaf.location = base + R @ V((0, 0, 0.24)) + RL @ V((0, 0, 0.06)) - V((0, 0, 0.05 * d))
+        leaf.rotation_euler = RL.to_euler()
+        leaf.scale = (lsc[0] * (1 - 0.3 * d), lsc[1] * (1 - 0.3 * d), lsc[2] * (1 - 0.1 * d))
+    for cb in In["crown"]:
+        b = cb["base_scale"]; sh = 1 - 0.1 * u
+        cb.scale = (b[0] * sh, b[1] * sh, b[2] * sh)
+    lk = ease((f - 922) / 40)
+    loc0, sc0 = In["lake_base"]
+    In["lake"].location = loc0 + V((0, 0, -0.24 * lk))
+    In["lake"].scale = (sc0[0] * (1 - 0.32 * lk), sc0[1] * (1 - 0.32 * lk), sc0[2])
+    lc = In["O"] + V((s4.LAKE_C.x, s4.LAKE_C.y, 0))
+    for g, gb in zip(In["glints"], In["glint_base"]):
+        q = lc + (gb - lc) * (1 - 0.32 * lk)
+        g.location = V((q.x, q.y, gb.z - 0.24 * lk))
+    for segs, t0 in In["cracks"]:
+        n_on = int(max(0.0, (f - t0) / 2.0)) + (1 if f >= t0 else 0)
+        for i, sg in enumerate(segs):
+            sg.hide_render = i >= n_on
+    # V3 camera in two parts: a slow push toward the curl while it fizzles, then the crane up to the clear sky
+    if 968 <= f < 1022:
+        tv = (f - 968) / 53
+        pa, pb, pc_ = Io + V((9.0, 9.0, 1.6)), Io + V((9.15, 9.9, 1.45)), Io + V((9.6, 11.5, 3.8))
+        aa, ab, ac = Io + V((10.5, 20.0, 0.1)), Io + V((10.0, 17.0, 0.5)), Io + V((11.0, 30.0, 15.0))
+        if tv < 0.4:
+            e = ease(tv / 0.4); cam.location, aim.location = pa.lerp(pb, e), aa.lerp(ab, e)
+        else:
+            e = ease((tv - 0.4) / 0.6); cam.location, aim.location = pb.lerp(pc_, e), ab.lerp(ac, e)
+    # the fizzle curl: rises slowly, flickers, shrinks and fades out
+    (o, m, base, ph), = In["fizzle"]
+    age = f - 968
+    if 0 <= age < 34:
+        o.hide_render = False
+        fade = min(1.0, age / 8) * max(0.0, 1 - max(0, age - 14) / 16)
+        o.location = base + V((0.06 * math.sin(age * 0.2), 0, 0.012 * age))
+        o.scale = (1 + 0.2 * math.sin(age * 0.5), 1, max(0.25, 1 - max(0, age - 16) / 30))
+        flick = 1 + 0.35 * math.sin(age * 1.3)
+        next(nd for nd in m.node_tree.nodes if nd.bl_idname == "ShaderNodeMixShader").inputs[0].default_value = 0.4 * fade * flick
+    else:
+        o.hide_render = True
+
+
+def face_cam(o):
+    """Turn a billboard (normal local -Y) fully toward the camera."""
+    o.rotation_euler = (cam.location - o.location).to_track_quat("-Y", "Z").to_euler()
+
+
+def ev_s09(t, f):
+    """BG-DRY-PLAIN, S09 (v1 clock 1022-1136; 'calmer' ~1069, 'But' ~1089, 'second job' ~1114-1127).
+    V1: slow push-in on the kid standing deadpan under a calm clear sky while a thin cloud slides over the sun and
+    the ground dims; from ~1068 the camera starts tilting up toward the sun.
+    V2 (LS6): on 'But' the cloud slides off and the glare snaps back; the tilt settles on the sun, flare ghosts sweep
+    across the frame; from ~1110 a push into the glare (zoom plus a growing bloom) that S10 leaves from."""
+    P = Pl
+    plain_day("stand")
+    plain_s10_off()                                             # S10's layer, beams and shimmer stay hidden here
+    show(P["veil"], True)
+    P["sun"].rotation_euler = s4.SUN_DIR.to_track_quat("Z", "Y").to_euler()
+    P["sun_disc"].location, P["glow"].location = Po + s4.SUN_DIR * 400, Po + s4.SUN_DIR * 430
+    k = ease((f - 1022) / 58)
+    pos = (Po + V((0.55, 1.0, 0.78))).lerp(Po + V((0.25, 2.7, 0.82)), k)
+    w = ease((f - 1068) / 40)                                   # tilt from the kid up to the sun
+    d = (Po + V((0.0, 6.0, 0.8)) - pos).normalized().lerp(s4.SUN_DIR, w).normalized()
+    push = ease((f - 1110) / 26) ** 1.6
+    cam.location = pos + s4.SUN_DIR * 2.0 * push
+    aim.location = cam.location + d * lerp(3.3, 60.0, w)
+    cam.data.lens = lerp(26.0, 28.0, k) + 55.0 * push
+    # the thin cloud: from the right over the sun (1040-1080), then off to the left on 'But' (1086-1095)
+    u = 1 - ease((f - 1040) / 40) if f < 1086 else -1.4 * ease((f - 1086) / 9)
+    side = s4.SUN_DIR.cross(V((0, 0, 1))).normalized()
+    for p in P["veil"]:
+        p.location = V(p["base_loc"]) + side * 16.0 * u
+    vc = P["veil_c"] + side * 16.0 * u
+    ang = math.degrees((vc - cam.location).angle(s4.SUN_DIR))
+    cover = 1 - ease((ang - 3.0) / 7.0)
+    glare = ease((f - 1087) / 3) if f >= 1086 else 0.0
+    # light: dims under the cloud, snaps brighter for the glare
+    P["sun"].data.energy = (4.2 + 1.3 * glare) * (1 - 0.5 * cover)
+    g0 = pc.hexcol(STATES["LS6" if f >= 1086 else "LS5d"][2])
+    dim = 1 - 0.13 * cover
+    pc.G_RGB.outputs[0].default_value = (g0[0] * dim, g0[1] * dim, g0[2] * dim, 1)
+    s = (1 + 0.5 * glare) * (1 - 0.45 * cover) * (1 + 6.0 * push)
+    P["glow"].scale = (s, s, s)
+    face_cam(P["sun_disc"]); face_cam(P["glow"])
+    # flare ghosts on the line from the sun through the frame centre, only while the sun is near the frame
+    fwd = (aim.location - cam.location).normalized()
+    rt = fwd.cross(V((0, 0, 1))).normalized(); up = rt.cross(fwd)
+    cz = max(1e-3, s4.SUN_DIR.dot(fwd))
+    sx, sy = s4.SUN_DIR.dot(rt) / cz, s4.SUN_DIR.dot(up) / cz
+    th = 12.0 / cam.data.lens
+    near = max(abs(sx) / (th * 0.5625), abs(sy) / th) if s4.SUN_DIR.dot(fwd) > 0 else 9.0
+    off = math.hypot(sx / (th * 0.5625), sy / th)             # 0 when the sun sits in the frame centre
+    fade = max(0.0, min(1.0, 1.6 - near)) * min(1.0, off / 0.35) * (1 - cover) * (1 - push) * (0.6 + 0.4 * glare)
+    for o, em, s0, gk in P["ghosts"]:
+        o.location = cam.location + (fwd + rt * sx * gk + up * sy * gk).normalized() * 8.0
+        em.inputs[1].default_value = s0 * fade
+        o.hide_render = fade < 0.02
+        face_cam(o)
+
+
+SUN_HIGH = V((0.25, 0.30, 0.92)).normalized()      # S10 V2-V4: a high noon sun over the plain
+
+
+def kid_pose(key):
+    """Show one of the plain's kid cards (stand, shield, fan, shiver) and its contact shadow; hide the rest."""
+    for k, (o, sh) in Pl["kids"].items():
+        show((o, sh), k == key)
+
+
+def plain_day(key):
+    """Day setup on the plain (as built): warm sun, sun disc and glow on, no night pieces; one kid card."""
+    P = Pl
+    kid_pose(key)
+    P["sun"].data.color = pc.hexcol("#FFF4E2")[:3]
+    show((P["sun_disc"], P["glow"]), True)
+    show([g for g, *_ in P["frost"]] + [st for st, _ in P["stars"]], False)
+
+
+def plain_s10_off():
+    P = Pl
+    for c, puffs in P["layer"]:
+        show(puffs, False)
+    for a_in, a_out, *_ in P["bounce"]:
+        a_in.hide_render = a_out.hide_render = True
+    for a_dn, hit, spot, *_ in P["pour"]:
+        a_dn.hide_render = spot.hide_render = True
+    for o, *_ in P["shimmer"]:
+        o.hide_render = True
+
+
+def put_arrow(o, tip, d, frac):
+    """Place a beam arrow (tip at origin, pointing local +X) at `tip` along `d`, flat side to the camera, length x frac."""
+    if frac <= 0.02:
+        o.hide_render = True
+        return
+    o.hide_render = False
+    x = d.normalized(); zz = cam.location - tip
+    zz = (zz - x * zz.dot(x)).normalized(); y = zz.cross(x)
+    o.matrix_world = Matrix(((x.x, y.x, zz.x, tip.x), (x.y, y.y, zz.y, tip.y), (x.z, y.z, zz.z, tip.z), (0, 0, 0, 1))) @ Matrix.Diagonal((frac, 1, 1, 1))
+
+
+def fly_beam(a_in, a_out, hit, din, dout, f, t0, D, v, L):
+    """An arrow travels D along din to `hit` and slides into it; the bounce arrow (if any) slides out along dout.
+    Returns how far past the hit the beam has gone (negative before it lands)."""
+    s = v * (f - t0)
+    q = s - D
+    if s <= 0:
+        a_in.hide_render = True
+    elif s <= D:
+        put_arrow(a_in, hit - din * (D - s), din, min(s, L) / L)
+    else:
+        put_arrow(a_in, hit, din, (L - q) / L)
+    if a_out is not None:
+        put_arrow(a_out, hit + dout * max(q, 0), dout, min(q, L) / L if q > 0 else 0)
+    return q
+
+
+def reflect(d, n):
+    return d - 2 * d.dot(n) * n
+
+
+def ev_s10(t, f):
+    """S10 (v1 clock 1136-1398; 'sunshade' ~1186, 'bouncing sunlight back to space' ~1202-1246, 'before it lands'
+    ~1253-1275, 'so with fewer of them' ~1286-1317, 'more sun would pour onto the bare ground' ~1326-1387).
+    V1 (space, LS8): slow orbit around Earth; arrows of sunlight hit bright cloud tops and bounce back out; push in.
+    V2 (plain, LS8): above the cloud layer, arrows bounce off its tops; push down through it to the shaded land.
+    V3 (LS6): the layer thins; arrows pour through the gaps to the ground and warm spots spread; follow them down.
+    V4 (LS6): low push across the bare cracked ground, heat shimmer rising, arrows still landing; end on the kid."""
+    global F
+    F = f
+    if f < 1200:
+        S = Sp
+        k = ease((f - 1136) / 64)
+        a = math.radians(lerp(-7.0, 6.0, k))
+        base = V((math.sin(a), -math.cos(a), 0.28)).normalized()
+        push = ease((f - 1172) / 28)
+        cam.location = Eo + base * lerp(185.0, 125.0, push)
+        aim.location = Eo.lerp(Eo + (base + V((0, 0, -0.45))).normalized() * s4.EARTH_R, 0.7 * push)
+        cam.data.lens = lerp(35.0, 40.0, push)
+        for o in (S["sun_disc"], S["sun_glow"], S["halo"]):
+            face_cam(o)
+        din = -s4.SPACE_BEAM
+        for a_in, a_out, hit, n, t0 in S["bounce"]:
+            fly_beam(a_in, a_out, hit, din, reflect(din, n), f, t0, 50.0, 2.6, 11.0)
+        fwd = (aim.location - cam.location).normalized()
+        rt = fwd.cross(V((0, 0, 1))).normalized(); up = rt.cross(fwd)
+        for o, off, ph in S["dust"]:
+            o.location = cam.location + fwd * off.y + rt * (off.x + 0.012 * (f - 1136)) + up * (off.z + 0.15 * math.sin(f * 0.05 + ph))
+        return
+    P = Pl
+    plain_day("stand")
+    show(P["veil"], False)
+    for o, *_ in P["ghosts"]:
+        o.hide_render = True
+    P["sun"].rotation_euler = SUN_HIGH.to_track_quat("Z", "Y").to_euler()
+    P["sun"].data.energy = 4.6 if f < 1265 else 5.5
+    P["sun_disc"].location, P["glow"].location = Po + SUN_HIGH * 400, Po + SUN_HIGH * 430
+    P["glow"].scale = (1.5, 1.5, 1.5)
+    if f < 1265:
+        k = ease((f - 1200) / 65)
+        pos, tgt, lens = (Po + V((8, -38, 78))).lerp(Po + V((1, 6, 15)), k), (Po + V((0, 18, 24))).lerp(Po + V((0, 40, 9)), k), 24.0
+    elif f < 1332:
+        k = ease((f - 1265) / 67)
+        pos, tgt, lens = (Po + V((1, 6, 15))).lerp(Po + V((0.6, -1.5, 1.4)), k), (Po + V((0, 40, 9))).lerp(Po + V((0, 12, 0.9)), k), lerp(24.0, 26.0, k)
+    else:
+        k = ease((f - 1332) / 66)
+        pos, tgt, lens = (Po + V((0.6, -1.5, 1.4))).lerp(Po + V((0.3, 2.6, 0.8)), k), (Po + V((0, 12, 0.9))).lerp(Po + V((0, 6, 0.8)), k), 26.0
+    cam.location, aim.location, cam.data.lens = pos, tgt, lens
+    face_cam(P["sun_disc"]); face_cam(P["glow"])
+    # the cloud layer: whole in V2, thinning from 1268 (a fifth of the puffs stay at 70%, so a few wisps remain)
+    allp = [p for c, puffs in P["layer"] for p in puffs]
+    n = len(allp)
+    puff_pop(allp, lambda k, n: -1000, lambda k, n: 1268 + 50 * ((k * 7) % n) / n, keep=set(range(0, n, 5)))
+    din = -SUN_HIGH
+    for a_in, a_out, hit, nrm, t0 in P["bounce"]:
+        if f < 1265:
+            fly_beam(a_in, a_out, hit, din, reflect(din, nrm), f, t0, 35.0, 1.7, 7.0)
+        else:
+            a_in.hide_render = a_out.hide_render = True
+    for a_dn, hit, spot, sz, t0 in P["pour"]:
+        if f < 1265:
+            a_dn.hide_render = spot.hide_render = True
+            continue
+        q = fly_beam(a_dn, None, hit, din, None, f, t0, 14.0, 1.0, 3.4)
+        r = sz * ease(q / 18.0)
+        spot.hide_render = r < 0.03
+        spot.scale = (r, r, 1)
+    for o, m, base, ph in P["shimmer"]:
+        a = max(0.0, min(1.0, (f - 1300) / 15))
+        o.hide_render = a < 0.02
+        o.location = base + V((0.04 * math.sin(f * 0.3 + ph * 6), 0, 0.05 * math.sin(f * 0.21 + ph * 4)))
+        o.scale = (math.sin(f * 0.45 + ph * 6), 1, 1 + 0.12 * math.sin(f * 0.17 + ph * 5))
+        next(nd for nd in m.node_tree.nodes if nd.bl_idname == "ShaderNodeMixShader").inputs[0].default_value = \
+            0.22 * a * (0.7 + 0.3 * math.sin(f * 0.5 + ph * 9))
+
+
+def ev_s11(t, f):
+    """S11 (v1 clock 1398-1522; 'Hot' ~1401, 'days' ~1420, 'cold' ~1434, 'nights' ~1455, 'desert' ~1494).
+    V1 (LS6): harsh glare, push in on the kid shielding the eyes (squint), then fanning (from 'days'); S10's wisps,
+    warm spots and heat shimmer carry on. V2 (LS7, after the whip): night; the kid in winter clothes shivers; quick
+    pull back. V3 (LS7): slow pull back to a wide of the plain under stars, frost glinting on the cracks."""
+    global F
+    F = f
+    P = Pl
+    show(P["veil"], False)
+    for o, *_ in P["ghosts"]:
+        o.hide_render = True
+    for a_in, a_out, *_ in P["bounce"]:
+        a_in.hide_render = a_out.hide_render = True
+    allp = [p for c, puffs in P["layer"] for p in puffs]
+    if f < 1446:
+        plain_day("shield" if f < 1419 else "fan")
+        P["sun"].rotation_euler = SUN_HIGH.to_track_quat("Z", "Y").to_euler()
+        P["sun"].data.energy = 5.5
+        P["sun_disc"].location, P["glow"].location = Po + SUN_HIGH * 400, Po + SUN_HIGH * 430
+        n = len(allp)      # the layer as S10 left it: a few thin wisps
+        puff_pop(allp, lambda k, n: -1000, lambda k, n: 1268 + 50 * ((k * 7) % n) / n, keep=set(range(0, n, 5)))
+        for a_dn, hit, spot, sz, t0 in P["pour"]:
+            a_dn.hide_render = True
+            spot.hide_render = False; spot.scale = (sz, sz, 1)
+        for o, m, base, ph in P["shimmer"]:
+            o.hide_render = False
+            o.location = base + V((0.04 * math.sin(f * 0.3 + ph * 6), 0, 0.05 * math.sin(f * 0.21 + ph * 4)))
+            o.scale = (math.sin(f * 0.45 + ph * 6), 1, 1 + 0.12 * math.sin(f * 0.17 + ph * 5))
+            next(nd for nd in m.node_tree.nodes if nd.bl_idname == "ShaderNodeMixShader").inputs[0].default_value = \
+                0.22 * (0.7 + 0.3 * math.sin(f * 0.5 + ph * 9))
+        k = ease((f - 1398) / 48)
+        pos, tgt, lens = (Po + V((0.3, 2.6, 0.8))).lerp(Po + V((0.15, 4.0, 0.95)), k), (Po + V((0, 6, 0.8))).lerp(Po + V((0, 6, 0.95)), k), lerp(26.0, 28.0, k)
+        face_cam(P["sun_disc"]); face_cam(P["glow"])
+    else:
+        kid_pose("shiver")
+        show(allp, False)
+        show((P["sun_disc"], P["glow"]), False)
+        for a_dn, hit, spot, *_ in P["pour"]:
+            a_dn.hide_render = spot.hide_render = True
+        for o, *_ in P["shimmer"]:
+            o.hide_render = True
+        moon = V((-0.3, 0.45, 0.84)).normalized()      # cool moonlight from above, a little behind the plain
+        P["sun"].rotation_euler = moon.to_track_quat("Z", "Y").to_euler()
+        P["sun"].data.energy = 1.8
+        P["sun"].data.color = pc.hexcol("#B8C6FF")[:3]
+        for g, sc0, ph in P["frost"]:
+            tw = 0.35 + 0.9 * max(0.0, math.sin(f * 0.55 + ph * 40)) ** 4
+            g.hide_render = False; g.scale = (sc0[0] * tw, sc0[1] * tw, sc0[2] * tw)
+        for st, ph in P["stars"]:
+            tw = 0.5 + 0.6 * max(0.0, math.sin(f * 0.4 + ph * 30)) ** 3
+            st.hide_render = False; st.scale = (tw, tw, tw)
+        kid = Pl["kids"]["shiver"][0]      # the shiver: a small side-to-side shake, held 2 frames each
+        kid.location = Po + V((s4.KID_PLAIN[0] + (0.012 if (int(f) // 2) % 2 else -0.012), s4.KID_PLAIN[1], s4.plain_height(*s4.KID_PLAIN)))
+        if f < 1484:
+            u = max(0.0, min(1.0, (f - 1446) / 38)); k = 1 - (1 - u) ** 2
+            pos, tgt, lens = (Po + V((0.15, 4.0, 0.95))).lerp(Po + V((0.4, 1.6, 1.0)), k), (Po + V((0, 6, 0.95))).lerp(Po + V((0, 6, 0.9)), k), lerp(28.0, 26.0, k)
+        else:
+            k = ease((f - 1484) / 38)
+            pos, tgt, lens = (Po + V((0.4, 1.6, 1.0))).lerp(Po + V((1.4, -7.0, 2.8)), k), (Po + V((0, 6, 0.9))).lerp(Po + V((0, 10, 0.6)), k), lerp(26.0, 24.0, k)
+    cam.location, aim.location, cam.data.lens = pos, tgt, lens
+
+
+def ev_s12(t, f):
+    """S12 (v1 clock 1522-1607; 'The sky was running on the ocean all along.' ~1525-1590). The kid's window again, now
+    dry, under LS5's thin bright sky. V1: slow push-in on the kid (wistful) behind the dry pane. V2: pull back from the
+    window to the house front under the bright sky, through the fade-out (added by finish_ep004.py)."""
+    show(Wn["rain"], False)
+    for o, base in Wn["streaks"]:
+        o.hide_render = True
+    show(Wn["kid_curious"], False); show(Wn["kid_wistful"], True)
+    Wn["lamp"].data.energy = 40                       # daytime: the lamp barely adds anything
+    Wn["sun"].data.energy, Wn["sun"].data.color = 4.8, pc.hexcol("#FFF4E2")[:3]
+    face = Wo + V((0.36, 0.72, 1.08))
+    if f < 1566:
+        k = ease((f - 1522) / 44)
+        pos, tgt, lens = (Wo + V((0.25, -1.7, 1.25))).lerp(Wo + V((0.3, -1.15, 1.18)), k), face, lerp(38.0, 44.0, k)
+    else:
+        k = ease((f - 1566) / 41)
+        pos = (Wo + V((0.3, -1.15, 1.18))).lerp(Wo + V((0.8, -9.5, 2.4)), k)
+        tgt, lens = face.lerp(Wo + V((0.1, 0.0, 1.9)), k), lerp(44.0, 28.0, k)
+    cam.location, aim.location, cam.data.lens = pos, tgt, lens
+
+
 def ev_none(t, f):
     pass
 
@@ -404,6 +776,36 @@ VIEWS = [
     (768, 812, "inland", "LS5i", (Io + V((-3.0, 4.0, 1.7)), Io + V((8.0, 16.0, 0.4)), 24), (Io + V((1.0, 4.0, 2.6)), Io + V((7.0, 36.0, 13.0)), 24), ev_s07, 11.0),
     # S07 V4: low angle on the kid pointing up (worried) as the clouds thin and gaps open; slow push-in
     (812, 855, "inland", "LS5i", (Io + V((3.5, 1.2, 0.35)), Io + V((3.95, 8.2, 1.0)), 24), (Io + V((3.5, 1.9, 0.42)), Io + V((4.05, 9.0, 1.15)), 24), lambda t, f: ev_s07(t, f, True), 11.0),
+    # S08 V1: the thinned cloud drops only a sparse sprinkle; follow a few drops down to the ground
+    (855, 912, "inland", "LS5i", (Io + V((5.5, 15.5, 3.5)), Io + V((7.0, 31.0, 12.5)), 24), (Io + V((6.0, 17.0, 3.0)), Io + V((7.5, 27.5, 0.3)), 26), ev_s08, 11.0),
+    # S08 V2: the ground dries; cracks spread across the field; plants droop; low push across the field
+    (912, 968, "inland", "LS5i", (Io + V((8.0, 2.5, 2.1)), Io + V((9.5, 14.0, 0.0)), 24), (Io + V((9.0, 9.0, 1.6)), Io + V((10.5, 20.0, 0.1)), 24), ev_s08, 11.0),
+    # S08 V3: one faint curl tries to rise from the cracked ground and fizzles; crane up past it to a nearly clear sky
+    (968, 1022, "inland", "LS5i", (Io + V((9.0, 9.0, 1.6)), Io + V((10.5, 20.0, 0.1)), 24), (Io + V((9.6, 12.0, 3.8)), Io + V((11.0, 30.0, 15.0)), 24), ev_s08, 11.0),
+    # S09 V1: a calm clear sky over a baked, cracked plain; the kid stands deadpan in sun clothes; slow push-in,
+    # a thin cloud slides over the sun and the ground dims; the camera starts tilting up to the sun
+    (1022, 1086, "plain", "LS5d", None, None, ev_s09, 11.0),
+    # S09 V2: on 'But' the cloud slides off and the glare snaps back; tilt onto the sun, flare across the lens,
+    # push into the glare
+    (1086, 1136, "plain", "LS6", None, None, ev_s09, 11.0),
+    # S10 V1: Earth from space; arrows of sunlight hit bright cloud tops and bounce back out; slow orbit, push toward the clouds
+    (1136, 1200, "space", "LS8", None, None, ev_s10, 11.0),
+    # S10 V2: closer, the cloud layer as a parasol over the land; arrows bounce off its tops; push down through it
+    (1200, 1265, "plain", "LS8", None, None, ev_s10, 11.0),
+    # S10 V3: the clouds thin; arrows pour through the gaps and warm the ground; follow them down
+    (1265, 1332, "plain", "LS6", None, None, ev_s10, 11.0),
+    # S10 V4: bare cracked ground under a blazing sky, heat shimmer rising; low push across the ground to the kid
+    (1332, 1398, "plain", "LS6", None, None, ev_s10, 11.0),
+    # S11 V1: harsh glare; push in on the kid shielding the eyes (squinting), then fanning; whip the sun down
+    (1398, 1446, "plain", "LS6", None, None, ev_s11, 11.0),
+    # S11 V2: the sky snaps to a starry night; the kid in winter clothes shivers; quick pull back as the light flips
+    (1446, 1484, "plain", "LS7", None, None, ev_s11, 11.0),
+    # S11 V3: wide: the desert-like plain under stars, frost glinting on the cracks, the kid small; dissolve to the window
+    (1484, 1522, "plain", "LS7", None, None, ev_s11, 11.0),
+    # S12 V1: the kid's window again, dry, a thin bright sky outside; slow push-in on the kid (wistful)
+    (1522, 1566, "window", "LS5", None, None, ev_s12, 2.8),
+    # S12 V2: pull back from the window to the house front under the bright sky, through the fade-out
+    (1566, 1607, "window", "LS5", None, None, ev_s12, 8.0),
 ]
 LAST = VIEWS[-1][1]
 
@@ -424,6 +826,7 @@ LAST2 = V2_STARTS[V1_STARTS.index(LAST)]
 pc.cel_ink(sc)
 os.makedirs(OUT, exist_ok=True)
 frames = ONLY or range(START, min(END, LAST2))
+print("RANGE", f"frames {list(frames)}" if ONLY else f"{START}-{min(END, LAST2) - 1}", flush=True)
 current = None
 for f2 in frames:
     f = to_v1(f2)
