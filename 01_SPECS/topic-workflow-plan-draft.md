@@ -106,11 +106,11 @@ These show the method applied to the Scientific What-If niche. They are not conc
 ## 5. Redundant or stale in the harness (verified by reading the files)
 **Outcome, 2026-11-13.**
 - **Removed:** `03_TRACKING/bottlenecks.md` (empty), `04_LOGS/` (empty), `02_CONTEXT/source-analysis/playlist-analysis.md` (unreferenced; its content is in the header of `mentor-source-notes.md`).
+- **Removed after the creator confirmed Codex is no longer used:** `.agents/skills/` (five exact copies of `.claude/skills/`) and `AGENTS.md` (a copy of `CLAUDE.md` with one path changed).
 - **Kept after checking:**
   - `EPISODES/EP001-example/`: the README's quick start copies it to begin every new episode.
   - `mentor-philosophy.md`: `/short-mentor` reads it.
-  - `.agents/skills/` and `AGENTS.md`: Codex is installed on this Mac, so they may be in use; the `/short-ideate` copy was updated to match.
-- **Left for the creator, because they sit in preference or rule files:** the stale statements in `CLAUDE.md`, `AGENTS.md`, `README.md`, `/short-animate` and `me.md`; the `PRODUCTION_PACKET.md` requirement.
+- **Left for the creator, because they sit in preference or rule files:** the stale statements in `CLAUDE.md`, `README.md`, `/short-animate` and `me.md`; the `PRODUCTION_PACKET.md` requirement.
 - **Belongs to the efficiency plan:** shot timings written four times; per-episode code copies.
 
 The table below is the original finding.

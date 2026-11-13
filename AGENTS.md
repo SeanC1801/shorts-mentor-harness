@@ -1,6 +1,0 @@
-# Shorts Harness
-Read `me.md` and `00_CORE/agents.md` first. Follow the manually invoked skill in `.Codex/skills/` and only its routed references. The creator owns concepts and decisions. Never invent a publishable premise, infer approval, or cross a gate. Present each deliverable for explicit approval; approvals apply only to the stated version. Any upstream change invalidates downstream approvals. Keep episode handoffs self-contained. Phase 1 has no working renderer or finished artwork.
-
-Before resuming an episode, sync approval hashes with `python3 tools/approval_state.py sync EPISODES/<ID>`. Run the episode validator before treating a shot packet as complete. Record approvals only after the creator explicitly approves the displayed version.
-
-Use `/short-mentor` for advice-only creator or storytelling coaching; it never advances approval gates. Attributed transcript lessons are in `02_CONTEXT/source-analysis/mentor-source-notes.md`; reference-channel topic/title patterns are in `channel-reference-notes.md` beside it.
