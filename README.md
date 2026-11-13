@@ -30,8 +30,7 @@ me.md                             creator preferences
 02_CONTEXT/source-analysis/       attributed, selective transcript notes
 02_CONTEXT/assets/                asset manifest and library plan (character,
                                   background, and prop art is not yet created)
-03_TRACKING/                      learnings, bottlenecks, asset backlog
-04_LOGS/                          concise session history
+03_TRACKING/                      learnings, branch and format tests, asset backlog
 EPISODES/<episode-id>/            idea through production handoff
 tools/                            episode validator and approval-state helper
 ```
@@ -45,7 +44,7 @@ All five skills are project-local and set to `disable-model-invocation: true`; c
 | Skill | Use | Boundary |
 |---|---|---|
 | [`/short-mentor`](.claude/skills/short-mentor/SKILL.md) | Coach the creator or critique story choices | Advice only; does not advance approval gates |
-| [`/short-ideate`](.claude/skills/short-ideate/SKILL.md) | Develop a concept from the creator's original seed | Stops for idea approval |
+| [`/short-ideate`](.claude/skills/short-ideate/SKILL.md) | Topic stage (seed list, five checks, title and first line), then a concept card from the seed the creator selects | Stops for the creator's selection, then for idea approval |
 | [`/short-storyboard`](.claude/skills/short-storyboard/SKILL.md) | Research, draft narration, and create shot plan | Separate script and storyboard approvals |
 | [`/short-animate`](.claude/skills/short-animate/SKILL.md) | Prepare an animation plan | No renderer or preview exists in Phase 1 |
 | [`/short-review`](.claude/skills/short-review/SKILL.md) | Critique evidence, storytelling, and handoff | Does not approve or publish |

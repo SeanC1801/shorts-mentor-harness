@@ -12,7 +12,7 @@ Read only the smallest relevant context set.
 | Skill details | the invoked skill's `SKILL.md` and named references only |
 
 ## Route
-- `/short-ideate`: creator-seeded concept; stop for idea approval.
+- `/short-ideate`: topic stage (seed list, five checks, title and first line; stop for the creator's selection), then the creator-seeded concept; stop for idea approval.
 - `/short-storyboard`: source check, script and storyboard; separate script and storyboard approvals.
 - `/short-animate`: after storyboard approval, make an animation plan/preview only as available; stop for preview approval.
 - `/short-review`: critique and checklist; never approves, exports, or publishes on the user's behalf.

@@ -49,11 +49,19 @@
       "approvalText": "I approve storyboard v2"
     },
     "animationPreview": {
-      "status": "blocked",
+      "status": "approved",
       "artifactFiles": [
         "animation-preview.mp4"
       ],
-      "currentContentHash": null
+      "currentContentHash": "0e0933e83f24652d1603a60e9b1e53a03f5074dc7d5bb3b99b49353e3ebfd61c",
+      "version": "v1",
+      "approvedBy": "Sean Caling",
+      "approvedAt": "2026-11-12T19:00:37Z",
+      "contentHash": "0e0933e83f24652d1603a60e9b1e53a03f5074dc7d5bb3b99b49353e3ebfd61c",
+      "dependencyHashes": {
+        "storyboard": "3d4d83fa857bbac05ea66c4552750b33ba757f70d4ab84f75811c9639418bd1c"
+      },
+      "approvalText": "I approve animationPreview v1"
     }
   },
   "history": [
@@ -109,6 +117,13 @@
       "event": "storyboard approved",
       "version": "v2",
       "contentHash": "3d4d83fa857bbac05ea66c4552750b33ba757f70d4ab84f75811c9639418bd1c",
+      "approvedBy": "Sean Caling"
+    },
+    {
+      "at": "2026-11-12T19:00:37Z",
+      "event": "animationPreview approved",
+      "version": "v1",
+      "contentHash": "0e0933e83f24652d1603a60e9b1e53a03f5074dc7d5bb3b99b49353e3ebfd61c",
       "approvedBy": "Sean Caling"
     }
   ]

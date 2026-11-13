@@ -18,6 +18,11 @@ How a scene goes from code to an approved clip, what it costs, what went wrong o
    - `python3 -I renderer-blender/scripts/finish_ep00N.py FRAMES OUT S0N` adds captions and the narration slice, then encodes `EP00N-S0N.mp4`.
    - Then ffprobe the clip's length and frame count, and make a contact sheet.
 6. **Present** the clip, then wait for "Approve S0N". Record the approval in the handoff.
+7. **Full preview** (after every scene is approved).
+   - Run `finish_ep00N.py FRAMES renders/ep00N-v2/preview` into its own folder: this mode also rebuilds silent scene clips, which must not overwrite the approved ones.
+   - Copy the result to `EPISODES/EP00N/animation-preview.mp4` and run `approval_state.py sync`.
+   - Record the gate only after the creator types the exact phrase "I approve animationPreview v1".
+8. **Title and hashtags** (creator rule, 2026-11-13): every approved preview comes with 3–5 title options and a hashtag set for the creator to choose from. Record the choice in the handoff.
 
 **Measured cost (EP004, correct runs):**
 - Each job spends about 3 minutes on setup.
@@ -72,3 +77,4 @@ How a scene goes from code to an approved clip, what it costs, what went wrong o
 5. **Cheaper check stills.** Render check stills at 50% scale and 16 samples. Keep 100% and 32 samples for the final clip.
 6. **Profile one frame.** Split each frame's time between EEVEE and Freestyle. If Freestyle dominates, limit ink lines to the objects that need them, or try the Line Art modifier.
 7. **Render one scene while the creator reviews the last one only when the creator says so.** The approval gate stays per scene.
+8. **Faster preview assembly.** EP004's full preview took 23 min of single-process Python: joins and captions are drawn frame by frame with PIL. Run the per-frame work in parallel, or reuse the approved scene clips' already-captioned frames.
