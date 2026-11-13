@@ -70,7 +70,7 @@ How a scene goes from code to an approved clip, what it costs, what went wrong o
 
 ## Make the next video faster
 
-1. **Always launch through `scripts/render_scene.py`**, never a hand-typed shell loop. Before leaving a render running, check the first log lines: the first `FRAME` must equal the job's start.
+1. **Always launch through `scripts/render_scene.py`**, never a hand-typed shell loop. From 2026-11-13 its form is `render_scene.py EPISODE SHOT`: it reads the frame range from the episode's timing file, warns on battery, and stops a job that runs past twice its expected time. (EP004's last three scenes used an earlier form of it.) Before leaving a render running, check the first log lines: the first `FRAME` must equal the job's start.
 2. **Watch the clock.** If a scene has not finished in about 2× its expected time (frames × 5 s + 3 min), stop and look at the logs rather than waiting.
 3. **Build only the stage being rendered.** Every job currently builds every set in the episode, which is about 3 min per job and grows with each new set. Build the stage(s) the requested frames use, and nothing else.
 4. **Measure parallel against single.** Time one 20-frame slice with 1, 2 and 3 jobs. The jobs share one GPU, so 3 jobs may not be 3× faster.

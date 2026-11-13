@@ -63,7 +63,7 @@ Testing a group at once is faster but cannot say which change inside it mattered
   - `toon3d.py`: limbs are rebuilt in place each frame (`tube_update`, `pose_kid`), poses blend (`mix_pose`), faces swap (`face_kid`).
   - `scripts/paint_faces3d.py`: a tenth face, `blink`.
   - `toon_sets.py`: the workshop and night-street sets and their lighting, moved out of the look-test script so both scripts share one copy.
-  - `motion_test_3d.py`: the test clip. It stops on a non-numeric frame argument, like the EP004 renderer now does.
+  - `motion_test_3d.py`: the test clip (removed 2026-11-14; now `episodes/motion_test.py`, rendered by `render_episode.py`). It stops on a non-numeric frame argument, like the EP004 renderer now does.
 - **The clip:** 100 frames (3.3 s) at 30 fps, the bean-build kid in the workshop, no captions or narration. Stand, glance toward the jar, think (worried), idea (points up with a hop and a stretch, surprised then happy), shrug (smug), then the jar flares and the kid jumps (nervous). Pose changes take 5 frames with a small overshoot and then hold; faces change through a 2-frame blink, except the startle; two idle blinks; the camera pushes in the whole time.
 - **Checked without rendering:** `--dry` ran all 100 frames. Limbs move, the hop lifts the body, faces change on the right frames, the jar flares from frame 82, and the whole figure stays in frame. Both look-test scripts still build after the refactor.
 - **Not checked:** how it looks. That needs the render.

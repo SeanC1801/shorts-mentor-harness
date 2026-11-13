@@ -1,0 +1,10 @@
+{
+  "episodeId": "MOTION-TEST",
+  "fps": 30,
+  "totalFrames": 100,
+  "finish": {"fadeIn": false, "fadeOut": false, "captions": false},
+  "shots": [
+    {"shotId": "S01", "startFrame": 0, "endFrame": 100,
+     "views": [{"viewId": "V1", "startFrame": 0, "endFrame": 100, "join": "cut"}]}
+  ]
+}

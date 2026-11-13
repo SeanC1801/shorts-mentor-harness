@@ -1,5 +1,5 @@
 """Shared sets for the flat two-tone 3D look (look test v2, 2026-11-13): the workshop interior and the night street,
-and the lighting states that go with them. Built once here, used by lookdev_3d_style_v2.py and motion_test_3d.py.
+and the lighting states that go with them. Built once here, used by lookdev_3d_style_v2.py and render_episode.py.
 """
 import math, random
 import bpy
@@ -204,6 +204,9 @@ def street(seed=9):
         a, el = rnd.uniform(-1.2, 1.2), rnd.uniform(0.15, 1.2)
         ball("star", V((math.sin(a) * math.cos(el), math.cos(a) * math.cos(el), math.sin(el))) * 420, rnd.uniform(0.5, 1.1), pc.emit("#FFFFFF", 2.4))
     return SR
+
+
+SETS = {"workshop": workshop, "street": street}      # name -> builder; the renderer builds only the ones a job needs
 
 
 def state(name, SUN):

@@ -61,7 +61,7 @@ def validate(folder: Path) -> bool:
     for key in ("episodeId", "version", "fps", "width", "height", "narration", "syncToleranceMs", "totalFrames", "shots", "exports"):
         need(key in data, f"missing top-level field: {key}")
     if errors: return report(errors)
-    # motion rules v2 (2026-11-02): 30 fps master, poses held 2 frames; 24 fps stays valid for earlier episodes
+    # 30 fps master (24 fps stays valid for episodes made before motion rules v2)
     POSE_FPS = {30: 15, 24: 12}
     need(data["fps"] in POSE_FPS and data["width"] == 1080 and data["height"] == 1920, "master must be 1080x1920 at 30fps (24fps only for episodes made before motion rules v2)")
     fps = data["fps"] if data["fps"] in POSE_FPS else 30
@@ -104,7 +104,20 @@ def validate(folder: Path) -> bool:
         if integer(ns) and integer(ne):
             need(ns == prior_narration_end, f"{label} narration range must be contiguous with the previous shot")
             prior_narration_end = ne
-        need(shot.get("characterMotion", {}).get("poseFps") == POSE_FPS[fps] and shot.get("characterMotion", {}).get("exposureFrames") == 2, f"{label} character motion must use {POSE_FPS[fps]}fps poses exposed for 2 frames")
+        cm = shot.get("characterMotion", {})
+        held = cm.get("poseFps") == POSE_FPS[fps] and cm.get("exposureFrames") == 2          # motion rules v1-v2: cutout poses held 2 frames
+        every = cm.get("poseFps") == fps and cm.get("exposureFrames") == 1                    # motion rules v3: 3D characters move every frame
+        need(held or every, f"{label} character motion must be {fps}fps with 1-frame exposure (motion rules v3) or {POSE_FPS[fps]}fps poses exposed for 2 frames (v2)")
+        views = shot.get("views")
+        if isinstance(views, list) and integer(start) and integer(end):                       # the renderer and finish step read these
+            at = start
+            for vi, view in enumerate(views):
+                vs, ve = view.get("startFrame"), view.get("endFrame")
+                need(integer(vs) and integer(ve) and vs == at and vs < ve, f"{label}.views[{vi}] must start where the previous view ended (expected {at}) and have a positive length")
+                at = ve if integer(ve) else at
+            need(at == end, f"{label}.views must end at the shot's endFrame")
+            ids = [view.get("viewId") for view in views]
+            need(len(set(ids)) == len(ids), f"{label}.views need unique viewId values")
         need(shot.get("camera", {}).get("fps") == fps, f"{label} camera must use {fps}fps")
         for segment in shot.get("narrationSegments", []) if isinstance(shot.get("narrationSegments", []), list) else []:
             a, b = segment.get("startMs"), segment.get("endMs")

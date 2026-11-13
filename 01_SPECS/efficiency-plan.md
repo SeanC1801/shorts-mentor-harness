@@ -1,6 +1,23 @@
-# Efficiency plan (v1, 2026-11-13, not yet built)
+# Efficiency plan (v1, 2026-11-13)
 
-The plan for making an episode faster to produce, asked for by the creator on 2026-11-13. Nothing here is built. Each step is its own piece of work with a check, so it can be approved and built one at a time.
+**Progress, 2026-11-13** (the creator said "Yes, build the base"):
+
+| Step | State |
+|---|---|
+| 1. One timing file | **Built.** `episode.json` shots can list `views` (id, start, end, join) and a `finish` block; the validator checks them; `renderer-blender/timing.py` reads them for every tool |
+| 2. Shared renderer | **Built.** `renderer-blender/render_episode.py` and `scripts/finish_episode.py`; an episode is one file in `renderer-blender/episodes/` (pattern: `motion_test.py`) |
+| 3. Build only what is needed | **Built.** The renderer builds only the sets its frames use (`toon_sets.SETS`) |
+| 6. Scene launcher | **Built.** `scripts/render_scene.py EPISODE SHOT` reads the range from the timing file |
+| 8. Faster preview | **Partly built.** The finish step now works in parallel: 100 frames in 24 s, about a quarter of the old time per frame |
+| 4, 5, 7 | Not started |
+
+**Checked without rendering:** through the shared renderer, the motion test's dry run gives the same poses, faces and framing on every sampled frame as the approved clip's dry run; only the workshop set is built; a frame range passed as one argument is refused; an unknown shot is refused. The shared finish step, run on the approved motion-test frames, produced a clip identical to the approved one. EP001-example, EP003 and EP004 still pass the validator.
+
+**Render check passed, 2026-11-14** ("Yes, render the check"): `render_scene.py motion_test S01` rendered all 100 frames, each job built only the workshop, and every frame is pixel-identical to the approved clip. The duplicate stand-alone `motion_test_3d.py` was then removed.
+
+**Finding for step 7:** three parallel jobs took 10.5 min; the same 100 frames took about 8 min in one job. On this Mac, parallel jobs are slower. Until step 7 measures properly, use `--jobs 1`.
+
+The plan for making an episode faster to produce, asked for by the creator on 2026-11-13. Each step is its own piece of work with a check, so it can be approved and built one at a time.
 
 ## Where the time goes now
 Estimates from EP004 and the 2026-11-13 look and motion tests. Only the render figures are measured.

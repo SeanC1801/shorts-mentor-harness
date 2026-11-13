@@ -26,7 +26,10 @@
       "minLength": 1
     },
     "fps": {
-      "enum": [30, 24]
+      "enum": [
+        30,
+        24
+      ]
     },
     "width": {
       "const": 1080
@@ -182,7 +185,10 @@
             ],
             "properties": {
               "poseFps": {
-                "enum": [15, 12]
+                "enum": [
+                  15,
+                  12
+                ]
               },
               "exposureFrames": {
                 "const": 2
@@ -206,7 +212,10 @@
                 "minLength": 1
               },
               "fps": {
-                "enum": [30, 24]
+                "enum": [
+                  30,
+                  24
+                ]
               }
             }
           },
@@ -315,6 +324,45 @@
                 }
               }
             }
+          },
+          "views": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "viewId",
+                "startFrame",
+                "endFrame",
+                "join"
+              ],
+              "properties": {
+                "viewId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "startFrame": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "endFrame": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "join": {
+                  "type": "string",
+                  "enum": [
+                    "cut",
+                    "follow",
+                    "push",
+                    "whip",
+                    "dissolve",
+                    "fade-in"
+                  ]
+                }
+              }
+            }
           }
         }
       }
@@ -380,10 +428,33 @@
                 "const": 1920
               },
               "fps": {
-                "enum": [30, 24]
+                "enum": [
+                  30,
+                  24
+                ]
               }
             }
           }
+        }
+      }
+    },
+    "finish": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fadeIn": {
+          "type": "boolean"
+        },
+        "fadeOut": {
+          "type": "boolean"
+        },
+        "captions": {
+          "type": "boolean"
+        },
+        "captionPx": {
+          "type": "integer",
+          "minimum": 20,
+          "maximum": 200
         }
       }
     }
