@@ -2,6 +2,16 @@
 Add a character only after creator approval. Record stable ID, role, visual description, expression/pose inventory, source files, rights/provenance, allowed variations, and approval version. Keep original layered source files; list exports in `assets/asset-manifest.json`.
 
 ## Approved characters
+
+### CHAR-KID3D (3D bean build, approved 2026-11-13)
+- **Approval:** look test v1 ("I approve this look"), bean build ("Bean build (v2)") and motion test ("I approve it"), all by Sean Caling on 2026-11-13. Used from EP005; under test per `03_TRACKING/format-tests.md` row 10.
+- **Role:** the channel's own kid rebuilt in 3D, the viewer's stand-in. One build serves as hero and as supporting characters through colour variants.
+- **Visual description:** large egg head; tall oval eyes with a highlight and eye whites, short brows, small mouth, blush; brown hair with one tuft, or a cap; one long bean body with three white buttons; thin navy limbs, small ball hands, small shoes. Hero colours: off-white head `#F4EFE6`, yellow body `#F2B10C`, red shoes `#C9482F`, brown hair `#4A2C1A`.
+- **Faces (10):** neutral, happy, laugh, surprised, worried, nervous, deadpan, smug, squint, blink.
+- **Poses:** stand, wave, point_up, shock, shrug, think, walk, shield (`toon3d.POSES`); new poses are added as the same kind of entry.
+- **Allowed variations:** skin tone, hair colour or cap, body colour, shoe colour, scale, turn. A change to proportions or the face design needs a new approved version.
+- **Source:** built in code by `renderer-blender/toon3d.py` (`kid(..., build="bean")`); faces painted by `renderer-blender/scripts/paint_faces3d.py` into `renderer-blender/textures/faces3d/`. Original design; the reference channels supplied the construction method only.
+
 EP002's pigeon and psychologist stand-in were episode-only characters; their record stays in `EPISODES/EP002/`.
 
 Shared rules for the EP003 characters (look, outline, paper feel, contact shadow, acting, readability, how they differ from reference-channel characters) are in the full spec: `EPISODES/EP003/character-specs.md` v1.

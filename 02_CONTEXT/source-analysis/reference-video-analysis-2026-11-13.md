@@ -188,3 +188,55 @@ Because they are 3D, they take the scene's light and colour, cast real shadows, 
 2. **3D characters** in the references' recipe: fixes the box and the sliding, and lets the character act in most shots.
 3. **A colour and shading reset:** flat fills, two tones, darker and more saturated, clean gradient skies.
 4. **Part 1's list still stands** for captions, cuts, on-screen numbers, no fades and length.
+
+---
+
+# Part 3 (same day): Ricks Clips, frame by frame
+
+The creator supplied three more files and the channel link `@RicksClips3000`. Matched by length to the channel's list: **K1** "Would You Upload Your Brain?" (57 s, 3.9M views), **K2** "Why Humans Can't Pick Random Numbers" (47 s, 9.3M), **K3** "The Window That Breaks Japan's Gambling Law" (45 s, 15.5M). Same method as part 1: every frame sampled, 596 frames read for captions, picture changes, motion, colour and audio levels measured. The audio was not listened to.
+
+## The channel (public Shorts page, 2026-11-13)
+- 175K subscribers, 150 videos. "Just a regular guy who loves doing voiceovers."
+- Until August 2026 it posted 12 to 15 second joke clips (50K to 4.5M views).
+- On 2026-10-06 it switched to narrated story explainers. **28 of them in five weeks, almost daily.** Views run from 134K to 33.9M; most sit between 4M and 17M.
+- Length grew from 31 to 48 s in the first two weeks to 57 to 67 s now.
+
+| Strongest | Views | Weakest | Views |
+|---|---|---|---|
+| The Ancient Jar That Warned an Empire | 33.9M | The Science Behind Slot Machines | 134K |
+| Why Perfect Railroads Don't Work | 28.7M | How Painkillers Actually Work | 318K |
+| The Job Nobody Wants in Japan | 17.9M | Every Memory Has a Price | 536K |
+| Why Sailors Carried Storm Oil | 16.2M | This Tree Hates You | 1.0M |
+| Your Brain's Secret Idea Zone | 15.9M | This Knight Found the Ultimate Loophole | 1.7M |
+
+**Title pattern:** the winners name one concrete odd thing and a contradiction (a jar that warned an empire; perfect railroads that don't work; a job nobody wants). The two weakest are plain explainer titles ("The Science Behind…", "How … Actually Work").
+
+## Measured
+| Measure | Ricks Clips (K1 to K3) | Jaywalk, Afterhour Theory | EP003, EP004 |
+|---|---|---|---|
+| Length | 45 to 57 s | 63 to 151 s | 52 to 53 s |
+| New picture by hard cut every | 3.8 s, 9.4 s, **none in 45 s** | 2.2 to 3.3 s | 13 s, 5.4 s |
+| Median motion between frames | 3.2 to 5.4 | 1.4 to 1.9 | 2.7, 4.3 |
+| Caption | **one or two words**, white, lowercase, about 4% of frame height | 2 to 4 word phrases with a yellow keyword | one word, about 2% |
+| Narration pace (estimated from captions) | about 185 to 200 words per minute | about 172 | 182 to 188 |
+| Saturation / brightness | 77 to 130 / 33 to 62 | 111 to 165 / 32 to 43 | 98 to 158 / 31 to 55 |
+| Audio floor | −28 to −37 dB | −31 to −37 dB | −33 to −39 dB (posted edits) |
+| First frame | action already under way, narration from 0 s | lit, caption up | black fade-in |
+
+## What Ricks Clips does
+1. **The camera almost never cuts.** It glides, pushes and whips from one staged picture to the next, as ours does. K3 has no hard cut at all.
+2. **Captions are one or two words,** like ours, only twice as tall.
+3. **The opening is a concrete contradiction, not a catastrophe.** "Gambling is illegal in Japan. Yet there's a gambling hall on almost every street." "If you ever fake a number, there's a way to tell a human made it up." This is the anti-hook and story-chain format already in `storytelling-guide.md`, which was drawn from this channel.
+4. **The body is a chain in second person** ("So you win a bucket yourself…"), with the explanation late ("You see, that window isn't part of the gambling hall") and a last line that snaps shut ("on paper, nobody gambled").
+5. **Sets are dense and specific.** A pegboard of tools, labelled drawers, a prize counter stacked with goods, a neon street. Signs and labels inside the scene carry facts ("$2,000,000", floor numbers on a tower, "GAMBLING: NONE" on a police log).
+6. **Light does the mood.** Striped sun through blinds, glowing lamps and neon, wet-street reflections, soft focus behind the subject, sunset gradients.
+7. **Characters:** a white egg head with a simply drawn face that changes several times a second at key moments, a hair cap, a long bean body in one colour, thin dark limbs. Soft shading with a highlight, and a slightly sketchy brown outline.
+8. **A character is on screen almost all the time** and acts out each line.
+
+## What this changes in parts 1 and 2
+- **Hard cuts and phrase captions are not required.** The most-viewed channel of the three uses neither. Rows 7 and 8 in `03_TRACKING/format-tests.md` are open questions, not gaps.
+- **The anti-hook is not refuted.** Two very different openings both work: Jaywalk and Afterhour Theory state the stakes; Ricks Clips states a contradiction. What all three share is that the first sentence is concrete and already odd, and the first frame already shows action.
+- **What separates our episodes from all three channels:** a first frame that is black; sparse sets; a character who appears in a third of the shots with one face per shot; captions half the size; and topics without a contradiction or a subject the viewer already cares about.
+
+## Look test v2 (built from this)
+`renderer-blender/lookdev_3d_style_v2.py`, stills in `renders/lookdev-3d-v2/`. It tries: a slimmer bean-bodied build beside the v1 build; nine faces; a dense workshop interior with striped window light and glowing lamps; a night street with neon signs; a highlight tone, lamp-coloured light, a glow pass and a soft vignette.

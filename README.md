@@ -1,6 +1,6 @@
 # Shorts Mentor Harness
 
-A human-led workspace for making illustrated Shorts about weird technology, strange history, and scientific what-ifs. Claude can coach both the creator and the story—concept, hook, emotion, pacing, visual explanation, payoff, and retention—while the creator owns the premise and every approval.
+A human-led workspace for making animated Shorts for the FooFilms channel: scientific what-ifs first, strange history second. Claude can coach both the creator and the story—concept, hook, emotion, pacing, visual explanation, payoff, and retention—while the creator owns the premise and every approval.
 
 > Use this README as the map. [`00_CORE/agents.md`](00_CORE/agents.md) is the authoritative routing guide.
 
@@ -12,7 +12,7 @@ A human-led workspace for making illustrated Shorts about weird technology, stra
 - [Quick start](#quick-start)
 - [Approval workflow](#approval-workflow)
 - [Episode contract](#episode-contract)
-- [Current limits and next milestones](#current-limits-and-next-milestones)
+- [Current state and next milestones](#current-state-and-next-milestones)
 
 ## Principles
 
@@ -28,8 +28,10 @@ me.md                             creator preferences
 01_SPECS/                         production standards, contracts, checklists
 02_CONTEXT/                       channel, storytelling, visual style, templates
 02_CONTEXT/source-analysis/       attributed, selective transcript notes
-02_CONTEXT/assets/                asset manifest and library plan (character,
-                                  background, and prop art is not yet created)
+02_CONTEXT/assets/                asset manifest and the 2D art of EP002–EP004
+renderer-blender/                 Blender renderer: toon3d.py (look and 3D character),
+                                  toon_sets.py (shared sets), per-episode scripts
+renders/                          render output (git-ignored)
 03_TRACKING/                      learnings, branch and format tests, asset backlog
 EPISODES/<episode-id>/            idea through production handoff
 tools/                            episode validator and approval-state helper
@@ -46,7 +48,7 @@ All five skills are project-local and set to `disable-model-invocation: true`; c
 | [`/short-mentor`](.claude/skills/short-mentor/SKILL.md) | Coach the creator or critique story choices | Advice only; does not advance approval gates |
 | [`/short-ideate`](.claude/skills/short-ideate/SKILL.md) | Topic stage (seed list, five checks, title and first line), then a concept card from the seed the creator selects | Stops for the creator's selection, then for idea approval |
 | [`/short-storyboard`](.claude/skills/short-storyboard/SKILL.md) | Research, draft narration, and create shot plan | Separate script and storyboard approvals |
-| [`/short-animate`](.claude/skills/short-animate/SKILL.md) | Prepare an animation plan | No renderer or preview exists in Phase 1 |
+| [`/short-animate`](.claude/skills/short-animate/SKILL.md) | Build and render the episode in Blender, scene by scene, then the preview | Asks before every render; stops for each scene and for preview approval |
 | [`/short-review`](.claude/skills/short-review/SKILL.md) | Critique evidence, storytelling, and handoff | Does not approve or publish |
 
 ## Quick start
@@ -68,13 +70,14 @@ All five skills are project-local and set to `disable-model-invocation: true`; c
    /short-review EP002
    ```
 
-The storyboard skill pauses for script approval and again for storyboard approval. In this phase, animate prepares a plan only; it cannot render a preview.
+The ideate skill starts with a topic stage and stops for your selection. The storyboard skill pauses for script approval and again for storyboard approval. The animate skill asks before every render and stops for each scene's approval and for preview approval.
 
 ## Approval workflow
 
 ```text
 creator seed → idea approval → script approval → storyboard approval
-             → future animation-preview approval → human CapCut edit
+             → scene-by-scene approvals → animation-preview approval
+             → title and hashtags → human CapCut edit and posting
 ```
 
 Before resuming, check whether approved files have changed:
@@ -95,7 +98,7 @@ The helper records artifact hashes, dependencies, version, approver, and timesta
 
 ## Episode contract
 
-`episode.json` specifies a 1080×1920, 30 fps master (24 fps for episodes made before motion rules v2) with integer frames and half-open shot ranges. It describes timestamped narration, characters and poses, camera motion, captions, transitions, synchronized audio, individual scene MP4s, and a review preview. Character poses use two-frame exposures (15 effective fps); camera motion updates every frame.
+`episode.json` specifies a 1080×1920, 30 fps master (24 fps for episodes made before motion rules v2) with integer frames and half-open shot ranges. It describes timestamped narration, characters and poses, camera motion, captions, transitions, synchronized audio, individual scene MP4s, and a review preview. From motion rules v3, characters and camera update every frame.
 
 Validate the packet with:
 
@@ -105,9 +108,10 @@ python3 tools/validate_episode.py EPISODES/EP002
 
 This checks schema and cross-field timing/export relationships; it does not render or verify media files. ElevenLabs audio timing should use the generated narration. CapCut editing remains human-led; there is no auto-publication.
 
-## Current limits and next milestones
+## Current state and next milestones
 
-- The sample episode is a placeholder, not an approved or researched story.
-- Three user-provided transcripts were selected for mentor notes: idea development, hook/visual focus, and retention critique. Other supplied files were not bulk-ingested. View, revenue, algorithm, upload-frequency, and policy claims are not verified by those notes.
-- EP002 (Project Pigeon) is posted and closed; its production files were removed and only its text record remains in `EPISODES/EP002/`.
-- Next: pick an idea in one of the three pillars and run it through the gates. Rendering uses Blender (3D sets, flat cutout characters) at 30 fps per `visual-style.md` and `motion-rules.md` v2; the Blender scene script for a new episode is written fresh in its renderer phase.
+- **Posted:** EP002 (Project Pigeon), EP003 (Earth's rings) and EP004 (the ocean disappearing). They are closed and are not restyled. Results are in `03_TRACKING/branch-test-plan.md`.
+- **Look from EP005:** visual style v4 and motion rules v3, approved 2026-11-13: 3D characters (bean build, painted swappable faces) in dense, dressed sets with mood lighting.
+- **Test before finalizing:** changes to format, look and workflow are tests until their results are in. The register is `03_TRACKING/format-tests.md`.
+- **Efficiency:** `01_SPECS/render-pipeline-notes.md` records how rendering works and what went wrong on EP004; `01_SPECS/efficiency-plan.md` is the plan to make production faster.
+- **Limits:** the mentor notes come from three creator-supplied transcripts; view, revenue and algorithm claims in them are not verified. The example episode in `EPISODES/EP001-example/` is a placeholder to copy, not a story.

@@ -1,4 +1,15 @@
 # Storytelling guide
+
+**Status (2026-11-13):** the anti-hook and the story-chain format below remain the default. Ricks Clips, the most-viewed reference channel, uses this family of opening (a concrete contradiction) and this chain. Several changes are **under test**, and an episode whose concept card carries one applies it in place of the matching rule here (`03_TRACKING/format-tests.md`):
+- a stakes-first opening: premise and stakes in the first sentence, about ten words (row 1)
+- a title and first line that say the same thing (row 2)
+- short sentences of about 6 to 9 words, fragments allowed (row 3)
+- second person, "you" (row 4)
+- an ending that loops into the first line, or a callback joke (row 5)
+- a length of 60 to 90 seconds (row 13)
+
+**Settled on 2026-11-13:** the title and first line are written in the topic stage of `/short-ideate`, before research; and from the 2026-11-11 learning, the premise goes in the first sentence and each Short carries one main idea.
+
 1. Open with an **anti-hook** (creator's standing preference): a flat, understated, concrete line that withholds the explanation and raises a question. It must be honest and give just enough context to picture the scene.
 2. Layer context gradually, one new piece per beat, so curiosity stays open until the story is complete. Orient early enough that the viewer is never lost; if a beat is confusing, add context before adding mystery.
 3. Escalate with evidence, contrast, or a surprising mechanism.

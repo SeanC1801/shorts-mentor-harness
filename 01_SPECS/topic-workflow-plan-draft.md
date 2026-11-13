@@ -110,7 +110,7 @@ These show the method applied to the Scientific What-If niche. They are not conc
 - **Kept after checking:**
   - `EPISODES/EP001-example/`: the README's quick start copies it to begin every new episode.
   - `mentor-philosophy.md`: `/short-mentor` reads it.
-- **Left for the creator, because they sit in preference or rule files:** the stale statements in `CLAUDE.md`, `README.md`, `/short-animate` and `me.md`; the `PRODUCTION_PACKET.md` requirement.
+- **Updated 2026-11-13 at the creator's request** ("update everything to what we just talked about"): `CLAUDE.md`, `me.md`, `README.md`, `/short-animate`, `/short-storyboard`, the standards, contracts and checklist, `visual-style.md` (v4), `motion-rules.md` (v3), the character registry and the storytelling guide. Before that update, these were left alone: the stale statements in `CLAUDE.md`, `README.md`, `/short-animate` and `me.md`; the `PRODUCTION_PACKET.md` requirement.
 - **Belongs to the efficiency plan:** shot timings written four times; per-episode code copies.
 
 The table below is the original finding.

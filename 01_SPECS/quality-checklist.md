@@ -2,7 +2,8 @@
 - [ ] Creator supplied and owns the premise; central question is clear.
 - [ ] Hook makes an honest, specific promise; no unsupported curiosity bait.
 - [ ] Script is natural aloud, concise, emotionally shaped, and pays off the hook.
-- [ ] Script follows the story-chain format (`storytelling-guide.md`): one continuous chain, outcome withheld then revealed late, one reversal and one reveal, closing callback to the title.
+- [ ] Script follows the story-chain format (`storytelling-guide.md`): one continuous chain, outcome withheld then revealed late, one reversal and one reveal, closing callback to the title. Where the episode carries a format test, the tested change replaces the matching rule and the concept card names it.
+- [ ] The concept card lists the format tests the episode carries (`03_TRACKING/format-tests.md`), and results are entered at 24 hours and 7 days.
 - [ ] Every factual claim is in the claim ledger with a supporting source; uncertainty is labeled.
 - [ ] Storyboard makes key ideas visible; shots vary purposefully and maintain continuity.
 - [ ] Each approval names the exact artifact version; upstream changes invalidated dependent gates.
@@ -10,4 +11,4 @@
 - [ ] Character, pose, camera, parallax, SFX, music, captions, transition, and assets are specified where relevant.
 - [ ] Vertical safe areas, readability, contrast, and caption legibility checked.
 - [ ] Scene export plan includes separate MP4s and preview; human CapCut review remains required.
-- [ ] No unapproved render, auto publication, or unsupported claim that the engine works.
+- [ ] No unapproved render (the creator is asked before every render) and no auto publication.

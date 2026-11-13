@@ -1,74 +1,62 @@
-# Visual style (v3)
+# Visual style (v4)
 
-**Status:** v3 approved by the creator (Sean Caling) on 2026-11-03 ("Approve cel look"). The creator had asked earlier that day: "try and apply Cel Shading to every video now". They chose hard light bands plus ink outlines over the painted textures. v3 applies to EP003 onward. EP002 is published and does not change. Look test: `renders/ep003-cel-lookdev/`.
+**Status:** v4 approved by the creator (Sean Caling) on 2026-11-13 for use from EP005 onward. Approvals, in order: look test v1 ("I approve this look"), the bean build ("Bean build (v2)"), dense sets with mood lighting ("Yes, dense and moody"), the motion test ("I approve it"). EP002, EP003 and EP004 are published and do not change.
 
-**One line:** a cel-shaded papercraft storybook world. Flat, original cutout characters stand in hand-painted 3D sets with hard cartoon light bands and ink outlines. The camera is always moving, and captions run word by word.
+**Under test:** the creator's rule is to test every change before it becomes permanent. v4 is the look the next episodes are made in, and its results are tracked in `03_TRACKING/format-tests.md` (rows 10, 11 and 14). If the results say so, v4 changes.
+
+**One line:** a flat-colour cartoon world in 3D. Real 3D characters with painted, swappable faces act in dense, dressed sets, lit for mood, with one ink line over everything.
+
+**Look tests:** `renders/lookdev-3d/`, `renders/lookdev-3d-v2/`, `renders/motion-test-3d/` (git-ignored). **Code:** `renderer-blender/toon3d.py` (shading, character, glow), `toon_sets.py` (shared sets and lighting states), `scripts/paint_faces3d.py` (faces).
 
 ## 1. Build
-- **Sets are 3D** (Blender). They are real spaces the camera can travel through, orbit and look down on.
-- **Characters and printed props are flat cutout cards.** Draw them in 2D, place them in the 3D set, and keep them turned toward the camera.
-- **Big story objects can be 3D models** built from their approved 2D designs. Examples: machines, vehicles, the key invention.
+- **Sets are 3D** (Blender). The camera can travel through them, orbit and look down.
+- **Characters are 3D too.** No flat cutout cards for characters: a card hides the ink lines behind its invisible rectangle (the "box" the creator saw in EP004) and slides when the camera moves.
 - Delivery is 1080×1920 vertical. Keep the focal action and the captions inside the safe margins.
 
-## 2. Characters (cutouts)
-- Every character is original. A new one needs the creator's approval in `character-registry.md`.
-- **Readable shapes:** simple silhouettes, with the role shown by an accessory or prop.
-- **Paint the shading into the art.** Cutouts get no scene lighting except the scene's colour grade.
-- **Outlines:** a soft dark outline (warm brown or navy, never pure black) about 0.7% of the frame height. Characters keep the heaviest line in the frame, so they read in front of the inked sets.
-- **Contact shadow:** a soft dark oval on the floor under every standing character or prop, around 35–40% opacity at the centre and fading to nothing at the edge. Never a hard cast shadow.
-- **Acting:** instant face and pose swaps. Bodies stay simple, and the camera does most of the acting.
+## 2. Characters (3D, bean build)
+- Every character is original. A new one needs the creator's approval in `character-registry.md`. Reference channels show a construction method only; never copy their characters.
+- **Build:** a large egg head (about a third of the height), one long bean body in a single colour with two or three details (buttons), thin dark limbs, small ball hands and small shoes, hair or a cap as a simple shape.
+- **Face:** eyes, brows, mouth and cheeks painted on the front of the head and swapped per expression. Eye whites keep faces readable on every skin tone. Ten faces exist: neutral, happy, laugh, surprised, worried, nervous, deadpan, smug, squint, blink. No lip-sync.
+- **Variants** are colour settings: skin tone, hair or cap, body colour, shoes.
+- **Light:** characters take the scene's light and cast real shadows. Skin shadows are softened so the face stays clear.
+- **Acting:** see `motion-rules.md`.
 
-## 3. Sets (painted 3D)
-- **Painted, not plastic.** Every surface carries soft painted texture: wood grain, plaster mottling, paper grain or fabric. There are no flat untextured fills and no glossy highlights.
-- **Cel light (v3).** Light falls into three flat tones with hard edges between them:
-  1. a warm light tone
-  2. a neutral mid tone
-  3. a cool violet shadow tone
+## 3. Sets (dense and dressed)
+- **Flat colour fills.** No painted brush texture.
+- **Dense with story props.** A set never starts from an empty floor: shelves, tools, furniture, plants and street furniture specific to the story.
+- **Readable signs and labels inside the scene** carry facts (a shop sign, a jar label, a poster).
+- **Skies are clean gradients** set per lighting state; stars, moon and sun are simple shapes.
+- **Depth:** foreground objects near the lens, a mid stage for the characters, a background (wall, shopfronts, skyline).
 
-  Ambient occlusion snaps to one contact-shadow step. Tones multiply the painted texture, so the paint shows through every band.
-- **Ink outlines on 3D sets and props (v3).** Navy-brown `#2B2238`, never pure black.
-  - Outer edges (silhouettes, borders) are about 5 px at 1080 wide.
-  - Inner folds and creases are about 3 px.
-  - Not inked:
-    - painted backdrops (sky, clouds, stars)
-    - glows, light shafts and sparkles
-    - see-through rings and haze
-    - the cutout cards themselves, which carry their own drawn outlines
-- **Skies and far views are painted backdrops** (clouds, stars, horizons) seen through windows and behind the set.
-- **Three-layer diorama, every set:**
-  1. A **foreground strip** along the bottom or side edge, such as plants, railings, a desk edge or crates. The camera passes it for depth.
-  2. A **mid stage** where the characters stand.
-  3. A **painted backdrop**.
-- Draped fabric, signs or beams can frame the top of the shot.
-- **Optional storybook opener:** an episode can open on a stage or picture-book frame of our own design, then push through it into the story.
-
-## 4. Light and colour
-- **High ambient light.** Whites never clip. Deep blacks are rare in day scenes: at most about 2% of pixels.
-- **Mood comes from a whole-scene colour grade, not from strong shadows.** Each episode uses at least two lighting states, and a change of light marks a story turn.
-
-  | State | Lightness (L*, 0–100) | Colour cast | Accents |
-  |---|---|---|---|
-  | Day / interior | 52–58 | Warm (cream, amber) | Window light |
-  | Night / dark interior | 38–42 | Cool blue-violet | Small warm practical lights: lamps, candles, screens |
-  | Dusk / reveal | 45–50 | Orange sky over cool ground | Sun disc, runway or street lights |
-
-- **Saturation:** rich but not neon. Mean HSV saturation is roughly 95–125 out of 255.
-- **Starting points per pillar** (the creator chooses per episode):
-  - **Weird Technology:** a workshop or lab by day with a cool screen glow, ending on a dramatic dark test.
-  - **Strange History:** a warm period interior or a sunlit landscape, with a storybook opener where it fits.
-  - **Scientific What-If:** a familiar daylight world, then a shift (night, space, extreme scale) once the "what if" happens.
+## 4. Light, shading and colour
+- **Two tones plus a highlight.** Each surface shows its fill colour, one hard-edged shadow tone tinted cool, and a brighter highlight where the light is strongest.
+- **Ink outline on everything 3D,** sets and characters alike: navy-brown `#2B2238`, about 5 px on outer edges and 3 px on folds at 1080 wide. Not inked: glowing things (bulbs, neon, lit windows), signs' letters, the sky.
+- **Mood lighting.**
+  - Sun through blinds or windows draws stripes across the room.
+  - Lamps, neon signs and lit windows glow (a glow pass) and tint what they light with their own colour.
+  - At night only lamps, signs and windows reach the lit tone; everything else sits in the cool shadow tone.
+  - Soft focus behind the subject on medium and close shots; a soft vignette.
+- **Lighting states so far** (in `toon_sets.state`): warm interior, night street, plain studio. Each episode uses at least two states, and a change of light marks a story turn.
+- **Colour targets** (measured on the look tests): mean saturation about 100–160 of 255; brightness about 50–70 of 100 for lit interiors and about 30–50 for night. Whites clipped on under 0.5% of pixels.
 
 ## 5. Clean frame
-- **No game or app interface:** no speech bubbles, dialogue boxes, health bars, counters, menus, title cards or watermarks.
-- On-screen text appears in only two ways:
+- **No game or app interface:** no speech bubbles, dialogue boxes, health bars, menus, title cards or watermarks.
+- On-screen text appears in two ways:
   - **Captions.** The motion rules cover them.
-  - **In-world objects:** signs, stamps, labels, screens or calendars, with the camera pushed in until the fact fills the frame.
+  - **In-world objects:** signs, stamps, labels, screens or calendars.
+  A third way, an on-screen number or icon for each spoken figure, is under test (`format-tests.md` row 9).
+
+## Known limits (2026-11-13)
+- Shop windows are flat bright panels.
+- A face falls into the shadow tone when the only light is behind the character.
+- With many lamps, Blender's shadow buffer fills and some lamp shadows may be missing.
+- When the head turns far, the painted face slides toward the side of the head.
 
 ## References (craft only; never copy characters, sets, logos or branding)
-- Lighting, materials and depth: `source-analysis/animation-style-notes-papercraft-reference.md`.
-- Camera, transitions and staging: `source-analysis/animation-style-notes-ricks-clips.md`.
-- Earlier 3D cartoon notes: `source-analysis/animation-style-notes-3d-cartoon-reference.md`.
+- Frame-by-frame analysis of three reference channels: `source-analysis/reference-video-analysis-2026-11-13.md`.
+- Earlier notes: `source-analysis/animation-style-notes-ricks-clips.md`, `animation-style-notes-3d-cartoon-reference.md`, `animation-style-notes-papercraft-reference.md` (the v2–v3 look).
 
 ## History
+- **v3 (2026-11-03):** cel-shaded papercraft: flat cutout character cards in hand-painted 3D sets, three hard light bands, ink outlines on sets. Used for EP003 and EP004.
 - **v2 (2026-11-02):** papercraft look: soft, gentle shading with no hard light-to-shadow line, and ink outlines only on characters and cutout props. Used for EP003 S01–S04 as first approved.
 - **v1 (2026-10-31):** "Bright, clean, colorful illustrated cutout scenes with layered depth, expressive original characters, readable shapes, purposeful textures, and controlled parallax." It was used for EP002 and rendered in Remotion 2D, and later redone as a Blender 3D draft.
